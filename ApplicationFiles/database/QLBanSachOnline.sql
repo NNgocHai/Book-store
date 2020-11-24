@@ -1,0 +1,146 @@
+CREATE DATABASE QLBANSACHONLINE;
+
+USE QLBANSACHONLINE;
+
+CREATE TABLE DAUSACH(
+     ma_DauSach VARCHAR(10),
+	 ten_DauSach NVARCHAR(50),
+
+	 CONSTRAINT DS_maDS_PK PRIMARY KEY(ma_DauSach)
+);
+
+CREATE TABLE NHAXUATBAN(
+     ma_NXB VARCHAR(10),
+	 ten_NXB NVARCHAR(50),
+	 diachi_NXB NVARCHAR(100),
+	 sdt_NXB VARCHAR(15),
+
+	 CONSTRAINT NXB_maNXB_PK PRIMARY KEY(ma_NXB)
+);
+
+CREATE TABLE TACGIA(
+     ma_TG VARCHAR(10),
+	 ten_tG NVARCHAR(50),
+	 diachi_TG NVARCHAR(100),
+	 sdt_TG VARCHAR(15),
+
+	 CONSTRAINT TG_maTG_PK PRIMARY KEY(ma_TG)
+);
+
+CREATE TABLE CUONSACH(
+     ma_CuonSach VARCHAR(10),
+	 ten_CuonSach NVARCHAR(60),
+	 ma_DauSach VARCHAR(10),
+	 ma_TG VARCHAR(10),
+	 ma_NXB VARCHAR(10),
+	 soluong INT,
+	 gianhap INT,
+	 giaban INT,
+	 ngaydang DATETIME,
+	 tomtat NVARCHAR(1000),
+	 anh_CuonSach VARCHAR(150),
+	 sachKM CHAR(4) CONSTRAINT CS_sachKM_CHK CHECK (sachKM IN ('Yes', 'No')),
+	 sachBC CHAR(4) CONSTRAINT CS_sachBC_CHK CHECK (sachBC IN ('Yes', 'No')),
+	 activeCS CHAR(4) CONSTRAINT CS_activeCS_CHK CHECK (activeCS IN ('Yes', 'No')),
+
+	 CONSTRAINT CS_maCuonSach_PK PRIMARY KEY(ma_CuonSach),
+	 CONSTRAINT CS_maDS_FK FOREIGN KEY (ma_DauSach) REFERENCES DAUSACH(ma_DauSach),
+	 CONSTRAINT CS_maNXB_FK FOREIGN KEY (ma_NXB) REFERENCES NHAXUATBAN(ma_NXB),
+	 CONSTRAINT CS_maTG_FK FOREIGN KEY (ma_TG) REFERENCES TACGIA(ma_TG)
+);
+
+CREATE TABLE NGUOIDUNG(
+     ma_User VARCHAR(10),
+	 ten_User NVARCHAR(20),
+	 hovaten_User NVARCHAR(50),
+	 matkhau VARCHAR(50),
+	 email NVARCHAR(50),
+	 sdt_User VARCHAR(15),
+	 ngaysinh DATETIME,
+	 diachi NVARCHAR(100),
+	 anhUser VARCHAR(150),
+	 sothich NVARCHAR(50),
+	 phanquyen NVARCHAR(50),
+	 activeUser CHAR(4) CONSTRAINT ND_activeUser_CHK CHECK (activeUser IN ('Yes', 'No')),
+
+	 CONSTRAINT NG_maUser_PK PRIMARY KEY(ma_User)
+);
+
+CREATE TABLE DONHANG(
+     ma_DH VARCHAR(10),
+	 ten_KH NVARCHAR(60),
+	 diachi NVARCHAR(100),
+	 sdt VARCHAR(15),
+	 email NVARCHAR(60),
+	 ghichu NVARCHAR(1000),
+	 tongtien INT,
+	 activeDH CHAR(4) CONSTRAINT DH_activeDH_CHK CHECK (activeDH IN ('Yes', 'No')),
+
+	 CONSTRAINT DH_maDH_PK PRIMARY KEY(ma_DH)
+);
+
+CREATE TABLE GIOHANG(
+     ma_GH VARCHAR(10),
+	 ma_User VARCHAR(10),
+	 ma_CuonSach VARCHAR(10),
+	 soluong INT,
+
+	 CONSTRAINT GH_maGH_maUser_maCS_PK PRIMARY KEY(ma_GH, ma_User, ma_CuonSach),
+	 CONSTRAINT GH_maUser_FK FOREIGN KEY (ma_User) REFERENCES NGUOIDUNG(ma_User),
+	 CONSTRAINT GH_maCS_FK FOREIGN KEY (ma_CuonSach) REFERENCES CUONSACH (ma_CuonSach)
+);
+
+CREATE TABLE LIENHE(
+     ma_LienHe VARCHAR(10),
+	 hovaten NVARCHAR(50),
+	 sdt VARCHAR(15),
+	 email VARCHAR(50),
+	 noidung NVARCHAR(1000),
+
+	 CONSTRAINT LH_maLH_PK PRIMARY KEY(ma_LienHe)
+);
+
+CREATE TABLE SUKIEN(
+     ma_SuKien VARCHAR(10),
+	 ten_SuKien NVARCHAR(100),
+	 anh_SuKien VARCHAR(150),
+	 mieuta_SuKien NVARCHAR(1000),
+	 ngaydang DATETIME,
+	 activeSK CHAR(4) CONSTRAINT SK_activeSK_CHK CHECK (activeSK IN ('Yes', 'No')),
+
+	 CONSTRAINT SK_maSK_PK PRIMARY KEY(ma_SuKien)
+);
+
+CREATE TABLE KHUYENMAI(
+     ma_KM VARCHAR(10),
+	 ten_KM NVARCHAR(100),
+	 chitiet_KM NVARCHAR(100),
+	 ngaybatdau DATETIME,
+	 ngayketthuc DATETIME,
+
+	 CONSTRAINT KM_maKM_PK PRIMARY KEY(ma_KM)
+);
+
+CREATE TABLE GIAOHANG(
+     ma_DH VARCHAR(10),
+	 ma_KH VARCHAR(10),
+	 thoigian_GH DATETIME,
+	 active_GH CHAR(4) CONSTRAINT GH_activeGH_CHK CHECK(active_GH IN ('Yes', 'No')),
+
+	 CONSTRAINT QLGH_maDH_PK PRIMARY KEY (ma_DH, ma_KH),
+	 CONSTRAINT QLGH_maDH_FK FOREIGN KEY (ma_DH) REFERENCES DONHANG(ma_DH),
+	 CONSTRAINT QLGH_maUser_FK FOREIGN KEY (ma_KH) REFERENCES NGUOIDUNG(ma_User)
+);
+
+CREATE TABLE REVIEW(
+     ma_Review VARCHAR(10),
+	 ma_KH VARCHAR(10),
+	 star INT,
+	 ngay_Review DATETIME,
+	 binhluan VARCHAR(1000),
+	 anh_Review VARCHAR(150),
+	 helpfulCount INT,
+
+	 CONSTRAINT RV_maReview_ma_KH_PK PRIMARY KEY(ma_Review, ma_KH),
+	 CONSTRAINT RV_ma_KH_FK FOREIGN KEY (ma_KH) REFERENCES NGUOIDUNG(ma_User)
+);
