@@ -48,7 +48,7 @@
                         </span>
 
                     <div class="wrap-input100 validate-input" data-validate = "Enter User">
-                        <input class="input100" type="text"> <!--name="email"-->
+                        <input class="input100" type="text" name="user">
                         <span class="focus-input100" data-placeholder="User"></span>
                     </div>
 
@@ -56,7 +56,7 @@
                             <span class="btn-show-pass">
                                 <i class="zmdi zmdi-eye"></i>
                             </span>
-                        <input class="input100" type="password"> <!--name="pass"-->
+                        <input class="input100" type="password" name="password">
                         <span class="focus-input100" data-placeholder="Password"></span>
                     </div>
 
