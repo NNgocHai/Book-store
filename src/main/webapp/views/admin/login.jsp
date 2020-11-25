@@ -1,105 +1,103 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: HIEU
-  Date: 11/23/2020
-  Time: 2:49 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" %>
-<%@ include file="/common/taglib.jsp" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <title>Admin Login</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="<c:url value='/template/loginAdmin/images/icons/favicon.ico'/>">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/template/loginAdmin/vendor/bootstrap/css/bootstrap.min.css'/>">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/template/loginAdmin/fonts/font-awesome-4.7.0/css/font-awesome.min.css'/>">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/template/loginAdmin/fonts/iconic/css/material-design-iconic-font.min.css'/>">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/template/loginAdmin/vendor/animate/animate.css'/>">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/template/loginAdmin/vendor/css-hamburgers/hamburgers.min.css'/>">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/template/loginAdmin/vendor/animsition/css/animsition.min.css'/>">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/template/loginAdmin/vendor/select2/select2.min.css'/>">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/template/loginAdmin/vendor/daterangepicker/daterangepicker.css'/>">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/template/loginAdmin/css/util.css'/>">
-    <link rel="stylesheet" type="text/css" href="<c:url value='/template/loginAdmin/css/main.css'/>">
-    <!--===============================================================================================-->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Login</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="template/loginAdmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="template/loginAdmin/css/sb-admin-2.min.css" rel="stylesheet">
+
 </head>
-<body>
-    <div class="limiter">
-        <div class="container-login100">
-            <div class="wrap-login100">
-                <form class="login100-form validate-form">
-                        <span class="login100-form-title p-b-26">
-                            Welcome
-                        </span>
-                    <span class="login100-form-title p-b-48">
-                            <i class="zmdi zmdi-font"></i>
-                        </span>
 
-                    <div class="wrap-input100 validate-input" data-validate = "Enter User">
-                        <input class="input100" type="text"> <!--name="email"-->
-                        <span class="focus-input100" data-placeholder="User"></span>
-                    </div>
+<body class="bg-gradient-primary">
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter Password">
-                            <span class="btn-show-pass">
-                                <i class="zmdi zmdi-eye"></i>
-                            </span>
-                        <input class="input100" type="password"> <!--name="pass"-->
-                        <span class="focus-input100" data-placeholder="Password"></span>
-                    </div>
+<div class="container">
 
-                    <div class="container-login100-form-btn">
-                        <div class="wrap-login100-form-btn">
-                            <div class="login100-form-bgbtn"></div>
-                            <button class="login100-form-btn">
-                                Login
-                            </button>
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+        <div class="col-xl-10 col-lg-12 col-md-9">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                </div>
+                                <form class="user">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control form-control-user"
+                                               id="exampleInputEmail" aria-describedby="emailHelp"
+                                               placeholder="Enter Email Address...">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user"
+                                               id="exampleInputPassword" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox small">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck">
+                                            <label class="custom-control-label" for="customCheck">Remember
+                                                Me</label>
+                                        </div>
+                                    </div>
+                                    <a href="admin-home" class="btn btn-primary btn-user btn-block">
+                                        Login
+                                    </a>
+                                    <hr>
+                                    <a href="admin-home" class="btn btn-google btn-user btn-block">
+                                        <i class="fab fa-google fa-fw"></i> Login with Google
+                                    </a>
+                                    <a href="admin-home" class="btn btn-facebook btn-user btn-block">
+                                        <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                    </a>
+                                </form>
+                                <hr>
+                                <div class="text-center">
+                                    <a class="small" href="forgot_password-admin">Forgot Password?</a>
+                                </div>
+                                <div class="text-center">
+                                    <a class="small" href="register.html">Create an Account!</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="text-center p-t-115">
-                            <span class="txt1">
-                                @Copyright 2020 BookShop.com
-                            </span>
-
-                    </div>
-                </form>
+                </div>
             </div>
+
         </div>
+
     </div>
 
+</div>
 
-    <div id="dropDownSelect1"></div>
+<!-- Bootstrap core JavaScript-->
+<script src="template/loginAdmin/vendor/jquery/jquery.min.js"></script>
+<script src="template/loginAdmin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!--===============================================================================================-->
-    <script src="<c:url value='/template/loginAdmin/vendor/jquery/jquery-3.2.1.min.js'/>"></script>
-    <!--===============================================================================================-->
-    <script src="<c:url value='/template/loginAdmin/vendor/animsition/js/animsition.min.js'/>"></script>
-    <!--===============================================================================================-->
-    <script src="<c:url value='/template/loginAdmin/vendor/bootstrap/js/popper.js'/>"></script>
-    <script src="<c:url value='/template/loginAdmin/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
-    <!--===============================================================================================-->
-    <script src="<c:url value='/template/loginAdmin/vendor/select2/select2.min.js'/>"></script>
-    <!--===============================================================================================-->
-    <script src="<c:url value='/template/loginAdmin/vendor/daterangepicker/moment.min.js'/>"></script>
-    <script src="<c:url value='/template/loginAdmin/vendor/daterangepicker/daterangepicker.js'/>"></script>
-    <!--===============================================================================================-->
-    <script src="<c:url value='/template/loginAdmin/vendor/countdowntime/countdowntime.js'/>"></script>
-    <!--===============================================================================================-->
-    <script src="<c:url value='/template/loginAdmin/js/main.js'/>"></script>
+<!-- Core plugin JavaScript-->
+<script src="template/loginAdmin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
+<!-- Custom scripts for all pages-->
+<script src="template/loginAdmin/js/sb-admin-2.min.js"></script>
 
 </body>
+
 </html>

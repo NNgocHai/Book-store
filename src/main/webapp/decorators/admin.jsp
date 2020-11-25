@@ -5,12 +5,41 @@
 <html>
 <head>
     <title><dec:title default="Admin Page"/></title>
+    <%@ include file="/common/admin/style.jsp" %>
     <dec:head/>
 </head>
-<body>
-    <%@ include file="/common/admin/header.jsp" %>
-    <%@ include file="/common/admin/menu.jsp" %>
-    <dec:body/>
-    <%@ include file="/common/admin/footer.jsp" %>
-</body>
+<body id="page-top">
+<%--    <%@ include file="/common/admin/header.jsp" %>--%>
+<%--    <%@ include file="/common/admin/menu.jsp" %>--%>
+<%--    <%@ include file="/common/admin/footer.jsp" %>--%>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <%@ include file="/common/admin/menu.jsp" %>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <%@ include file="/common/admin/header.jsp" %>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <dec:body/>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <%@ include file="/common/admin/footer.jsp" %>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <%@ include file="/common/admin/script.jsp" %></body>
 </html>
