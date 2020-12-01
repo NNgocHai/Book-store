@@ -1,46 +1,80 @@
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ include file="/common/taglib.jsp"%>
+<c:url value = "/template/admin" var="url"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Admin BOOK STORE</title>
 
-    <!-- Sidebar Toggle (Topbar) -->
-    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-        <i class="fa fa-bars"></i>
-    </button>
+    <link href="${url}/css/pace.min.css" rel="stylesheet" />
+    <script src="${url}/js/pace.min.js"></script>
+    <link rel="stylesheet" href="${url}/plugins/summernote/dist/summernote-bs4.css"/>
+    <link rel="icon" href="${url}/images/favicon.ico" type="image/x-icon">
+    <link href="${url}/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <link href="${url}/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <link href="${url}/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="${url}/css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="${url}/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="${url}/css/sidebar-menu.css" rel="stylesheet" />
+    <link href="${url}/css/app-style.css" rel="stylesheet" />
 
 
-    <!-- Topbar Navbar -->
-    <ul class="navbar-nav ml-auto">
-        <div class="topbar-divider d-none d-sm-block"></div>
+</head>
 
-        <!-- Nav Item - User Information -->
-        <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                <img class="img-profile rounded-circle"
-                     src="template/loginAdmin/images/undraw_profile.svg">
-            </a>
-            <!-- Dropdown - User Information -->
-            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                 aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
-                </a>
-            </div>
-        </li>
+<body class="bg-theme bg-theme1">
 
-    </ul>
 
-</nav>
+<!-- start loader -->
+<div id="pageloader-overlay" class="visible incoming">
+    <div class="loader-wrapper-outer">
+        <div class="loader-wrapper-inner">
+            <div class="loader"></div>
+        </div>
+    </div>
+</div>
+
+<div id="wrapper">
+    <jsp:include page = "/common/admin/menu.jsp" flush = "true" />
+    <header class="topbar-nav">
+        <nav class="navbar navbar-expand fixed-top">
+            <ul class="navbar-nav mr-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link toggle-menu" href="javascript:void();">
+                        <i class="icon-menu menu-icon"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav align-items-center right-nav-link">
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+              <span class="user-profile"><img src="${pageContext.request.contextPath}/template/Admin/images/avatar-admin.png" class="img-circle"
+                                              alt="user avatar"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li class="dropdown-item user-details">
+                            <a href="javaScript:void();">
+                                <div class="media">
+                                    <div class="avatar"><img class="align-self-start mr-3" src="${pageContext.request.contextPath}/template/Admin/images/avatar-admin.png"
+                                                             alt="user avatar"></div>
+                                    <div class="media-body">
+                                        <h6 class="mt-2 user-title">BookStore</h6>
+                                        <b> Admin:  <%=session.getAttribute("user") %></b>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="dropdown-divider"></li>
+                        <li class="dropdown-item"><i class="icon-power mr-2"></i><a href=${pageContext.request.contextPath}/admin/logout> Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="clearfix"></div>
