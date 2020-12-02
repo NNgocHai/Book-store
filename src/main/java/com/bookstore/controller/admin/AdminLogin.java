@@ -32,7 +32,7 @@ public class AdminLogin extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             session.setAttribute("password", password);
-            response.sendRedirect(request.getContextPath() + "/admin-home");
+            response.sendRedirect(request.getContextPath() + "/admin/home");
         } else {
             request.setAttribute("errorMessage", "Tài khoản hoặc mật khẩu sai!");
             RequestDispatcher rd = request.getRequestDispatcher("/views/admin/login.jsp");
