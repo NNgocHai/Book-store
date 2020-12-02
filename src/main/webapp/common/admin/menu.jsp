@@ -11,7 +11,7 @@
     <ul class="sidebar-menu do-nicescrol">
         <li class="sidebar-header">MENU ADMIN</li>
         <li>
-            <a href="${pageContext.request.contextPath}/admin/homepage">
+            <a href="${pageContext.request.contextPath}/admin/home">
                 <i class="zmdi zmdi-view-dashboard"></i> <span>Tổng quan</span>
             </a>
         </li>
