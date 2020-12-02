@@ -4,7 +4,7 @@
 <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
     <div class="brand-logo">
         <a href="${pageContext.request.contextPath}/admin-home">
-            <img src="${url}/images/logo-icon.png" class="logo-icon" alt="logo icon">
+            <img src="${url}/images/iconp2.png" class="logo-icon" alt="logo icon">
             <h5 class="logo-text">ADMIN BOOK STORE</h5>
         </a>
     </div>
