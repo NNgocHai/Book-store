@@ -36,7 +36,7 @@
                                     <input type="password" class="form-control" id="input-2" placeholder="Password" name="admin-password">
                                     <input type="checkbox" onclick="myFunction1()">Hiển thị mật khẩu
                                     <script>function myFunction1() {
-                                        var x = document.getElementById("myinput");
+                                        var x = document.getElementById("input-2");
                                         if (x.type === "password") {
                                             x.type = "text";
                                         } else {
