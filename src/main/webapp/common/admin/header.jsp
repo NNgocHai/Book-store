@@ -11,7 +11,7 @@
     <meta name="author" content="" />
     <title>Admin BOOK STORE</title>
 
-    <link href="${url}/css/pace.min.css" rel="stylesheet" />
+    <link href="${url}/template/admin/css/pace.min.css" rel="stylesheet" />
     <script src="${url}/js/pace.min.js"></script>
     <link rel="stylesheet" href="${url}/plugins/summernote/dist/summernote-bs4.css"/>
     <link rel="icon" href="${url}/images/favicon.ico" type="image/x-icon">
