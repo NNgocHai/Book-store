@@ -12,7 +12,7 @@ public class AdminLoginDao{
         boolean exist = false;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String sql = "SELECT * FROM admin WHERE ma_Amin=? AND matkhau_Amin=?";
+            String sql = "SELECT * FROM admins WHERE taikhoan_Admin=? AND matkhau_Admin=?";
             Connection con = ConnectDB.getConnect();
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1, username);
@@ -26,7 +26,7 @@ public class AdminLoginDao{
         return exist;
     }
     public static void main(String[] args) {
-        System.out.println(checkAdminLogin("Hieuxt","123456"));
+        System.out.println(checkAdminLogin("hieuxt","18110282"));
 
     }
 }
