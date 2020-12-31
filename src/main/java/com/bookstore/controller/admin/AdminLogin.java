@@ -1,6 +1,8 @@
 package com.bookstore.controller.admin;
 
+import com.bookstore.dao.AdminDao;
 import com.bookstore.dao.AdminLoginDao;
+import com.bookstore.dao_impl.AdminDao_impl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,7 +30,19 @@ public class AdminLogin extends HttpServlet {
         response.setContentType("text/html");
         String user = request.getParameter("user");
         String password = request.getParameter("password");
-        if (AdminLoginDao.checkAdminLogin(user, password)) {
+//        if (AdminLoginDao.checkAdminLogin(user, password)) {
+//            HttpSession session = request.getSession();
+//            session.setAttribute("user", user);
+//            session.setAttribute("password", password);
+//            response.sendRedirect(request.getContextPath() + "/admin/home");
+//        } else {
+//            request.setAttribute("errorMessage", "Tài khoản hoặc mật khẩu sai!");
+//            RequestDispatcher rd = request.getRequestDispatcher("/views/admin/login.jsp");
+//            rd.forward(request, response);
+//        }
+        AdminDao adminDao = new AdminDao_impl();
+        boolean a = adminDao.checkAdminLogin(user,password);
+        if (a) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             session.setAttribute("password", password);
@@ -38,5 +52,6 @@ public class AdminLogin extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("/views/admin/login.jsp");
             rd.forward(request, response);
         }
+
     }
 }

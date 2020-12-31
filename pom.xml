@@ -16,6 +16,7 @@
         <mysql.connector.version>8.0.12</mysql.connector.version>
         <jstl.version>1.2</jstl.version>
         <sitemesh.version>2.4.2</sitemesh.version>
+        <hibernate.version>5.2.12.Final</hibernate.version>
     </properties>
 
     <dependencies>
@@ -48,6 +49,12 @@
             <groupId>opensymphony</groupId>
             <artifactId>sitemesh</artifactId>
             <version>${sitemesh.version}</version>
+        </dependency>
+        <!-- Hibernate-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
         </dependency>
 
     </dependencies>
