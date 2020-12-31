@@ -1,5 +1,4 @@
 <%@page import="java.sql.ResultSet"%>
-<%@page import="com.bookstore.jdbc.ConnectDB"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 
