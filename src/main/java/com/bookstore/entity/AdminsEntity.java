@@ -1,9 +1,6 @@
 package com.bookstore.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 //Mac dinh class nay la entity
@@ -11,7 +8,7 @@ import java.io.Serializable;
 //Ten bang ben database
 @Table(name = "admins")
 public class AdminsEntity implements Serializable {
-    @Id
+    @Id @GeneratedValue
     @Column(name="ma_Admin")
     private String ma_Admin;
 
