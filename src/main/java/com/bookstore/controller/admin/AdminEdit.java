@@ -26,7 +26,7 @@ public class AdminEdit extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int admin_id= Integer.parseInt(request.getParameter("admin-id"));
-        int admin_idd = Integer.parseInt(Integer.valueOf(request.getParameter("admin-id")).toString());
+//        int admin_idd = Integer.parseInt(Integer.valueOf(request.getParameter("admin-id")).toString());
 //        Admin admin = adminService.get(admin_id);
         AdminsEntity adminsEntity = adminService.findById(admin_id);
         request.setAttribute("admin", adminsEntity);
@@ -38,6 +38,7 @@ public class AdminEdit extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
+
         int admin_id = Integer.parseInt(request.getParameter("admin-id"));
         String admin_tk= request.getParameter("admin-username");
         String admin_password = request.getParameter("admin-password");
