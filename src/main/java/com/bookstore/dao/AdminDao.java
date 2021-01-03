@@ -1,7 +1,9 @@
 package com.bookstore.dao;
 
 import com.bookstore.entity.AdminsEntity;
-import com.bookstore.model.Admin;
-public interface AdminDao extends GenericDao<String, AdminsEntity>{
-    boolean checkAdminLogin (String username, String password);
+
+public interface AdminDao extends GenericDao<Integer, AdminsEntity>{
+    boolean checkAdminLogin(String username, String password);
+    boolean checkDelete(String username, Integer id);
+
 }

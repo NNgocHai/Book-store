@@ -2,14 +2,17 @@ package com.bookstore.dao_impl;
 
 import com.bookstore.dao.GenericDao;
 import com.bookstore.utils.HibernateUtil;
-import org.hibernate.*;
+import org.hibernate.HibernateException;
+import org.hibernate.ObjectNotFoundException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenericDao_impl<ID extends String,T> implements GenericDao<ID,T> {
+public class GenericDao_impl<ID extends Integer,T> implements GenericDao<ID,T> {
     protected final Class<T> persistenceClass;
 //    public Session session = HibernateUtil.getSessionFactory().openSession();
     public GenericDao_impl(){
@@ -69,12 +72,12 @@ public class GenericDao_impl<ID extends String,T> implements GenericDao<ID,T> {
         return result;
     }
 
-    public void save(T entity) {
+    public T save(T entity) {
         Transaction transaction = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         try{
-            session.persist(entity);
+            session. persist(entity);
             transaction.commit();
         }
         catch(HibernateException e)
@@ -85,9 +88,11 @@ public class GenericDao_impl<ID extends String,T> implements GenericDao<ID,T> {
         finally {
             session.close();
         }
+        return entity;
     }
 
-    public T findById(ID var1) {
+
+    public T findById(int var1) {
         T result = null;
         Transaction transaction = null;
         Session session = HibernateUtil.getSessionFactory().openSession();

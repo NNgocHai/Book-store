@@ -8,9 +8,10 @@ import java.io.Serializable;
 //Ten bang ben database
 @Table(name = "admins")
 public class AdminsEntity implements Serializable {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ma_Admin")
-    private String ma_Admin;
+    private Integer ma_Admin;
 
     @Column(name="taikhoan_Admin")
     private String taikhoan_Admin;
@@ -25,11 +26,11 @@ public class AdminsEntity implements Serializable {
     private String gmail_Admin;
 
 
-    public String getMa_Admin() {
+    public Integer getMa_Admin() {
         return ma_Admin;
     }
 
-    public void setMa_Admin(String ma_Admin) {
+    public void setMa_Admin(Integer ma_Admin) {
         this.ma_Admin = ma_Admin;
     }
 
