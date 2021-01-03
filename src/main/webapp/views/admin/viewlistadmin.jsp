@@ -1,4 +1,5 @@
 <%@page import="java.sql.ResultSet"%>
+<%@page import="com.bookstore.jdbc.ConnectDB"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
@@ -10,6 +11,7 @@
     if (session.getAttribute("user") == null){
         response.sendRedirect(request.getContextPath() + "/admin/login");
     }
+        String user = (String) session.getAttribute("user");
 %>
 <html>
 <head>
@@ -23,7 +25,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <button class="add-catalog"><a href="${pageContext.request.contextPath}/admin/add">Thêm Admin</a></button>
+                <button class="add-catalog"><a href="${pageContext.request.contextPath}/admin/admin/add">Thêm Admin</a></button>
             </div>
             <div class="col-lg-12">
                 <div class="card">
@@ -36,19 +38,20 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Tên đăng nhập</th>
                                     <th scope="col">Tên Admin</th>
+                                    <th scope="col">Email</th>
                                     <th scope="col">Hành động</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${adminlist}" var="admin">
+                                <c:forEach items="${adminList}" var="admin">
                                     <tr>
-                                        <td scope="row">${admin.id}</td>
-                                        <td>${admin.username}</td>
-                                        <td>${admin.name}</td>
+                                        <td scope="row">${admin.ma_Admin}</td>
+                                        <td>${admin.taikhoan_Admin}</td>
+                                        <td>${admin.hoten_Admin}</td>
+                                        <td>${admin.gmail_Admin}</td>
                                         <td>
-                                            <button class="btn btn-danger"><a href="${pageContext.request.contextPath}/admin/admin/delete?admin-id=${admin.id}">Xóa</a></button>
-
-                                            <button class="btn btn-success"><a href="${pageContext.request.contextPath}/admin/admin/edit?id=${admin.id}">Sửa</a></button>
+                                            <button type="reset" class="btn btn-danger"><a href="${pageContext.request.contextPath}/admin/admin/delete?admin-id=${admin.ma_Admin}">Xóa</a></button>
+                                            <button class="btn btn-success"><a href="${pageContext.request.contextPath}/admin/admin/edit?admin-id=${admin.ma_Admin}">Sửa</a></button>
                                         </td>
                                     </tr>
                                 </c:forEach>

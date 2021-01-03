@@ -26,7 +26,7 @@
                             <div class="card-title">Thêm Admin</div>
                             <hr>
                             <form action="${pageContext.request.contextPath}/admin/admin/add" method="post">
-
+                                <div><b> <span style="color:red"> ${errorMessage}</span></b></div>
                                 <div class="form-group">
                                     <label for="input-1">Username</label>
                                     <input type="text" class="form-control" id="input-1" placeholder="Username"  name="admin-username">
@@ -53,7 +53,7 @@
                                     <input type="email" class="form-control" id="input-4" placeholder="Email" name="admin-email">
                                 </div>
                                 <div class="form-footer">
-                                    <button class="btn btn-danger"><i class="fa fa-times"></i><a href="${pageContext.request.contextPath}/admin/admin/list">Hủy</a></button>
+                                    <button type="reset" class="btn btn-danger"><i class="fa fa-times"></i><a href="${pageContext.request.contextPath}/admin/admin/list">Hủy</a></button>
                                     <button type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> Thêm</button>
                                 </div>
                             </form>
