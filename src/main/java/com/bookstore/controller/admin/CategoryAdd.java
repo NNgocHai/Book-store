@@ -1,8 +1,10 @@
 package com.bookstore.controller.admin;
-
 import com.bookstore.entity.AdminsEntity;
+import com.bookstore.entity.CategoryEntity;
 import com.bookstore.service.AdminService;
+import com.bookstore.service.CategoryService;
 import com.bookstore.service_impl.AdminService_impl;
+import com.bookstore.service_impl.CategoryService_impl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,37 +15,33 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/admin/admin/add")
-public class AdminAdd  extends HttpServlet {
-    public AdminAdd() {
-        super();
-    }    @Override
+
+@WebServlet("/admin/cate/add")
+public class CategoryAdd extends HttpServlet {
+    public CategoryAdd(){super();}
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/views/admin/addadmin.jsp");
-        dispatcher.forward(request, response);
+        RequestDispatcher dispatcher=this.getServletContext().getRequestDispatcher("/views/admin/addcategory.jsp");
+        dispatcher.forward(request,response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
-        String admin_tk = request.getParameter("admin-username");
-        String admin_password = request.getParameter("admin-password");
-        String admin_name = request.getParameter("admin-name");
-        String admin_gmail = request.getParameter("admin-email");
+        String category_name = request.getParameter("category-name");
         try{
-            if((!admin_tk.equals("")) && (!admin_password.equals("")) && (!admin_name.equals(""))&& (!admin_gmail.equals(""))) {
-                AdminsEntity adminsEntity = new AdminsEntity();
-                adminsEntity.setTaikhoan_Admin(admin_tk);
-                adminsEntity.setMatkhau_Admin(admin_password);
-                adminsEntity.setHoten_Admin(admin_name);
-                adminsEntity.setGmail_Admin(admin_gmail);
-                AdminService admin = new AdminService_impl();
-                admin.save(adminsEntity);
-                response.sendRedirect(request.getContextPath() + "/admin/admin/list");
+            if((!category_name.equals("")) ) {
+                CategoryEntity categoryEntity = new CategoryEntity();
+                categoryEntity.setTen_DauSach(category_name);
+                CategoryService category = new CategoryService_impl();
+                category.save(categoryEntity);
+                response.sendRedirect(request.getContextPath() + "/admin/cate/list");
             }
             else {
-                request.setAttribute("errorMessage", "Du lieu bi trong");
-                RequestDispatcher rd = request.getRequestDispatcher("/views/admin/addadmin.jsp");
+                request.setAttribute("errorMessage", "Tên đầu sách trống");
+                RequestDispatcher rd = request.getRequestDispatcher("/views/admin/addcategory.jsp");
                 rd.forward(request, response);
             }
         }
@@ -57,7 +55,7 @@ public class AdminAdd  extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<script>");
-            out.println("alert('Trung tai khoan hoac gmail')");
+            out.println("alert('Trung ten dau sach')");
             out.println("location.href = \"./add\";");
             out.println("</script>");
             out.println("</body>");
