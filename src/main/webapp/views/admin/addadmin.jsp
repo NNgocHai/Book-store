@@ -13,7 +13,7 @@
 %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Them Admin</title>
 </head>
 <body>
     <div class="content-wrapper">
