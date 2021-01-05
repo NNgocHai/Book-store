@@ -13,7 +13,6 @@
 %>
 <html>
 <head>
-    <title>aaa</title>
 </head>
 <body>
 <div class="content-wrapper">
