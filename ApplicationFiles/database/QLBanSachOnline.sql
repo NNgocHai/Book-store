@@ -9,7 +9,7 @@ CREATE TABLE ADMINS (
 	 matkhau_Admin VARCHAR(50),
 	 hoten_Admin NVARCHAR(60),
 	 gmail_Admin VARCHAR(100) UNIQUE,
-
+     
 	 CONSTRAINT AM_maAmin_PK PRIMARY KEY(ma_Admin)
 );
 
@@ -21,7 +21,7 @@ CREATE TABLE CUSTOMER(
 	 gmail_Customer VARCHAR(100) UNIQUE,
      sdt_Customer VARCHAR(10) UNIQUE,
      vitien INT,
-
+	 
 	 CONSTRAINT CUSTOMER_maCustomer_PK PRIMARY KEY(ma_Customer)
 );
 
@@ -31,7 +31,7 @@ CREATE TABLE SHIPPER(
      matkhau_Shipper VARCHAR(20),
      hoten_Shipper NVARCHAR(50),
      gmail_Shipper VARCHAR(100) UNIQUE,
-
+     
      CONSTRAINT SHIPPER_maShipper_PK PRIMARY KEY(ma_Shipper)
 );
 
@@ -43,31 +43,18 @@ CREATE TABLE DAUSACH
 	 CONSTRAINT DS_maDS_PK PRIMARY KEY(ma_DauSach)
 );
 
-CREATE TABLE TACGIA
-(
-	 ma_TG INT AUTO_INCREMENT,
-	 ten_tG NVARCHAR(50),
-
-	 CONSTRAINT TG_maTG_PK PRIMARY KEY(ma_TG)
-);
-
 CREATE TABLE CUONSACH
 (
 	 ma_CuonSach INT AUTO_INCREMENT,
+     ma_DauSach INT,
 	 ten_CuonSach NVARCHAR(60),
-	 ma_DauSach INT,
-	 ma_TG INT,
+	 tacgia NVARCHAR(100),
 	 soluong INT,
-	 gianhap INT,
 	 giaban INT,
-	 ngaydang DATETIME,
 	 anh_CuonSach VARCHAR(150),
-	 sachKM CHAR(4) CONSTRAINT CS_sachKM_CHK CHECK(sachKM IN ('Yes', 'No')),
-	 sachBC CHAR(4) CONSTRAINT CS_sachBC_CHK CHECK(sachBC IN ('Yes', 'No')),
-
+	 
 	 CONSTRAINT CS_maCuonSach_PK PRIMARY KEY(ma_CuonSach),
-	 CONSTRAINT CS_maDS_FK FOREIGN KEY (ma_DauSach) REFERENCES DAUSACH(ma_DauSach) ON DELETE CASCADE,
-	 CONSTRAINT CS_maTG_FK FOREIGN KEY (ma_TG) REFERENCES TACGIA(ma_TG) ON DELETE CASCADE
+	 CONSTRAINT CS_maDS_FK FOREIGN KEY (ma_DauSach) REFERENCES DAUSACH(ma_DauSach) ON DELETE CASCADE
 );
 
 CREATE TABLE GIOHANG
@@ -75,7 +62,7 @@ CREATE TABLE GIOHANG
 	 ma_GH INT AUTO_INCREMENT,
 	 ma_CuonSach INT,
      soluong INT,
-
+     
 	 CONSTRAINT GH_maGH_PK PRIMARY KEY(ma_GH,ma_CuonSach),
 	 CONSTRAINT GH_maCS_FK FOREIGN KEY (ma_CuonSach) REFERENCES CUONSACH(ma_CuonSach) ON DELETE NO ACTION
 );
@@ -156,7 +143,7 @@ VALUES ('giang247', '333', 'Dương Ngọc Giang', 'giang49@gmail.com', '114', '
 INSERT INTO CUSTOMER(taikhoan_Customer, matkhau_Customer, hoten_Customer, gmail_Customer, sdt_Customer, vitien)
 VALUES ('nghiahuynh11', '444', 'Huỳnh Trọng Nghĩa', 'nghiapmp@gmail.com', '115', '10000000');
 INSERT INTO CUSTOMER(taikhoan_Customer, matkhau_Customer, hoten_Customer, gmail_Customer, sdt_Customer, vitien)
-VALUES ('phapcute09', '555', 'Nguyễn Văn Pháp', 'phapvanspkt@gmail.com', '116', '10000000');
+VALUES ('phapcute09', '555', 'Nguyễn Văn Pháp', 'phapvanspkt@gmail.com', '116', '10000000'); 
 
 INSERT INTO SHIPPER (taikhoan_Shipper, matkhau_Shipper, hoten_Shipper, gmail_Shipper)
 VALUES('giang247', '19110193', 'Dương Ngọc Giang', 'giangxt@gmail.com');
@@ -176,52 +163,29 @@ VALUES ('Văn Hóa Xã Hội');
 INSERT INTO DAUSACH(ten_DauSach)
 VALUES ('Văn Học');
 
-INSERT INTO TACGIA (ten_tG)
-VALUES ('Kim Chi');
-INSERT INTO TACGIA(ten_tG)
-VALUES ('Tô Hoài');
-INSERT INTO TACGIA(ten_tG)
-VALUES ('Nguyễn Nhật Ánh');
-INSERT INTO TACGIA(ten_tG)
-VALUES ('Lý Qúi Trung');
-INSERT INTO TACGIA(ten_tG)
-VALUES ('Nguyễn Du');
-INSERT INTO TACGIA(ten_tG)
-VALUES ('Phạm Quang Hiển');
-INSERT INTO TACGIA(ten_tG)
-VALUES ('Nguyễn Công Kiệt');
-INSERT INTO TACGIA(ten_tG)
-VALUES ('Không Rõ');
-INSERT INTO TACGIA(ten_tG)
-VALUES ('Ngô Thừa Ân');
-
-INSERT INTO CUONSACH(ten_CuonSach, ma_DauSach, ma_TG, soluong, gianhap, giaban, ngaydang)
-VALUES ('Điệu Buồn Phương Nam', '6', '1', '20', '80000', '95000', '2020-11-29');
-INSERT INTO CUONSACH(ten_CuonSach, ma_DauSach, ma_TG, soluong, gianhap, giaban, ngaydang)
-VALUES ('Dế Mèn Phiêu Lưu Ký', '3', '2', '10', '115000', '135000', '2020-12-01');
-INSERT INTO CUONSACH(ten_CuonSach, ma_DauSach, ma_TG, soluong, gianhap, giaban, ngaydang)
-VALUES ('Mắt Biếc', '6', '3', '14', '126000', '175000', '2020-12-01');
-INSERT INTO CUONSACH(ten_CuonSach, ma_DauSach, ma_TG, soluong, gianhap, giaban, ngaydang)
-VALUES ('Kính Vạn Hoa (Bộ 14 Tập) - Phiên Bản Đặc Biệt', '3', '3', '5', '1126000', '1400000', '2020-12-02');
-INSERT INTO CUONSACH(ten_CuonSach, ma_DauSach, ma_TG, soluong, gianhap, giaban, ngaydang)
-VALUES ('Bầu Trời Không Chỉ Có Màu Xanh', '2', '4', '15', '58000', '65000', '2020-12-04');
-INSERT INTO CUONSACH(ten_CuonSach, ma_DauSach, ma_TG, soluong, gianhap, giaban, ngaydang)
-VALUES ('Truyện Kiều', '6', '5', '15', '46000', '50000', '2020-11-30');
-INSERT INTO CUONSACH(ten_CuonSach, ma_DauSach, ma_TG, soluong, gianhap, giaban, ngaydang)
-VALUES ('Lập Trình Hệ Thống Thương Mại Điện tử', '1', '6', '12', '90000', '110000', '2020-12-01');
-INSERT INTO CUONSACH (ten_CuonSach, ma_DauSach, ma_TG, soluong, gianhap, giaban, ngaydang)
-VALUES ('Chinh Phục chủ Đề Peptit', '1', '7', '7', '87000', '95000', '2020-11-20');
-INSERT INTO CUONSACH(ten_CuonSach, ma_DauSach, ma_TG, soluong, gianhap, giaban, ngaydang)
-VALUES ('Very Easy Toeic', '4', '8', '10', '45000', '66000', '2020-11-22');
-INSERT INTO CUONSACH(ten_CuonSach, ma_DauSach, ma_TG, soluong, gianhap, giaban, ngaydang)
-VALUES ('Tây Du Ký', '6', '9', '20', '560000', '750000', '2020-11-30');
+INSERT INTO CUONSACH( ma_DauSach, ten_CuonSach, tacgia, soluong, giaban)
+VALUES ( '6', 'Điệu Buồn Phương Nam', 'Kim Chi', '20','95000');
+INSERT INTO CUONSACH( ma_DauSach, ten_CuonSach, tacgia, soluong, giaban)
+VALUES ( '3', 'Dế Mèn Phiêu Lưu Ký', 'Tô Hoài', '10', '135000');
+INSERT INTO CUONSACH( ma_DauSach, ten_CuonSach, tacgia, soluong, giaban)
+VALUES ('6', 'Mắt Biếc', 'Nguyễn Nhật Ánh', '14', '175000');
+INSERT INTO CUONSACH( ma_DauSach, ten_CuonSach, tacgia, soluong, giaban)
+VALUES ('3', 'Kính Vạn Hoa (Bộ 14 Tập) - Phiên Bản Đặc Biệt', 'Nguyễn Nhật Ánh', '5', '1400000');
+INSERT INTO CUONSACH( ma_DauSach, ten_CuonSach, tacgia, soluong, giaban)
+VALUES ('2', 'Bầu Trời Không Chỉ Có Màu Xanh', 'Lý Qúi Trung', '15', '65000');
+INSERT INTO CUONSACH( ma_DauSach, ten_CuonSach, tacgia, soluong, giaban)
+VALUES ('6', 'Truyện Kiều', 'Nguyễn Du', '15', '50000');
+INSERT INTO CUONSACH( ma_DauSach, ten_CuonSach, tacgia, soluong, giaban)
+VALUES ( '1', 'Lập Trình Hệ Thống Thương Mại Điện tử', 'Phạm Quang Hiển', '12', '110000');
+INSERT INTO CUONSACH( ma_DauSach, ten_CuonSach, tacgia, soluong, giaban)
+VALUES ('1', 'Chinh Phục chủ Đề Peptit', 'Nguyễn Công Kiệt', '7', '95000');
 
 INSERT INTO GIOHANG(ma_CuonSach, soluong)
 VALUES ('1', '2');
 INSERT INTO GIOHANG(ma_CuonSach, soluong)
 VALUES ('2', '1');
 INSERT INTO GIOHANG(ma_CuonSach, soluong)
-VALUES ( '10', '2');
+VALUES ( '7', '2');
 INSERT INTO GIOHANG(ma_CuonSach, soluong)
 VALUES ('5', '1');
 
@@ -233,7 +197,7 @@ INSERT INTO DONHANG(ma_Customer, diachi, sdt, tongtien, ngaydat, activeDH)
 VALUES ('3', 'Bến Tre', '0327300035', '1595000', '2020-12-06', 'Yes');
 
 INSERT INTO CHITIETDONHANG
-VALUES ('1', '10', '2', '95000');
+VALUES ('1', '7', '2', '95000');
 INSERT INTO CHITIETDONHANG
 VALUES ('2', '2', '1', '135000');
 INSERT INTO CHITIETDONHANG
