@@ -50,8 +50,9 @@ CREATE TABLE CUONSACH
 	 ten_CuonSach NVARCHAR(60),
 	 tacgia NVARCHAR(100),
 	 soluong INT,
-	 giaban INT,
 	 anh_CuonSach VARCHAR(150),
+     discount INT,
+     giaban INT,
 	 
 	 CONSTRAINT CS_maCuonSach_PK PRIMARY KEY(ma_CuonSach),
 	 CONSTRAINT CS_maDS_FK FOREIGN KEY (ma_DauSach) REFERENCES DAUSACH(ma_DauSach) ON DELETE CASCADE
@@ -59,12 +60,13 @@ CREATE TABLE CUONSACH
 
 CREATE TABLE GIOHANG
 (
-	 ma_GH INT AUTO_INCREMENT,
+	 ma_Customer INT,
 	 ma_CuonSach INT,
      soluong INT,
      
-	 CONSTRAINT GH_maGH_PK PRIMARY KEY(ma_GH,ma_CuonSach),
-	 CONSTRAINT GH_maCS_FK FOREIGN KEY (ma_CuonSach) REFERENCES CUONSACH(ma_CuonSach) ON DELETE NO ACTION
+	 CONSTRAINT GH_maGH_PK PRIMARY KEY(ma_Customer, ma_CuonSach),
+	 CONSTRAINT GH_maCS_FK FOREIGN KEY (ma_CuonSach) REFERENCES CUONSACH(ma_CuonSach) ON DELETE NO ACTION,
+     CONSTRAINT GH_maCUS_FK FOREIGN KEY(ma_Customer) REFERENCES CUSTOMER(ma_Customer) ON DELETE CASCADE
 );
 
 CREATE TABLE DONHANG
@@ -73,8 +75,8 @@ CREATE TABLE DONHANG
 	 ma_Customer INT,
 	 diachi NVARCHAR(100),
 	 sdt VARCHAR(15),
-	 tongtien INT,
-     ngaydat DATETIME,
+     ngaydat TIMESTAMP,
+     tongtien INT,
 	 activeDH CHAR(4) CONSTRAINT DH_activeDH_CHK CHECK (activeDH IN ('Yes', 'No')),
 
 	 CONSTRAINT DH_maDH_PK PRIMARY KEY(ma_DH),
@@ -84,7 +86,7 @@ CREATE TABLE DONHANG
 CREATE TABLE CHITIETDONHANG(
 	 ma_DH INT,
 	 ma_CuonSach INT,
-	 soluong VARCHAR(10),
+	 soluong INT(10),
 	 gia INT,
 
 	 CONSTRAINT CTDH_maDH_PK PRIMARY KEY(ma_DH, ma_CuonSach),
@@ -93,7 +95,7 @@ CREATE TABLE CHITIETDONHANG(
 );
 
 CREATE TABLE GIAOHANG(
-     ma_DH INT AUTO_INCREMENT,
+     ma_DH INT,
 	 ma_Shipper INT,
 	 tinhtrang NVARCHAR(5) CONSTRAINT GH_tinhtrang_CHK CHECK (tinhtrang IN (N'Yes', N'No')),
 
@@ -102,22 +104,11 @@ CREATE TABLE GIAOHANG(
 	 CONSTRAINT GIAOHANG_maShipper_FK FOREIGN KEY(ma_Shipper) REFERENCES SHIPPER(ma_Shipper) ON DELETE NO ACTION
 );
 
-CREATE TABLE KHUYENMAI
-(
-	 ma_KM INT AUTO_INCREMENT,
-	 ten_KM NVARCHAR(100),
-	 ngaybatdau DATETIME,
-	 ngayketthuc DATETIME,
-	 discount INT,
-
-	 CONSTRAINT KM_maKM_PK PRIMARY KEY(ma_KM)
-);
-
 CREATE TABLE REVIEW
 (
 	 ma_Review INT AUTO_INCREMENT,
      ma_Customer INT,
-	 ngay_Review DATETIME,
+	 ngay_Review TIMESTAMP,
 	 binhluan VARCHAR(4000),
 
 	 CONSTRAINT RV_maReview_PK PRIMARY KEY(ma_Review),
@@ -180,14 +171,14 @@ VALUES ( '1', 'Lập Trình Hệ Thống Thương Mại Điện tử', 'Phạm Q
 INSERT INTO CUONSACH( ma_DauSach, ten_CuonSach, tacgia, soluong, giaban)
 VALUES ('1', 'Chinh Phục chủ Đề Peptit', 'Nguyễn Công Kiệt', '7', '95000');
 
-INSERT INTO GIOHANG(ma_CuonSach, soluong)
-VALUES ('1', '2');
-INSERT INTO GIOHANG(ma_CuonSach, soluong)
-VALUES ('2', '1');
-INSERT INTO GIOHANG(ma_CuonSach, soluong)
-VALUES ( '7', '2');
-INSERT INTO GIOHANG(ma_CuonSach, soluong)
-VALUES ('5', '1');
+INSERT INTO GIOHANG(ma_Customer, ma_CuonSach, soluong)
+VALUES ('1', '1', '2');
+INSERT INTO GIOHANG(ma_Customer, ma_CuonSach, soluong)
+VALUES ('1', '2', '1');
+INSERT INTO GIOHANG(ma_Customer, ma_CuonSach, soluong)
+VALUES ( '2', '7', '2');
+INSERT INTO GIOHANG(ma_Customer, ma_CuonSach, soluong)
+VALUES ('3','5', '1');
 
 INSERT INTO DONHANG(ma_Customer, diachi, sdt, tongtien, ngaydat, activeDH)
 VALUES ('3', 'KTX Khu D1', '0987935915', '190000', '2020-12-05', 'Yes');
@@ -211,11 +202,6 @@ INSERT INTO GIAOHANG
 VALUES('2', '2', 'No');
 INSERT INTO GIAOHANG
 VALUES('3', '2', 'No');
-
-INSERT INTO KHUYENMAI(ten_KM, ngaybatdau, ngayketthuc, discount)
-VALUES ('Noel Yêu Thuong',  '2020-12-20', '2021-01-05', '15');
-INSERT INTO KHUYENMAI(ten_KM, ngaybatdau, ngayketthuc, discount)
-VALUES ('Tết Dương Lịch', '2020-12-28', '2021-01-03', '35');
 
 INSERT INTO REVIEW(ma_Customer, ngay_Review, binhluan)
 VALUES ('3', '2020-12-12', 'Sách còn mới, như quảng cáo. Nói chung tốt, sẽ quay lại ủng hộ shop tiếp ạ');
