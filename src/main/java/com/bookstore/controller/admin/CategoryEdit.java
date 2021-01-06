@@ -42,7 +42,6 @@ public class CategoryEdit extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/admin/cate/list");
         }
         else {
-
             request.setAttribute("errorMessage","Tên đầu sách trống");
             request.setAttribute("category_id",category_id_String);
             RequestDispatcher rd=request.getRequestDispatcher("/views/admin/editcategory.jsp");

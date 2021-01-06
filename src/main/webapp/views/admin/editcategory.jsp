@@ -23,13 +23,7 @@
     <title>Title</title>
 </head>
 <body>
-<%
-    String category_id=(String)request.getAttribute("category_id");
-    if (category_id==null) category_id="";
-    String category_name=request.getParameter("category_name");
-    if(category_name==null) category_name="";
 
-%>
 <!-- Start header section -->
 <div class="content-wrapper">
     <div class="container-fluid">
@@ -45,12 +39,12 @@
 
                             <div class="form-group">
                                 <label for="input-1">ID</label>
-                                <input type="text" class="form-control" readonly id="input-1" placeholder="ĐẦU SÁCH ID" name="category-id" value="${category.ma_DauSach}<%=category_id%>">
+                                <input type="text" class="form-control" readonly id="input-1" placeholder="ĐẦU SÁCH ID" name="category-id" value="${category.ma_DauSach}${category_id}">
                             </div>
 
                             <div class="form-group">
                                 <label for="input-4">Tên Đầu Sách</label>
-                                <input type="text" class="form-control" id="input-4" placeholder="Tên Đầu sách" name="category-name" value="${category.ten_DauSach}<%=category_name%>">
+                                <input type="text" class="form-control" id="input-4" placeholder="Tên Đầu sách" name="category-name" value="${category.ten_DauSach}">
                                 <div><b> <span style="color:#f31818"> ${errorMessage}</span></b></div>
                             </div>
 
