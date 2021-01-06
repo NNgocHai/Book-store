@@ -2,6 +2,7 @@ package com.bookstore.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 //Mac dinh class nay la entity
 @Entity
@@ -30,6 +31,40 @@ public class CustomerEntity implements Serializable{
 
     @Column(name ="vitien")
     private Integer vitien;
+
+
+    @OneToMany(mappedBy = "customerEntity", fetch = FetchType.LAZY)
+    private List<DonHangEntity> donHangEntityList;
+
+    @OneToMany(mappedBy = "customerEntity", fetch = FetchType.LAZY)
+    private List<ReviewEntity> reviewEntityList;
+
+    @OneToMany(mappedBy = "customerEntity", fetch = FetchType.LAZY)
+    private List<GioHangEntity> gioHangEntityList;
+
+    public List<GioHangEntity> getGioHangEntityList() {
+        return gioHangEntityList;
+    }
+
+    public void setGioHangEntityList(List<GioHangEntity> gioHangEntityList) {
+        this.gioHangEntityList = gioHangEntityList;
+    }
+
+    public List<ReviewEntity> getReviewEntityList() {
+        return reviewEntityList;
+    }
+
+    public void setReviewEntityList(List<ReviewEntity> reviewEntityList) {
+        this.reviewEntityList = reviewEntityList;
+    }
+
+    public List<DonHangEntity> getDonHangEntityList() {
+        return donHangEntityList;
+    }
+
+    public void setDonHangEntityList(List<DonHangEntity> donHangEntityList) {
+        this.donHangEntityList = donHangEntityList;
+    }
 
     public Integer getMa_Customer() {
         return ma_Customer;

@@ -2,6 +2,8 @@ package com.bookstore.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+
 @Entity
 @Table(name="dausach")
 public class CategoryEntity implements Serializable {
@@ -11,6 +13,18 @@ public class CategoryEntity implements Serializable {
     private Integer ma_DauSach;
     @Column(name = "ten_DauSach")
     private String ten_DauSach;
+
+
+    @OneToMany(mappedBy = "categoryEntity" , fetch = FetchType.LAZY)
+    private List<CuonSachEntity> cuonSachEntities;
+
+    public List<CuonSachEntity> getCuonSachEntities() {
+        return cuonSachEntities;
+    }
+
+    public void setCuonSachEntities(List<CuonSachEntity> cuonSachEntities) {
+        this.cuonSachEntities = cuonSachEntities;
+    }
 
     public Integer getMa_DauSach() {
         return ma_DauSach;

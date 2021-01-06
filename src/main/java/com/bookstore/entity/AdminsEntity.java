@@ -1,5 +1,7 @@
 package com.bookstore.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
