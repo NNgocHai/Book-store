@@ -26,4 +26,17 @@ public class GiaoHangIDKey implements Serializable {
     public void setMa_Shiper(Integer ma_Shiper) {
         this.ma_Shipper = ma_Shiper;
     }
+     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GiaoHangIDKey that = (GiaoHangIDKey) o;
+        return Objects.equals(ma_DH, that.ma_DH) &&
+                Objects.equals(ma_Shipper, that.ma_Shipper);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ma_DH, ma_Shipper);
+    }
 }
