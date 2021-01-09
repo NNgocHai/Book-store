@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: HIEU
-  Date: 1/3/2021
-  Time: 11:07 AM
+  User: Lenovo
+  Date: 1/9/2021
+  Time: 2:24 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -33,18 +33,19 @@
                         <div class="card-title">Chuyên mục: Sửa</div>
                         <hr>
 
-                        <form action="${pageContext.request.contextPath}/admin/admin/edit" method="post">
+                        <form action="${pageContext.request.contextPath}/admin/ship/edit" method="post">
+                            <div><b> <span style="color:red"> ${errorMessage}</span></b></div>
                             <div class="form-group">
                                 <label for="input-1">ID</label>
-                                <input type="text" class="form-control" readonly id="input-1" placeholder="Admin ID" name="admin-id" value="${admin.ma_Admin}${admin_id}">
+                                <input type="text" class="form-control" readonly id="input-1" placeholder="Shipper ID" name="id" value="${shipper.ma_Shipper}${id}">
                             </div>
                             <div class="form-group">
                                 <label for="input-2">Username</label>
-                                <input type="text" class="form-control" id="input-2" placeholder="Username" name="admin-username" value="${admin.taikhoan_Admin}${admin_tk}">
+                                <input type="text" class="form-control" id="input-2" placeholder="Username" name="shipper-username" value="${shipper.taikhoan_Shipper}${shipper_tk}">
                             </div>
                             <div class="form-group">
                                 <label for="input-3">Password</label>
-                                <input type="password" class="form-control" id="input-3" placeholder="Mật khẩu" name="admin-password" value="${admin.matkhau_Admin}${admin_password}">
+                                <input type="password" class="form-control" id="input-3" placeholder="Mật khẩu" name="shipper-password" value="${shipper.matkhau_Shipper}${shipper_password}">
                                 <input type="checkbox" onclick="myFunction1()">Hiển thị mật khẩu
                                 <script>function myFunction1() {
                                     var x = document.getElementById("input-3");
@@ -56,15 +57,16 @@
                                 }</script>
                             </div>
                             <div class="form-group">
-                                <label for="input-4">Tên Admin</label>
-                                <input type="text" class="form-control" id="input-4" placeholder="Tên Admin" name="admin-name" value="${admin.hoten_Admin}${admin_name}">
+                                <label for="input-4">Tên Customer</label>
+                                <input type="text" class="form-control" id="input-4" placeholder="Tên Admin" name="shipper-name" value="${shipper.hoten_Shipper}${shipper_name}">
                             </div>
                             <div class="form-group">
-                            <label for="input-5">Email</label>
-                            <input type="email" class="form-control" id="input-5" placeholder="Email" name="admin-email" value="${admin.gmail_Admin}${admin_gmail}">
+                                <label for="input-5">Email</label>
+                                <input type="email" class="form-control" id="input-5" placeholder="Email" name="shipper-email" value="${shipper.gmail_Shipper}${shipper_gmail}">
                             </div>
+
                             <div class="form-footer">
-                                <button type="reset" class="btn btn-danger"><i class="fa fa-times"></i> <a href="${pageContext.request.contextPath}/admin/admin/list">Hủy</a> </button>
+                                <button type="reset" class="btn btn-danger"><i class="fa fa-times"></i> <a href="${pageContext.request.contextPath}/admin/ship/list">Hủy</a> </button>
                                 <button type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> Sửa </button>
                             </div>
                         </form>

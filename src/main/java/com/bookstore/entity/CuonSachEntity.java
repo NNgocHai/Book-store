@@ -27,10 +27,10 @@ public class CuonSachEntity implements Serializable {
 
     @Column(name = "anh_CuonSach")
     private String anh_CuonSach;
-
-
-    @Column(name ="discount")
+    @Column(name="discount")
     private Integer discount;
+
+
 
     @ManyToOne
     @JoinColumn(name = "ma_DauSach", insertable=false, updatable=false)
@@ -58,13 +58,7 @@ public class CuonSachEntity implements Serializable {
         this.chiTietDonHangEntityList = chiTietDonHangEntityList;
     }
 
-    public Integer getDiscount() {
-        return discount;
-    }
 
-    public void setDiscount(Integer discount) {
-        this.discount = discount;
-    }
 
     public Integer getMa_CuonSach() {
         return ma_CuonSach;
@@ -80,6 +74,13 @@ public class CuonSachEntity implements Serializable {
 
     public void setMa_DauSach(Integer ma_DauSach) {
         this.ma_DauSach = ma_DauSach;
+    }
+    public Integer getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Integer discount) {
+        this.discount = discount;
     }
 
     public String getTen_CuonSach() {

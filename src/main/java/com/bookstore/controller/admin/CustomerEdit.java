@@ -39,7 +39,7 @@ public class CustomerEdit extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
 
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = (request.getParameter("id"));
 
         String customer_tk = request.getParameter("customer-username");
         String customer_password = request.getParameter("customer-password");
@@ -48,16 +48,32 @@ public class CustomerEdit extends HttpServlet {
         String customer_sdt = request.getParameter("customer-sdt");
         String customer_vitien = request.getParameter("customer-vitien");
         try {
-            CustomerEntity customerEntity = new CustomerEntity();
-            customerEntity.setMa_Customer(id);
-            customerEntity.setTaikhoan_Customer(customer_tk);
-            customerEntity.setGmail_Customer(customer_gmail);
-            customerEntity.setHoten_Customer(customer_name);
-            customerEntity.setMatkhau_Customer(customer_password);
-            customerEntity.setSdt_Customer(customer_sdt);
-            customerEntity.setVitien(Integer.valueOf(customer_vitien));
-            customer.update(customerEntity);
-            response.sendRedirect(request.getContextPath() + "/admin/user/list");
+            if(!id.equals("")&&(!customer_tk.equals("")&&(!customer_password.equals(""))&&(!customer_name.equals(""))&&(!customer_gmail.equals(""))&&(!customer_sdt.equals(""))
+            &&(!customer_vitien.equals(""))))
+            {
+                CustomerEntity customerEntity = new CustomerEntity();
+                customerEntity.setMa_Customer(Integer.parseInt(id));
+                customerEntity.setTaikhoan_Customer(customer_tk);
+                customerEntity.setGmail_Customer(customer_gmail);
+                customerEntity.setHoten_Customer(customer_name);
+                customerEntity.setMatkhau_Customer(customer_password);
+                customerEntity.setSdt_Customer(customer_sdt);
+                customerEntity.setVitien(Integer.valueOf(customer_vitien));
+                customer.update(customerEntity);
+                response.sendRedirect(request.getContextPath() + "/admin/user/list");
+            }
+            else {
+                request.setAttribute("errorMessage", "Vui lòng điền đầy đủ các thông tin");
+                request.setAttribute("id",id);
+                request.setAttribute("customer_tk",customer_tk);
+                request.setAttribute("customer_password",customer_password);
+                request.setAttribute("customer_name",customer_name);
+                request.setAttribute("customer_gmail",customer_gmail);
+                request.setAttribute("customer_sdt",customer_sdt);
+                request.setAttribute("customer_vitien",customer_vitien);
+                RequestDispatcher rd = request.getRequestDispatcher("/views/admin/edituser.jsp");
+                rd.forward(request, response);
+            }
         }
         catch (Exception e)
         {

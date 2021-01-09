@@ -13,7 +13,7 @@
 %>
 <html>
 <head>
-    <title>Them Admin</title>
+    <title>Thêm Admin</title>
 </head>
 <body>
     <div class="content-wrapper">
@@ -29,11 +29,11 @@
                                 <div><b> <span style="color:red"> ${errorMessage}</span></b></div>
                                 <div class="form-group">
                                     <label for="input-1">Username</label>
-                                    <input type="text" class="form-control" id="input-1" placeholder="Username"  name="admin-username">
+                                    <input type="text" class="form-control" id="input-1" placeholder="Username"  name="admin-username" value="${admin_tk}">
                                 </div>
                                 <div class="form-group">
                                     <label for="input-2">Password</label>
-                                    <input type="password" class="form-control" id="input-2" placeholder="Password" name="admin-password">
+                                    <input type="password" class="form-control" id="input-2" placeholder="Password" name="admin-password" value="${admin_password}">
                                     <input type="checkbox" onclick="myFunction1()">Hiển thị mật khẩu
                                     <script>function myFunction1() {
                                         var x = document.getElementById("input-2");
@@ -46,11 +46,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="input-3">Tên Admin</label>
-                                    <input type="text" class="form-control" id="input-3" placeholder="Tên Admin" name="admin-name">
+                                    <input type="text" class="form-control" id="input-3" placeholder="Tên Admin" name="admin-name" value="${admin_name}">
                                 </div>
                                 <div class="form-group">
                                     <label for="input-4">Email</label>
-                                    <input type="email" class="form-control" id="input-4" placeholder="Email" name="admin-email">
+                                    <input type="email" class="form-control" id="input-4" placeholder="Email" name="admin-email" value="${admin_gmail}">
                                 </div>
                                 <div class="form-footer">
                                     <button type="reset" class="btn btn-danger"><i class="fa fa-times"></i><a href="${pageContext.request.contextPath}/admin/admin/list">Hủy</a></button>

@@ -51,8 +51,14 @@ public class CustomerAdd  extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/admin/user/list");
             }
             else {
-                request.setAttribute("errorMessage", "Du lieu bi trong");
-                RequestDispatcher rd = request.getRequestDispatcher("/views/user/adduser.jsp");
+                request.setAttribute("errorMessage", "Vui lòng điền đầy đủ các thông tin");
+                request.setAttribute("customer_tk",customer_tk);
+                request.setAttribute("customer_password",customer_password);
+                request.setAttribute("customer_name",customer_name);
+                request.setAttribute("customer_gmail",customer_gmail);
+                request.setAttribute("customer_sdt",customer_sdt);
+                request.setAttribute("customer_vitien",customer_vitien);
+                RequestDispatcher rd = request.getRequestDispatcher("/views/admin/adduser.jsp");
                 rd.forward(request, response);
             }
         }

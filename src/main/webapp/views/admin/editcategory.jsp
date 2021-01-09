@@ -5,11 +5,7 @@
   Time: 11:09 AM
   To change this template use File | Settings | File Templates.
 
-  <%
-                                String category_id=(String) request.getAttribute("category_id");
-                                if (category_id==null) category_id="";
-                            <%=category_id%
-                            %>
+
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -23,13 +19,7 @@
     <title>Title</title>
 </head>
 <body>
-<%
-    String category_id=(String)request.getAttribute("category_id");
-    if (category_id==null) category_id="";
-    String category_name=request.getParameter("category_name");
-    if(category_name==null) category_name="";
 
-%>
 <!-- Start header section -->
 <div class="content-wrapper">
     <div class="container-fluid">
@@ -45,17 +35,17 @@
 
                             <div class="form-group">
                                 <label for="input-1">ID</label>
-                                <input type="text" class="form-control" readonly id="input-1" placeholder="ĐẦU SÁCH ID" name="category-id" value="${category.ma_DauSach}<%=category_id%>">
+                                <input type="text" class="form-control" readonly id="input-1" placeholder="ĐẦU SÁCH ID" name="category-id" value="${category.ma_DauSach}${category_id}">
                             </div>
 
                             <div class="form-group">
                                 <label for="input-4">Tên Đầu Sách</label>
-                                <input type="text" class="form-control" id="input-4" placeholder="Tên Đầu sách" name="category-name" value="${category.ten_DauSach}<%=category_name%>">
+                                <input type="text" class="form-control" id="input-4" placeholder="Tên Đầu sách" name="category-name" value="${category.ten_DauSach}">
                                 <div><b> <span style="color:#f31818"> ${errorMessage}</span></b></div>
                             </div>
 
                             <div class="form-footer">
-                                <button type="reset" class="btn btn-danger"><i class="fa fa-times"></i> <a href="${pageContext.request.contextPath}/admin/admin/list">Hủy</a> </button>
+                                <button type="reset" class="btn btn-danger"><i class="fa fa-times"></i> <a href="${pageContext.request.contextPath}/admin/cate/list">Hủy</a> </button>
                                 <button type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> Sửa </button>
                             </div>
                         </form>

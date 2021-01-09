@@ -24,7 +24,7 @@ public class CategoryDelete extends HttpServlet {
         CategoryService category = new CategoryService_impl();
         List<Integer> listId = new ArrayList<Integer>();
         HttpSession session = request.getSession();
-        String category_tk = (String) session.getAttribute("cate");
+        //dString category_tk = (String) session.getAttribute("cate");
         listId.add(category_id);
         category.deleteList(listId);
         request.setAttribute("categoryList",category.findAll());
