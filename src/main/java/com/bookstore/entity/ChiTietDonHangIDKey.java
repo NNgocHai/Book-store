@@ -2,6 +2,7 @@ package com.bookstore.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Embeddable
 public class ChiTietDonHangIDKey implements Serializable {

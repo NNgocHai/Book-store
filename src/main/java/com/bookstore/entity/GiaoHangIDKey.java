@@ -3,6 +3,8 @@ package com.bookstore.entity;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
+import java.util.Objects;
+
 @Embeddable
 public class GiaoHangIDKey implements Serializable {
     @Column
