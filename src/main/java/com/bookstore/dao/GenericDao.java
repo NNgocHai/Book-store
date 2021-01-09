@@ -9,4 +9,5 @@ public interface GenericDao<ID extends  Integer, T> {
     T findById(int var1);
     Object[] findByProperty(String property, Object value, String sortExpression, String sortDirection);
     Integer deleteList(List<ID> ids);
+
 }
