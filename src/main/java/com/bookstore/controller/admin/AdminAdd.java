@@ -42,7 +42,11 @@ public class AdminAdd  extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/admin/admin/list");
             }
             else {
-                request.setAttribute("errorMessage", "Du lieu bi trong");
+                request.setAttribute("errorMessage", "Vui lòng điền đầy đủ các thông tin");
+                request.setAttribute("admin_tk",admin_tk);
+                request.setAttribute("admin_password",admin_password);
+                request.setAttribute("admin_name",admin_name);
+                request.setAttribute("admin_gmail",admin_gmail);
                 RequestDispatcher rd = request.getRequestDispatcher("/views/admin/addadmin.jsp");
                 rd.forward(request, response);
             }

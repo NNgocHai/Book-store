@@ -1,9 +1,6 @@
 package com.bookstore.controller.admin;
-import com.bookstore.entity.AdminsEntity;
 import com.bookstore.entity.CategoryEntity;
-import com.bookstore.service.AdminService;
 import com.bookstore.service.CategoryService;
-import com.bookstore.service_impl.AdminService_impl;
 import com.bookstore.service_impl.CategoryService_impl;
 
 import javax.servlet.RequestDispatcher;

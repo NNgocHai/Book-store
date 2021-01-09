@@ -21,9 +21,15 @@
                 <i class="zmdi zmdi-account-box"></i> <span>Quản lí Admin</span>
             </a>
         </li>
+
         <li>
             <a href="${pageContext.request.contextPath}/admin/user/list">
                 <i class="zmdi zmdi-accounts"></i> <span>Quản lí User</span>
+            </a>
+        </li>
+        <li>
+            <a href="${pageContext.request.contextPath}/admin/ship/list">
+                <i class="zmdi zmdi-accounts"></i> <span>Quản lí Shipper</span>
             </a>
         </li>
         <li>
@@ -33,7 +39,7 @@
         </li>
         <li>
             <a href="${pageContext.request.contextPath}/admin/product/list">
-                <i class="zmdi zmdi-widgets"></i> <span>Danh Sách Cuốn Sachs</span>
+                <i class="zmdi zmdi-widgets"></i> <span>Danh Sách Cuốn Sách</span>
             </a>
         </li>
         <li>
@@ -57,5 +63,6 @@
                 <i class="icon-envelope-open"></i> <span>Tin tức</span>
             </a>
         </li>
+
     </ul>
 </div>
