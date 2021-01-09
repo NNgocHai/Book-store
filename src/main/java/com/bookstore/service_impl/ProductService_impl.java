@@ -3,6 +3,7 @@ package com.bookstore.service_impl;
 
 import com.bookstore.dao_impl.CustomerDao_impl;
 import com.bookstore.dao_impl.ProductDao_impl;
+import com.bookstore.entity.ChiTietDonHangEntity;
 import com.bookstore.entity.CuonSachEntity;
 import com.bookstore.service.ProductService;
 
@@ -23,7 +24,6 @@ public class ProductService_impl implements ProductService {
 
     public CuonSachEntity update(CuonSachEntity T) {
         return productDao.update(T);
-
     }
 
     public CuonSachEntity findById(int var1) {
@@ -33,5 +33,15 @@ public class ProductService_impl implements ProductService {
     @Override
     public List<CuonSachEntity> FindByCate(int Cate) {
         return productDao.FindByCate(Cate);
+    }
+
+    @Override
+    public List<ChiTietDonHangEntity> FindHot() {
+        return productDao.FindHot();
+    }
+
+    @Override
+    public List<CuonSachEntity> FindHotDiscount() {
+        return productDao.FindHotDiscount();
     }
 }

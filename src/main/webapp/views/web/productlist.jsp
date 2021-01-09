@@ -108,12 +108,12 @@
 <%--                                                ${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}--%>
                                             <c:choose>
                                                 <c:when test="${product.discount == 0}">
-                                                    <p>${product.giaban} VNĐ</p>
+                                                    <p><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product.giaban}" /> VNĐ</p>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <c:forEach items="${productList_km}" var="product_km">
                                                         <c:if test="${product_km.ma_CuonSach == product.ma_CuonSach}">
-                                                            <p>${product_km.giaban} VNĐ</p>
+                                                            <p><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product_km.giaban}" /> VNĐ</p>
                                                         </c:if>
                                                     </c:forEach>
                                                 </c:otherwise>

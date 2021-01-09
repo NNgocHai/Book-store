@@ -7,6 +7,7 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <c:url value = "/template/web" var="url"/>
 
 
@@ -88,44 +89,43 @@
                         <div class="aa-product-inner">
                             <!-- start prduct navigation -->
                             <ul class="nav nav-tabs aa-products-tab">
-                                <li class="active"><a href="#raucu" data-toggle="tab">Rau Củ Quả</a></li>
-                                <li><a href="#hat" data-toggle="tab">Các Loại Hạt</a></li>
-                                <li><a href="#traicay" data-toggle="tab">Trái Cây </a></li>
-                                <li><a href="#matong" data-toggle="tab">Mật Ong & Tinh Dầu</a></li>
+                                <li class="active"><a href="#" data-toggle="tab">Sản phẩm bán chạy</a></li>
                             </ul>
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <!-- Start men product category -->
-                                <div class="tab-pane fade in active" id="raucu">
+                                <div class="tab-pane fade in active" >
                                     <ul class="aa-product-catg">
                                         <!-- start single product item -->
-                                        <c:forEach items="${product_raucu}" var="product" end="7">
+                                        <c:forEach items="${product_hotList}" var="product" end="3">
                                             <li>
                                                 <figure>
-                                                    <a class="aa-product-img" href="${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}"><img src="${pageContext.request.contextPath}/view/client/assets/images/products/img-test/${product.image_link}" alt="polo shirt img"></a>
-                                                    <a class="aa-add-card-btn"href="${pageContext.request.contextPath}/view/client/add-cart?product-id=${product.id}"><span class="fa fa-shopping-cart"></span>Thêm vào giỏ hàng</a>
+                                                    <a class="aa-product-img" href="#"><img src="${pageContext.request.contextPath}/template/web/images/products/img-test/${product.getCuonSachEntity().getAnh_CuonSach()}" alt="polo shirt img"></a>
+<%--                                                        ${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}--%>
+                                                    <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Thêm vào giỏ hàng</a>
+<%--                                                        ${pageContext.request.contextPath}/view/client/add-cart?product-id=${product.id}--%>
                                                     <figcaption>
-                                                        <h4 class="aa-product-title"><a href="${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}">${product.name }</a></h4>
+                                                        <h4 class="aa-product-title"><a href="#">${product.getCuonSachEntity().getTen_CuonSach() }</a></h4>
+<%--                                                            ${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}--%>
 
                                                         <c:choose>
-                                                            <c:when test="${product.discount == 0}">
-                                                                <span class="aa-product-price">${product.price} VNĐ</span><span class="aa-product-price"></span>
+                                                            <c:when test="${product.getCuonSachEntity().getDiscount() == 0}">
+                                                                <span class="aa-product-price"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product_km.giaban}" /> VNĐ</span><span class="aa-product-price"></span>
                                                             </c:when>
                                                             <c:otherwise>
-                                                                <c:forEach items="${productlist1}" var="product1">
-                                                                    <c:if test="${product1.id == product.id}">
-                                                                        <span class="aa-product-price">${product1.price} VNĐ</span>
-                                                                        <span class="aa-product-price"><del>${product.price} VNĐ</del></span>
+                                                                <c:forEach items="${productList_km}" var="product_km">
+                                                                    <c:if test="${productList_km.ma_CuonSach == product.ma_CuonSach}">
+                                                                        <span class="aa-product-price"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product_km.giaban}" /> VNĐ</span>
+                                                                        <span class="aa-product-price"><del><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product_km.giaban}" /> VNĐ</del></span>
                                                                     </c:if>
                                                                 </c:forEach>
                                                             </c:otherwise>
                                                         </c:choose>
                                                     </figcaption>
                                                 </figure>
-
-                                                <c:if test="${product.discount != 0}">
+                                                <c:if test="${product.getCuonSachEntity().getDiscount() != 0}">
                                                     <!-- product badge -->
-                                                    <span class="aa-badge aa-sale">- ${product.discount}%</span>
+                                                    <span class="aa-badge aa-sale">- ${product.getCuonSachEntity().getDiscount()}%</span>
                                                 </c:if>
                                             </li>
                                         </c:forEach>
@@ -141,43 +141,7 @@
                                 </div>
                                 <!-- / sports product category -->
                                 <!-- start electronic product category -->
-                                <div class="tab-pane fade" id="matong">
-                                    <ul class="aa-product-catg">
-                                        <!-- start single product item -->
-                                        <c:forEach items="${product_matong}" var="product" end="7">
-                                            <li>
-                                                <figure>
-                                                    <a class="aa-product-img" href="${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}"><img src="${pageContext.request.contextPath}/view/client/assets/images/products/img-test/${product.image_link}" alt="polo shirt img"></a>
-                                                    <a class="aa-add-card-btn"href="${pageContext.request.contextPath}/view/client/add-cart?product-id=${product.id}"><span class="fa fa-shopping-cart"></span>Thêm vào giỏ hàng</a>
-                                                    <figcaption>
-                                                        <h4 class="aa-product-title"><a href="${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}">${product.name }</a></h4>
-                                                        <c:choose>
-                                                            <c:when test="${product.discount == 0}">
-                                                                <span class="aa-product-price">${product.price} VNĐ</span><span class="aa-product-price"></span>
-                                                            </c:when>
-                                                            <c:otherwise>
-                                                                <c:forEach items="${productlist1}" var="product1">
-                                                                    <c:if test="${product1.id == product.id}">
-                                                                        <span class="aa-product-price">${product1.price} VNĐ</span>
-                                                                        <span class="aa-product-price"><del>${product.price} VNĐ</del></span>
-                                                                    </c:if>
-                                                                </c:forEach>
-                                                            </c:otherwise>
-                                                        </c:choose>
-                                                    </figcaption>
-                                                </figure>
 
-                                                <c:if test="${product.discount != 0}">
-                                                    <!-- product badge -->
-                                                    <span class="aa-badge aa-sale">- ${product.discount}%</span>
-                                                </c:if>
-                                            </li>
-                                        </c:forEach>
-                                        <!-- start single product item -->
-
-                                    </ul>
-
-                                </div>
                                 <!-- / electronic product category -->
                             </div>
                             <div class="more-product">
