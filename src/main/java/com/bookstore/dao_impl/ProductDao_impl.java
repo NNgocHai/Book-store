@@ -2,6 +2,7 @@ package com.bookstore.dao_impl;
 
 import com.bookstore.dao.CustomerDao;
 import com.bookstore.dao.ProductDao;
+import com.bookstore.entity.ChiTietDonHangEntity;
 import com.bookstore.entity.CuonSachEntity;
 import com.bookstore.entity.CustomerEntity;
 import java.util.ArrayList;
@@ -18,10 +19,38 @@ import org.hibernate.query.Query;
 
 public class ProductDao_impl extends GenericDao_impl<Integer, CuonSachEntity> implements ProductDao {
 
+    @Override
+    public List<CuonSachEntity> FindHotDiscount() {
+        List<CuonSachEntity> results =new ArrayList<CuonSachEntity>();
+        Transaction transaction = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try  {
+            // start a transaction
+            transaction = session.beginTransaction();
+
+            // get an cuonSachEntity object
+            StringBuilder sql = new StringBuilder("FROM CuonSachEntity P order by P.discount DESC");
+            Query query = session.createQuery(sql.toString());
+            results = query.getResultList();
+
+
+            // commit transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return results;
+    }
+
     public List<CuonSachEntity> FindByCate(int Cate) {
         List<CuonSachEntity> results =new ArrayList<CuonSachEntity>();
         Transaction transaction = null;
-        CuonSachEntity cuonSachEntity = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try  {
             // start a transaction
@@ -49,19 +78,17 @@ public class ProductDao_impl extends GenericDao_impl<Integer, CuonSachEntity> im
     }
 
     @Override
-    public List<CuonSachEntity> FindHot(int Cate) {
-        List<CuonSachEntity> results =new ArrayList<CuonSachEntity>();
+    public List<ChiTietDonHangEntity> FindHot() {
+        List<ChiTietDonHangEntity> results =new ArrayList<ChiTietDonHangEntity>();
         Transaction transaction = null;
-        CuonSachEntity cuonSachEntity = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try  {
             // start a transaction
             transaction = session.beginTransaction();
 
             // get an cuonSachEntity object
-            StringBuilder sql = new StringBuilder("FROM CuonSachEntity P WHERE P.ma_DauSach = :Cate");
+            StringBuilder sql = new StringBuilder("select soluong,cuonSachEntity   FROM ChiTietDonHangEntity  ORDER BY soluong DESC");
             Query query = session.createQuery(sql.toString());
-            query.setParameter("Cate", Cate);
             results = query.getResultList();
 
 
