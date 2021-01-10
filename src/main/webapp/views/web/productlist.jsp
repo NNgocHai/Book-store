@@ -43,10 +43,10 @@
                             <c:forEach items="${productList}" var="product">
                                 <li>
                                     <figure>
-                                        <a class="aa-product-img" href="#"><img src="${pageContext.request.contextPath}/template/web/images/products/img-test/${product.anh_CuonSach}" alt="${product.ten_CuonSach}"></a>
+                                        <a class="aa-product-img" href="${pageContext.request.contextPath}/web/productDetail?id=${product.ma_CuonSach}&Cate=${product.ma_DauSach}"><img src="${pageContext.request.contextPath}/template/web/images/products/img-test/${product.anh_CuonSach}" alt="${product.ten_CuonSach}"></a>
                                         <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Thêm vào giỏ hàng</a>
                                         <figcaption>
-                                            <h4 class="aa-product-title"><a href="#">${product.ten_CuonSach}</a></h4>
+                                            <h4 class="aa-product-title"><a href="${pageContext.request.contextPath}/web/productDetail?id=${product.ma_CuonSach}&Cate=${product.ma_DauSach}">${product.ten_CuonSach}</a></h4>
 
                                             <c:choose>
                                                 <c:when test="${product.discount == 0}">
@@ -104,7 +104,7 @@
                                         <a href="#" class="aa-cartbox-img"><img alt="img" src="${pageContext.request.contextPath}/template/web/images/products/img-test/${product.anh_CuonSach}"></a>
 <%--                                            ${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}--%>
                                         <div class="aa-cartbox-info">
-                                            <h4><a href="">${product.ten_CuonSach }</a></h4>
+                                            <h4><a href="#">${product.ten_CuonSach }</a></h4>
 <%--                                                ${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}--%>
                                             <c:choose>
                                                 <c:when test="${product.discount == 0}">

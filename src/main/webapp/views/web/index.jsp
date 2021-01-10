@@ -5,10 +5,10 @@
   Time: 8:56 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<c:url value = "/template/web" var="url"/>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:url value="/template/web" var="url"/>
 
 <!-- Start slider -->
 <section id="aa-slider">
@@ -19,50 +19,57 @@
                     <!-- single slide item -->
                     <li>
                         <div class="seq-model">
-                            <img data-seq src="${url}/images/slide_1.jpg" alt="Men slide img" />
+                            <img data-seq src="${url}/images/slide_1.jpg" alt="Men slide img"/>
                         </div>
                         <div class="seq-title">
-                            <span data-seq>Giảm giá lên đến 50%</span>
+                            <span data-seq>Giảm giá lên đến ${productListHotDiscount.get(0).getDiscount()}%</span>
                             <h2 data-seq>Các Loại Hạt Bổ Dưỡng</h2>
-                            <p data-seq>Các loại hạt tại của hàng luôn luôn được tuyển chọn,và các mặt hàng luôn đảm bảo chất lượng.</p>
-                            <a data-seq href="${pageContext.request.contextPath}/view/client/product" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                            <p data-seq>Các loại hạt tại của hàng luôn luôn được tuyển chọn,và các mặt hàng luôn đảm bảo
+                                chất lượng.</p>
+                            <a data-seq href="${pageContext.request.contextPath}/web/product"
+                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
                         </div>
                     </li>
                     <!-- single slide item -->
                     <li>
                         <div class="seq-model">
-                            <img data-seq src="${url}/images/slide_2.jpg" alt="Wristwatch slide img" />
+                            <img data-seq src="${url}/images/slide_2.jpg" alt="Wristwatch slide img"/>
                         </div>
                         <div class="seq-title">
                             <span data-seq>Giảm giá lên đến 20%</span>
                             <h2 data-seq>Rau Củ Quả Xanh Sạch</h2>
-                            <p data-seq>Rau củ quả được trồng đảm bảo không thuốc hóa học , đảm bảo chất lương xanh sạch và an toàn.</p>
-                            <a data-seq href="${pageContext.request.contextPath}/view/client/product" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                            <p data-seq>Rau củ quả được trồng đảm bảo không thuốc hóa học , đảm bảo chất lương xanh sạch
+                                và an toàn.</p>
+                            <a data-seq href="${pageContext.request.contextPath}/web/product"
+                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
                         </div>
                     </li>
                     <!-- single slide item -->
                     <li>
                         <div class="seq-model">
-                            <img data-seq src="${url}/images/slide_3.jpg" alt="Women Jeans slide img" />
+                            <img data-seq src="${url}/images/slide_3.jpg" alt="Women Jeans slide img"/>
                         </div>
                         <div class="seq-title">
                             <span data-seq>Giảm giá lên đến 33%</span>
                             <h2 data-seq>Trái Cây Ngon Ngọt</h2>
-                            <p data-seq>Trái cây tại cửa hàng đa dạng về loại hàng, luôn đảm bảo tính an toàn và chất lượng lên hàng đầu.</p>
-                            <a data-seq href="${pageContext.request.contextPath}/view/client/product" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                            <p data-seq>Trái cây tại cửa hàng đa dạng về loại hàng, luôn đảm bảo tính an toàn và chất
+                                lượng lên hàng đầu.</p>
+                            <a data-seq href="${pageContext.request.contextPath}/web/product"
+                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
                         </div>
                     </li>
                     <!-- single slide item -->
                     <li>
                         <div class="seq-model">
-                            <img data-seq src="${url}/images/slide_4.jpg" alt="Shoes slide img" />
+                            <img data-seq src="${url}/" alt="Shoes slide img"/>
                         </div>
                         <div class="seq-title">
                             <span data-seq>Giảm giá lên đến 25%</span>
                             <h2 data-seq>Mật Ong Và Tinh Dầu</h2>
                             <p data-seq>Là 2 sản phẩm mới bên cửa hàng của chúng tôi,sản phẩm đã được kiểm định
                                 và cấp phép về an toàn.</p>
-                            <a data-seq href="${pageContext.request.contextPath}/view/client/product" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                            <a data-seq href="${pageContext.request.contextPath}/web/product"
+                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
                         </div>
                     </li>
                 </ul>
@@ -88,11 +95,15 @@
                         <div class="col-md-5 no-padding">
                             <div class="aa-promo-left">
                                 <div class="aa-promo-banner">
-                                    <img src="${url}/images/section1_tc.jpg" alt="dâu tây Đà Lạt">
-                                    <div class="aa-prom-content">
-                                        <span>Giảm giá 35%</span>
-                                        <h4>Dâu tây Đà Lạt</h4>
+
+                                    <img
+                                            src="${pageContext.request.contextPath}/template/web/images/products/img-test/${productListHotDiscount.get(0).getAnh_CuonSach()}"
+                                         alt="${productListHotDiscount.get(0).getTen_CuonSach()}">
+                                    <div class="aa-prom-content aa-product-img">
+                                        <span>Giảm giá ${productListHotDiscount.get(0).getDiscount()}%</span>
+                                        <h4>${productListHotDiscount.get(0).getTen_CuonSach()}</h4>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -100,38 +111,42 @@
                         <div class="col-md-7 no-padding">
                             <div class="aa-promo-right">
                                 <div class="aa-single-promo-right">
-                                    <div class="aa-promo-banner">
-                                        <img src="${url}/images/section2_tc.jpg" alt="hạt tiêu daklak">
+                                    <div class="aa-promo-banner aa-product-img">
+                                        <img src="${pageContext.request.contextPath}/template/web/images/products/img-test/${productListHotDiscount.get(1).getAnh_CuonSach()}"
+                                             alt="${productListHotDiscount.get(1).getTen_CuonSach()}">
                                         <div class="aa-prom-content">
-                                            <span>Sản Phẩm độc quyền</span>
-                                            <h4>Hạt tiêu DakLak</h4>
+                                            <span>Giảm giá ${productListHotDiscount.get(1).getDiscount()}%</span>
+                                            <h4>${productListHotDiscount.get(1).getTen_CuonSach()}</h4>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="aa-single-promo-right">
                                     <div class="aa-promo-banner">
-                                        <img src="${url}/images/section3_tc.jpg" alt="img">
+                                        <img src="${pageContext.request.contextPath}/template/web/images/products/img-test/${productListHotDiscount.get(2).getAnh_CuonSach()}"
+                                             alt="${productListHotDiscount.get(2).getTen_CuonSach()}">
                                         <div class="aa-prom-content">
-                                            <span>Sản phẩm nhập khẩu</span>
-                                            <h4>Cherry Mỹ</h4>
+                                            <span>Giảm giá ${productListHotDiscount.get(2).getDiscount()}%</span>
+                                            <h4>${productListHotDiscount.get(2).getTen_CuonSach()}</h4>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="aa-single-promo-right">
                                     <div class="aa-promo-banner">
-                                        <img src="${url}/images/section4_tc.jpg" alt="img">
+                                        <img src="${pageContext.request.contextPath}/template/web/images/products/img-test/${productListHotDiscount.get(3).getAnh_CuonSach()}"
+                                             alt="${productListHotDiscount.get(3).getTen_CuonSach()}">
                                         <div class="aa-prom-content">
-                                            <span>Giảm giá 25%</span>
-                                            <h4>Tinh Dầu Sả</h4>
+                                            <span>Giảm giá ${productListHotDiscount.get(3).getDiscount()}%</span>
+                                            <h4>${productListHotDiscount.get(3).getTen_CuonSach()}</h4>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="aa-single-promo-right">
                                     <div class="aa-promo-banner">
-                                        <img src="${url}/images/section5_tc.jpg" alt="img">
+                                        <img src="${pageContext.request.contextPath}/template/web/images/products/img-test/${productListHotDiscount.get(4).getAnh_CuonSach()}"
+                                             alt="${productListHotDiscount.get(4).getTen_CuonSach()}">
                                         <div class="aa-prom-content">
-                                            <span>Sản phẩm độc quyền</span>
-                                            <h4>Mật ong rừng Tây Bắc</h4>
+                                            <span>Giảm giá ${productListHotDiscount.get(4).getDiscount()}%</span>
+                                            <h4>${productListHotDiscount.get(4).getTen_CuonSach()}</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -159,29 +174,41 @@
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <!-- Start men product category -->
-                                <div class="tab-pane fade in active" >
+                                <div class="tab-pane fade in active">
                                     <ul class="aa-product-catg">
                                         <!-- start single product item -->
                                         <c:forEach items="${product_hotList}" var="product" end="7">
                                             <li>
                                                 <figure>
-                                                    <a class="aa-product-img" href="#"><img src="${pageContext.request.contextPath}/template/web/images/products/img-test/${product.getCuonSachEntity().getAnh_CuonSach()}" alt="polo shirt img"></a>
-<%--                                                        ${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}--%>
-                                                    <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Thêm vào giỏ hàng</a>
-<%--                                                        ${pageContext.request.contextPath}/view/client/add-cart?product-id=${product.id}--%>
+                                                    <a class="aa-product-img" href="${pageContext.request.contextPath}/web/productDetail?id=${product.getCuonSachEntity().getMa_CuonSach()}&Cate=${product.getCuonSachEntity().getMa_DauSach()}"><img
+                                                            src="${pageContext.request.contextPath}/template/web/images/products/img-test/${product.getCuonSachEntity().getAnh_CuonSach()}"
+                                                            alt="polo shirt img"></a>
+                                                        <%--                                                        ${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}--%>
+                                                    <a class="aa-add-card-btn" href="#"><span
+                                                            class="fa fa-shopping-cart"></span>Thêm vào giỏ hàng</a>
+                                                        <%--                                                        ${pageContext.request.contextPath}/view/client/add-cart?product-id=${product.id}--%>
                                                     <figcaption>
-                                                        <h4 class="aa-product-title"><a href="#">${product.getCuonSachEntity().getTen_CuonSach() }</a></h4>
-<%--                                                            ${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}--%>
+                                                        <h4 class="aa-product-title"><a
+                                                                href=" ${pageContext.request.contextPath}/web/productDetail?id=${product.getCuonSachEntity().getMa_CuonSach()}&Cate=${product.getCuonSachEntity().getMa_DauSach()}">${product.getCuonSachEntity().getTen_CuonSach() }</a>
+                                                        </h4>
+                                                            <%--                                                            ${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}--%>
 
                                                         <c:choose>
                                                             <c:when test="${product.getCuonSachEntity().getDiscount() == 0}">
-                                                                <span class="aa-product-price"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product.getCuonSachEntity().getGiabia()}" /> VNĐ</span><span class="aa-product-price"></span>
+                                                                <span class="aa-product-price"><fmt:formatNumber
+                                                                        type="number" maxFractionDigits="3"
+                                                                        value="${product.getCuonSachEntity().getGiabia()}"/> VNĐ</span><span
+                                                                    class="aa-product-price"></span>
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <c:forEach items="${productList_km}" var="product_km">
                                                                     <c:if test="${product_km.ma_CuonSach == product.getCuonSachEntity().getMa_CuonSach()}">
-                                                                        <span class="aa-product-price"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product_km.giabia}" /> VNĐ</span>
-                                                                        <span class="aa-product-price"><del><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product.getCuonSachEntity().getGiabia()}" /> VNĐ</del></span>
+                                                                        <span class="aa-product-price"><fmt:formatNumber
+                                                                                type="number" maxFractionDigits="3"
+                                                                                value="${product_km.giabia}"/> VNĐ</span>
+                                                                        <span class="aa-product-price"><del><fmt:formatNumber
+                                                                                type="number" maxFractionDigits="3"
+                                                                                value="${product.getCuonSachEntity().getGiabia()}"/> VNĐ</del></span>
                                                                     </c:if>
                                                                 </c:forEach>
                                                             </c:otherwise>
@@ -201,24 +228,25 @@
                                 <!-- / men product category -->
                                 <!-- start women product category -->
 
-                                    </ul>
+                                </ul>
 
-                                </div>
-                                <!-- / sports product category -->
-                                <!-- start electronic product category -->
-
-                                <!-- / electronic product category -->
                             </div>
-                            <div class="more-product">
-                                <a class="aa-browse-btn" href="${pageContext.request.contextPath}/view/client/product">Xem Tất Cả Sản Phẩm <span class="fa fa-long-arrow-right"></span></a>
-                            </div>
+                            <!-- / sports product category -->
+                            <!-- start electronic product category -->
 
-
+                            <!-- / electronic product category -->
                         </div>
+                        <div class="more-product">
+                            <a class="aa-browse-btn" href="${pageContext.request.contextPath}/web/product">Xem Tất Cả
+                                Sản Phẩm <span class="fa fa-long-arrow-right"></span></a>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 <!-- / Products section -->
@@ -270,46 +298,51 @@
                 <div class="aa-testimonial-area">
                     <ul class="aa-testimonial-slider">
                         <!-- single slide -->
-                        <li>
-                            <div class="aa-testimonial-single">
-                                <img class="aa-testimonial-img" src="${url}/images/avatar.jpg" alt="avatar 1">
-                                <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                                <p>Tôi đã mua hàng ở cửa hàng khá nhiều lần rồi, và tôi cảm thấy sản phẩm của cửa hàng
-                                    được giao khá nhanh và sản phẩm thì tốt.</p>
-                                <div class="aa-testimonial-info">
-                                    <p>Ngọc Huy</p>
-                                    <span>Nhân viên kinh doanh</span>
+                        <c:if test="${reviewEntities.size()-1 >= 0}">
+                            <li>
+                                <div class="aa-testimonial-single">
+                                    <img class="aa-testimonial-img" src="${url}/images/avatar.jpg" alt="avatar 1">
+                                    <span class="fa fa-quote-left aa-testimonial-quote"></span>
+                                    <p>${reviewEntities.get(reviewEntities.size()-1).getBinhluan()}</p>
+                                    <div class="aa-testimonial-info">
+                                        <p>${reviewEntities.get(reviewEntities.size()-1).getCustomerEntity().getHoten_Customer()}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
+                        </c:if>
                         <!-- single slide -->
-                        <li>
-                            <div class="aa-testimonial-single">
-                                <img class="aa-testimonial-img" src="${url}/images/avater-2.jpg" alt="avatar 2">
-                                <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                                <p> Về chất lượng của sản phẩm thì khỏi phải bàn, rau củ luôn tươi xanh nhìn rất thích. Tôi sẽ mua hàng ở đây thường xuyên<p>
-                                <div class="aa-testimonial-info">
-                                <p>Mỹ Tân</p>
-                                <span>Diễn Viên</span>
-                            </div>
-                        </li>
-                </li>
-                <!-- single slide -->
-                <li>
-                    <div class="aa-testimonial-single">
-                        <img class="aa-testimonial-img" src="${url}/images/avatar-1.jpg" alt="avatar 3">
-                        <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                        <p>Nhiều lần đi làm bận rộn, không có thời gian ra siêu thị nên tôi thường mua hàng online ở đây. Chất lượng sản phẩm và dịch vụ ở đây rất là tốt!</p>
-                        <div class="aa-testimonial-info">
-                            <p>Oanh Oanh</p>
-                            <span>Sinh viên</span>
-                        </div>
-                    </div>
-                </li>
-                </ul>
+                        <c:if test="${reviewEntities.size()-2 >= 0}">
+
+                            <li>
+                                <div class="aa-testimonial-single">
+                                    <img class="aa-testimonial-img" src="${url}/images/avater-2.jpg" alt="avatar 2">
+                                    <span class="fa fa-quote-left aa-testimonial-quote"></span>
+                                    <p>${reviewEntities.get(reviewEntities.size()-2).getBinhluan()}
+                                    <p>
+                                        <div class="aa-testimonial-info">
+                                    <p>${reviewEntities.get(reviewEntities.size()-2).getCustomerEntity().getHoten_Customer()}</p>
+                                </div>
+                            </li>
+                            </li>
+                        </c:if>
+                        <!-- single slide -->
+                        <c:if test="${reviewEntities.size()-3 >= 0}">
+
+                            <li>
+                                <div class="aa-testimonial-single">
+                                    <img class="aa-testimonial-img" src="${url}/images/avatar-1.jpg" alt="avatar 3">
+                                    <span class="fa fa-quote-left aa-testimonial-quote"></span>
+                                    <p>${reviewEntities.get(reviewEntities.size()-2).getBinhluan()}</p>
+                                    <div class="aa-testimonial-info">
+                                        <p>${reviewEntities.get(reviewEntities.size()-2).getCustomerEntity().getHoten_Customer()}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </section>
 <!-- / Testimonial -->
@@ -327,15 +360,20 @@
                             <div class="col-md-4 col-sm-4">
                                 <div class="aa-latest-blog-single">
                                     <figure class="aa-blog-img">
-                                        <a href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}"><img src="${pageContext.request.contextPath}/view/client/assets/images/news/${boardnew.image_link}" alt="Tin tức ${boardnew.title}"></a>
+                                        <a href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}"><img
+                                                src="${pageContext.request.contextPath}/view/client/assets/images/news/${boardnew.image_link}"
+                                                alt="Tin tức ${boardnew.title}"></a>
                                         <figcaption class="aa-blog-img-caption">
                                             <span href="#"><i class="fa fa-clock-o"></i>${boardnew.created}</span>
                                         </figcaption>
                                     </figure>
                                     <div class="aa-blog-info">
-                                        <h3 class="aa-blog-title"><a href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}">${boardnew.title}</a></h3>
+                                        <h3 class="aa-blog-title"><a
+                                                href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}">${boardnew.title}</a>
+                                        </h3>
                                         <p class="desc-boardnews">${boardnew.content}</p>
-                                        <a href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}" class="aa-read-mor-btn">Xem thêm<span class="fa fa-long-arrow-right"></span></a>
+                                        <a href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}"
+                                           class="aa-read-mor-btn">Xem thêm<span class="fa fa-long-arrow-right"></span></a>
                                     </div>
                                 </div>
                             </div>
