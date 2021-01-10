@@ -22,13 +22,19 @@ public class CuonSachEntity implements Serializable {
     @Column(name ="soluong")
     private Integer soluong;
 
-    @Column(name ="giaban")
-    private Integer giaban;
+
+
+    @Column(name ="giabia")
+    private Integer giabia;
 
     @Column(name = "anh_CuonSach")
     private String anh_CuonSach;
+
     @Column(name="discount")
     private Integer discount;
+
+    @Column(name = "mota")
+    private String mota;
 
 
 
@@ -57,8 +63,21 @@ public class CuonSachEntity implements Serializable {
     public void setChiTietDonHangEntityList(List<ChiTietDonHangEntity> chiTietDonHangEntityList) {
         this.chiTietDonHangEntityList = chiTietDonHangEntityList;
     }
+    public Integer getGiabia() {
+        return giabia;
+    }
 
+    public void setGiabia(Integer giabia) {
+        this.giabia = giabia;
+    }
 
+    public String getMota() {
+        return mota;
+    }
+
+    public void setMota(String mota) {
+        this.mota = mota;
+    }
 
     public Integer getMa_CuonSach() {
         return ma_CuonSach;
@@ -107,13 +126,7 @@ public class CuonSachEntity implements Serializable {
         this.soluong = soluong;
     }
 
-    public Integer getGiaban() {
-        return giaban;
-    }
 
-    public void setGiaban(Integer giaban) {
-        this.giaban = giaban;
-    }
 
     public String getAnh_CuonSach() {
         return anh_CuonSach;

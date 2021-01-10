@@ -47,8 +47,8 @@ public class ProductViewbyCate extends HttpServlet{
         {
             CuonSachEntity product_km = new CuonSachEntity();
             product_km = productService_impl.findById(product.getMa_CuonSach());
-            double db =(Double.parseDouble(String.valueOf(product.getGiaban())) * (1 - (Double.parseDouble(String.valueOf(product.getDiscount()))/100)));
-            product_km.setGiaban((int)db);
+            double db =(Double.parseDouble(String.valueOf(product.getGiabia())) * (1 - (Double.parseDouble(String.valueOf(product.getDiscount()))/100)));
+            product_km.setGiabia((int)db);
             productList_km.add(product_km);
 
         }

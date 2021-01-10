@@ -65,7 +65,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="input-8">Giá bán</label>
-                                <input type="text" class="form-control" id="input-8" placeholder="Giá bán" name="cuonsach_giaban" value="${cuonsach.giaban}${giaban}">
+                                <input type="text" class="form-control" id="input-8" placeholder="Giá bán" name="cuonsach_giaban" value="${cuonsach.giabia}${giabia}">
                             </div>
                             <div class="form-footer">
                                 <button type="reset" class="btn btn-danger"><i class="fa fa-times"></i> <a href="${pageContext.request.contextPath}/admin/product/list">Hủy</a> </button>

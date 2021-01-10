@@ -1,10 +1,7 @@
 package com.bookstore.controller.admin;
 
-import com.bookstore.entity.CuonSachEntity;
 import com.bookstore.entity.ReviewEntity;
-import com.bookstore.service.CuonSachService;
 import com.bookstore.service.ReviewService;
-import com.bookstore.service_impl.CuonSachService_impl;
 import com.bookstore.service_impl.ReviewService_impl;
 
 import javax.servlet.RequestDispatcher;
