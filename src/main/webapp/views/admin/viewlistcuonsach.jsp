@@ -41,7 +41,6 @@
                             <table class="table tablee table-striped">
                                 <thead>
                                 <tr>
-                                    <th  scope="col">#</th>
                                     <th scope="col">Mã Đầu Sách</th>
                                     <th scope="col" class="limit-width"><span>Tên Cuốn Sách</span></th>
                                     <th scope="col">Tác Giả</th>
@@ -49,14 +48,12 @@
                                     <th scope="col">Ảnh Cuốn Sách</th>
                                     <th scope="col">Discount</th>
                                     <th scope="col">Giá Bán</th>
-                                    <th scope="col">Mô tả</th>
                                     <th scope="col">Hành động</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${cuonsachList}" var="cuonsach">
                                     <tr>
-                                        <td scope="row">${cuonsach.ma_CuonSach}</td>
                                         <td>${cuonsach.ma_DauSach}</td>
                                         <td class="limit-width"><span>${cuonsach.ten_CuonSach}</span></td>
                                         <td>${cuonsach.tacgia}</td>
@@ -64,7 +61,6 @@
                                         <td><a class="aa-product-img" href="#"><img width="100" height="125" src="${pageContext.request.contextPath}/template/web/images/products/img-test/${cuonsach.anh_CuonSach}"></a></td>
                                         <td>${cuonsach.discount}</td>
                                         <td>${cuonsach.giabia}</td>
-                                        <td width="250">${cuonsach.mota}</td>
                                         <td>
                                             <button type="reset" class="btn btn-danger"><a href="${pageContext.request.contextPath}/admin/product/delete?cuonsach_id=${cuonsach.ma_CuonSach}">Xóa</a></button>
                                             <button class="btn btn-success"><a href="${pageContext.request.contextPath}/admin/product/edit?cuonsach_id=${cuonsach.ma_CuonSach}">Sửa</a></button>
