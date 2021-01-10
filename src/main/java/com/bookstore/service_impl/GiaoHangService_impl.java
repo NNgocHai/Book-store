@@ -14,4 +14,9 @@ public class GiaoHangService_impl implements GiaoHangService {
         return giaoHangDao.findID(id);
     }
 
+    @Override
+    public List<GiaoHangEntity> findID_DG(Integer id) {
+        return giaoHangDao.findID_DG(id);
+    }
+
 }

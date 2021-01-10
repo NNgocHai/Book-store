@@ -16,7 +16,7 @@ public class GiaoHangDao_impl extends GenericDao_impl<Integer, GiaoHangEntity> i
     public List<GiaoHangEntity> findID(Integer id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        List<GiaoHangEntity> userEntities = new ArrayList<GiaoHangEntity>();
+        List<GiaoHangEntity> donHangEntities = new ArrayList<GiaoHangEntity>();
         String a = "Chưa giao";
         try {
             StringBuilder sql = new StringBuilder("Select donHangEntity.ma_DH, donHangEntity.ma_Customer, ");
@@ -27,13 +27,39 @@ public class GiaoHangDao_impl extends GenericDao_impl<Integer, GiaoHangEntity> i
             Query query = session.createQuery(sql.toString());
             query.setParameter("value", id);
             query.setParameter("value1", a);
-            userEntities = query.list();
+            donHangEntities = query.list();
         } catch (HibernateException e) {
             transaction.rollback();
             throw e;
         } finally {
             session.close();
         }
-        return userEntities;
+        return donHangEntities;
+    }
+
+    @Override
+    public List<GiaoHangEntity> findID_DG(Integer id) {
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        List<GiaoHangEntity> donHangEntities = new ArrayList<GiaoHangEntity>();
+        String a = "Đã giao";
+        try {
+            StringBuilder sql = new StringBuilder("Select donHangEntity.ma_DH, donHangEntity.diachi, donHangEntity.sdt, ");
+            sql.append(" donHangEntity.tongtien, donHangEntity.activeDH");
+            sql.append(" From GiaoHangEntity ");
+            sql.append(" where shipperEntity.ma_Shipper = :value");
+            sql.append(" and donHangEntity.activeDH = :value1");
+            Query query = session.createQuery(sql.toString());
+            query.setParameter("value", id);
+            query.setParameter("value1", a);
+            donHangEntities = query.list();
+        } catch (HibernateException e) {
+            transaction.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+        return donHangEntities;
     }
 }

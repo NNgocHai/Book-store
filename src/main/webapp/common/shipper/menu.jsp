@@ -9,10 +9,15 @@
         </a>
     </div>
     <ul class="sidebar-menu do-nicescrol">
-        <li class="sidebar-header">Công việc</li>
+        <li class="sidebar-header">MENU SHIPPER</li>
         <li>
             <a href="${pageContext.request.contextPath}/shipper/home">
-                <i class="zmdi zmdi-view-dashboard"></i> <span>Xem Đơn Hàng</span>
+                <i class="zmdi zmdi-view-dashboard"></i> <span>Đơn Hàng chưa giao</span>
+            </a>
+        </li>
+        <li>
+            <a href="${pageContext.request.contextPath}/shipper/history">
+                <i class="zmdi zmdi-view-dashboard"></i> <span>Lịch sử giao hàng</span>
             </a>
         </li>
 
