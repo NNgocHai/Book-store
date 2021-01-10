@@ -49,6 +49,7 @@
                                     <th scope="col">Ảnh Cuốn Sách</th>
                                     <th scope="col">Discount</th>
                                     <th scope="col">Giá Bán</th>
+                                    <th scope="col">Mô tả</th>
                                     <th scope="col">Hành động</th>
                                 </tr>
                                 </thead>
@@ -63,6 +64,7 @@
                                         <td><a class="aa-product-img" href="#"><img width="100" height="125" src="${pageContext.request.contextPath}/template/web/images/products/img-test/${cuonsach.anh_CuonSach}"></a></td>
                                         <td>${cuonsach.discount}</td>
                                         <td>${cuonsach.giabia}</td>
+                                        <td width="250">${cuonsach.mota}</td>
                                         <td>
                                             <button type="reset" class="btn btn-danger"><a href="${pageContext.request.contextPath}/admin/product/delete?cuonsach_id=${cuonsach.ma_CuonSach}">Xóa</a></button>
                                             <button class="btn btn-success"><a href="${pageContext.request.contextPath}/admin/product/edit?cuonsach_id=${cuonsach.ma_CuonSach}">Sửa</a></button>

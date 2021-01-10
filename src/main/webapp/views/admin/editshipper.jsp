@@ -37,15 +37,15 @@
                             <div><b> <span style="color:red"> ${errorMessage}</span></b></div>
                             <div class="form-group">
                                 <label for="input-1">ID</label>
-                                <input type="text" class="form-control" readonly id="input-1" placeholder="Shipper ID" name="id" value="${shipper.ma_Shipper}${id}">
+                                <input type="text" class="form-control" readonly id="input-1" placeholder="Shipper ID" name="id" value="${shipper.ma_Shipper}" required>
                             </div>
                             <div class="form-group">
                                 <label for="input-2">Username</label>
-                                <input type="text" class="form-control" id="input-2" placeholder="Username" name="shipper-username" value="${shipper.taikhoan_Shipper}${shipper_tk}">
+                                <input type="text" class="form-control" id="input-2" placeholder="Username" name="shipper-username" value="${shipper.taikhoan_Shipper}" required>
                             </div>
                             <div class="form-group">
                                 <label for="input-3">Password</label>
-                                <input type="password" class="form-control" id="input-3" placeholder="Mật khẩu" name="shipper-password" value="${shipper.matkhau_Shipper}${shipper_password}">
+                                <input type="password" class="form-control" id="input-3" placeholder="Mật khẩu" name="shipper-password" value="${shipper.matkhau_Shipper}" required>
                                 <input type="checkbox" onclick="myFunction1()">Hiển thị mật khẩu
                                 <script>function myFunction1() {
                                     var x = document.getElementById("input-3");
@@ -58,11 +58,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="input-4">Tên Customer</label>
-                                <input type="text" class="form-control" id="input-4" placeholder="Tên Admin" name="shipper-name" value="${shipper.hoten_Shipper}${shipper_name}">
+                                <input type="text" class="form-control" id="input-4" placeholder="Tên Admin" name="shipper-name" value="${shipper.hoten_Shipper}" required>
                             </div>
                             <div class="form-group">
                                 <label for="input-5">Email</label>
-                                <input type="email" class="form-control" id="input-5" placeholder="Email" name="shipper-email" value="${shipper.gmail_Shipper}${shipper_gmail}">
+                                <input type="email" class="form-control" id="input-5" placeholder="Email" name="shipper-email" value="${shipper.gmail_Shipper}" required>
                             </div>
 
                             <div class="form-footer">
