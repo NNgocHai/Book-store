@@ -9,6 +9,9 @@
         <pattern>/ajax*</pattern>
         <pattern>/admin/login</pattern>
         <pattern>/admin/logout</pattern>
+        <pattern>/shipper/logout</pattern>
+        <pattern>/shipper/login</pattern>
+
     </excludes>
     <!-- decorator dua vao ten cua URL de apply giao dien tuong ung cho page -->
     <!-- load trang admin -->
@@ -18,6 +21,10 @@
 
     <decorator name="web" page="web.jsp">
         <pattern>/web*</pattern>
+    </decorator>
+
+    <decorator name="shipper" page="shipper.jsp">
+        <pattern>/shipper*</pattern>
     </decorator>
     <decorator>
 

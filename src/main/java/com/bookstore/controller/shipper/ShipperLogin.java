@@ -1,10 +1,6 @@
 package com.bookstore.controller.shipper;
 
-import com.bookstore.dao.ShipperDao;
-import com.bookstore.dao_impl.ShipperDao_impl;
-import com.bookstore.service.AdminService;
 import com.bookstore.service.ShipperService;
-import com.bookstore.service_impl.AdminService_impl;
 import com.bookstore.service_impl.ShipperService_impl;
 
 import javax.servlet.RequestDispatcher;

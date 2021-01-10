@@ -4,11 +4,8 @@ import com.bookstore.dao.GiaoHangDao;
 import com.bookstore.dao.ShipperDao;
 import com.bookstore.dao_impl.GiaoHangDao_impl;
 import com.bookstore.dao_impl.ShipperDao_impl;
-import com.bookstore.entity.AdminsEntity;
 import com.bookstore.entity.GiaoHangEntity;
 import com.bookstore.entity.ShipperEntity;
-import com.bookstore.service.AdminService;
-import com.bookstore.service_impl.AdminService_impl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,8 +22,6 @@ public class ShipperViewListDH extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//        AdminService admin = new AdminService_impl();
-//        List<AdminsEntity> adminList = admin.findAll();
         HttpSession session = request.getSession();
         String user = (String) session.getAttribute("user");
         ShipperDao shipperDao = new ShipperDao_impl();
@@ -43,8 +38,6 @@ public class ShipperViewListDH extends HttpServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/views/shipper/viewlistdonhang.jsp");
                 dispatcher.forward(request, response);
             } else {
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/views/shipper/finished.jsp");
-//            dispatcher.forward(request, response);
                 response.sendRedirect(request.getContextPath() + "/shipper/finish");
             }
         }

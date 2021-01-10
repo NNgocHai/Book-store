@@ -1,2 +1,4 @@
-package com.bookstore.service;public interface GiaoHangService {
+package com.bookstore.service;
+
+public interface GiaoHangService {
 }
