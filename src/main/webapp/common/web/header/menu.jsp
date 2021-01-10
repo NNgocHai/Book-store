@@ -26,7 +26,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="${pageContext.request.contextPath}/">TRANG CHỦ</a></li>
                         <li><a href="${pageContext.request.contextPath}/view/client/introduce">GIỚI THIỆU</a></li>
-                        <li><a href="${pageContext.request.contextPath}/view/client/product">SẢN PHẨM</span></a>
+                        <li><a href="${pageContext.request.contextPath}/web/product">SẢN PHẨM</span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="product.jsp">RAU CỦ QUẢ</a></li>
                                 <li><a href="product.jsp">CÁC LOẠI HẠT</a></li>

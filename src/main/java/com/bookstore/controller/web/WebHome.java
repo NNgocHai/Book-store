@@ -36,18 +36,18 @@ public class WebHome extends HttpServlet {
 
 
         for(ChiTietDonHangEntity product_hot: product_hotList) {
-            product_hot.getCuonSachEntity().getTen_CuonSach();
+            product_hot.getCuonSachEntity().getMa_CuonSach();
             CuonSachEntity product_hotkm = new CuonSachEntity();
             product_hotkm = productService_impl.findById(product_hot.getCuonSachEntity().getMa_CuonSach());
             double db = (Double.parseDouble(String.valueOf(product_hot.getCuonSachEntity().getGiabia())) * (1 - (Double.parseDouble(String.valueOf(product_hot.getCuonSachEntity().getDiscount())) / 100)));
             product_hotkm.setGiabia((int) db);
             productList_km.add(product_hotkm);
         }
-
+        List<CuonSachEntity> cuon= productService_impl.FindHotDiscount();
         request.setAttribute("productList_km", productList_km);
         request.setAttribute("productListHotDiscount", productService_impl.FindHotDiscount());
         request.setAttribute("product_hotList", product_hotList);
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/index.jsp");
         rd.forward(request, response);
-    }
+    }   
 }

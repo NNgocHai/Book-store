@@ -50,13 +50,13 @@
 
                                             <c:choose>
                                                 <c:when test="${product.discount == 0}">
-                                                    <span class="aa-product-price"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product.giaban}" /> VNĐ</span><span class="aa-product-price"></span>
+                                                    <span class="aa-product-price"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product.giabia}" /> VNĐ</span><span class="aa-product-price"></span>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <c:forEach items="${productList_km}" var="product_km">
                                                         <c:if test="${product_km.ma_CuonSach == product.ma_CuonSach}">
-                                                            <span class="aa-product-price"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product_km.giaban}" /> VNĐ</span>
-                                                            <span class="aa-product-price"><del><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product.giaban}" /> VNĐ</del></span>
+                                                            <span class="aa-product-price"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product_km.giabia}" /> VNĐ</span>
+                                                            <span class="aa-product-price"><del><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product.giabia}" /> VNĐ</del></span>
                                                         </c:if>
                                                     </c:forEach>
                                                 </c:otherwise>
@@ -108,12 +108,12 @@
 <%--                                                ${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}--%>
                                             <c:choose>
                                                 <c:when test="${product.discount == 0}">
-                                                    <p><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product.giaban}" /> VNĐ</p>
+                                                    <p><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product.giabia}" /> VNĐ</p>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <c:forEach items="${productList_km}" var="product_km">
                                                         <c:if test="${product_km.ma_CuonSach == product.ma_CuonSach}">
-                                                            <p><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product_km.giaban}" /> VNĐ</p>
+                                                            <p><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product_km.giabia}" /> VNĐ</p>
                                                         </c:if>
                                                     </c:forEach>
                                                 </c:otherwise>

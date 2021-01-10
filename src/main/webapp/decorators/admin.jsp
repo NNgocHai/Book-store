@@ -25,6 +25,22 @@
     <link href="${url}/css/icons.css" rel="stylesheet" type="text/css" />
     <link href="${url}/css/sidebar-menu.css" rel="stylesheet" />
     <link href="${url}/css/app-style.css" rel="stylesheet" />
+    <style>
+        .tablee td, .tablee th{
+            white-space: initial !important;
+            text-align: center;
+        }
+        .tablee tr td:first-child, .tablee tr th:first-child, .tablee tr td:nth-child(2), .tablee tr th:nth-child(2) {
+            padding: 1%;
+        }
+        .tablee tr td:nth-child(7),.tablee tr th:nth-child(7){
+            padding: 1%;
+            white-space: nowrap;
+        }
+        .limit-width {
+            width: 15%;
+        }
+    </style>
 </head>
 <body class="bg-theme bg-theme1">
         <jsp:include page = "/common/admin/header.jsp" flush = "true" />

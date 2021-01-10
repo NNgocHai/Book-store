@@ -27,10 +27,14 @@ public class CuonSachEntity implements Serializable {
 
     @Column(name = "anh_CuonSach")
     private String anh_CuonSach;
+
     @Column(name="discount")
     private Integer discount;
-    @Column(name="mota")
+
+    @Column(name = "mota")
     private String mota;
+
+
 
 
     @ManyToOne
@@ -58,7 +62,6 @@ public class CuonSachEntity implements Serializable {
     public void setChiTietDonHangEntityList(List<ChiTietDonHangEntity> chiTietDonHangEntityList) {
         this.chiTietDonHangEntityList = chiTietDonHangEntityList;
     }
-
     public Integer getGiabia() {
         return giabia;
     }

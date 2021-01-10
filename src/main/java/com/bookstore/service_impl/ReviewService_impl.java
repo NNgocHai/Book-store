@@ -1,10 +1,7 @@
 package com.bookstore.service_impl;
 
-import com.bookstore.dao.CuonSachDao;
 import com.bookstore.dao.ReviewDao;
-import com.bookstore.dao_impl.CuonSachDao_impl;
 import com.bookstore.dao_impl.ReviewDao_impl;
-import com.bookstore.entity.CuonSachEntity;
 import com.bookstore.entity.ReviewEntity;
 import com.bookstore.service.ReviewService;
 
