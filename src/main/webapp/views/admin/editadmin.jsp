@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="input-3">Password</label>
-                                <input type="password" class="form-control" id="input-3" placeholder="Mật khẩu" name="admin-password" value="${admin.matkhau_Admin}${admin_password}">
+                                <input type="password" class="form-control" id="input-3" placeholder="Mật khẩu" name="admin-password" value="${admin.matkhau_Admin}${admin_password}" required>
                                 <input type="checkbox" onclick="myFunction1()">Hiển thị mật khẩu
                                 <script>function myFunction1() {
                                     var x = document.getElementById("input-3");

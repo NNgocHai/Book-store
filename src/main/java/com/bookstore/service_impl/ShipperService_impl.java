@@ -27,4 +27,10 @@ public class ShipperService_impl implements ShipperService {
     {
         return shipperDao.findById(var1);
     }
+    public boolean checkShipperLogin(String username, String password) {
+        return shipperDao.checkShipperLogin(username,password);
+    }
+    public List<ShipperEntity> findByUser(String user) {
+        return shipperDao.findByUser(user);
+    }
 }

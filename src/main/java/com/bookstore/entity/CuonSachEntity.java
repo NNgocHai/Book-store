@@ -22,8 +22,6 @@ public class CuonSachEntity implements Serializable {
     @Column(name ="soluong")
     private Integer soluong;
 
-
-
     @Column(name ="giabia")
     private Integer giabia;
 
@@ -35,6 +33,7 @@ public class CuonSachEntity implements Serializable {
 
     @Column(name = "mota")
     private String mota;
+
 
 
 
@@ -125,8 +124,6 @@ public class CuonSachEntity implements Serializable {
     public void setSoluong(Integer soluong) {
         this.soluong = soluong;
     }
-
-
 
     public String getAnh_CuonSach() {
         return anh_CuonSach;
