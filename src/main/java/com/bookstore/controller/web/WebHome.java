@@ -39,8 +39,8 @@ public class WebHome extends HttpServlet {
             product_hot.getCuonSachEntity().getTen_CuonSach();
             CuonSachEntity product_hotkm = new CuonSachEntity();
             product_hotkm = productService_impl.findById(product_hot.getCuonSachEntity().getMa_CuonSach());
-            double db = (Double.parseDouble(String.valueOf(product_hot.getCuonSachEntity().getGiaban())) * (1 - (Double.parseDouble(String.valueOf(product_hot.getCuonSachEntity().getDiscount())) / 100)));
-            product_hotkm.setGiaban((int) db);
+            double db = (Double.parseDouble(String.valueOf(product_hot.getCuonSachEntity().getGiabia())) * (1 - (Double.parseDouble(String.valueOf(product_hot.getCuonSachEntity().getDiscount())) / 100)));
+            product_hotkm.setGiabia((int) db);
             productList_km.add(product_hotkm);
         }
 

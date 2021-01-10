@@ -10,8 +10,6 @@ public class GiaoHangEntity implements Serializable {
     @EmbeddedId
     private GiaoHangIDKey id;
 
-    @Column(name = "tinhtrang")
-    private String tinhtrang;
 
     @ManyToOne
     @JoinColumn(name = "ma_DH", insertable=false, updatable=false)
@@ -29,13 +27,6 @@ public class GiaoHangEntity implements Serializable {
         this.id = id;
     }
 
-    public String getTinhtrang() {
-        return tinhtrang;
-    }
-
-    public void setTinhtrang(String tinhtrang) {
-        this.tinhtrang = tinhtrang;
-    }
 
     public DonHangEntity getDonHangEntity() {
         return donHangEntity;

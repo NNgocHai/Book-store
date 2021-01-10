@@ -30,7 +30,7 @@ public class DonHangEntity implements Serializable {
     @Column(name = "ngaydat")
     private Timestamp ngaydat;
 
-    @Column(name = "activeDH")
+    @Column(name = "tinhtrang")
     private String activeDH;
 
 

@@ -1,11 +1,12 @@
 package com.bookstore.controller.shipper;
 
-import com.bookstore.dao.GiaoHangDao;
-import com.bookstore.dao.ShipperDao;
-import com.bookstore.dao_impl.GiaoHangDao_impl;
-import com.bookstore.dao_impl.ShipperDao_impl;
+
 import com.bookstore.entity.GiaoHangEntity;
 import com.bookstore.entity.ShipperEntity;
+import com.bookstore.service.GiaoHangService;
+import com.bookstore.service.ShipperService;
+import com.bookstore.service_impl.GiaoHangService_impl;
+import com.bookstore.service_impl.ShipperService_impl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,15 +25,15 @@ public class ShipperViewListDH extends HttpServlet {
 
         HttpSession session = request.getSession();
         String user = (String) session.getAttribute("user");
-        ShipperDao shipperDao = new ShipperDao_impl();
+        ShipperService shipperService = new ShipperService_impl();
         ShipperEntity shipperEntity = new ShipperEntity();
         try {
-            List<ShipperEntity> listShipper = shipperDao.findByUser(user);
+            List<ShipperEntity> listShipper = shipperService.findByUser(user);
             shipperEntity = listShipper.get(0);
             int id = shipperEntity.getMa_Shipper();
-            GiaoHangDao giaoHangDao = new GiaoHangDao_impl();
+            GiaoHangService giaoHangService = new GiaoHangService_impl();
             GiaoHangEntity giaoHangEntity = new GiaoHangEntity();
-            List<GiaoHangEntity> list = giaoHangDao.findID(id);
+            List<GiaoHangEntity> list = giaoHangService.findID(id);
             if(!(list.size() == 0)){
                 request.setAttribute("list", list);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/views/shipper/viewlistdonhang.jsp");

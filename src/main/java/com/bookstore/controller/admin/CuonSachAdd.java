@@ -44,7 +44,7 @@ public class CuonSachAdd extends HttpServlet {
                 CuonSachEntity cuonSachEntity = new CuonSachEntity();
                 cuonSachEntity.setTen_CuonSach(cuonsach_ten);
                 cuonSachEntity.setMa_DauSach(Integer.parseInt(cuonsach_maDS));
-                cuonSachEntity.setGiaban(Integer.parseInt(cuonsach_giaban));
+                cuonSachEntity.setGiabia(Integer.parseInt(cuonsach_giaban));
                 cuonSachEntity.setSoluong(Integer.parseInt(cuonsach_soluong));
                 cuonSachEntity.setTacgia(cuonsach_tacgia);
                 cuonSachEntity.setAnh_CuonSach(cuonsach_anhCS);
