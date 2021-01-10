@@ -35,12 +35,12 @@
 
                             <div class="form-group">
                                 <label for="input-1">ID</label>
-                                <input type="text" class="form-control" readonly id="input-1" placeholder="ĐẦU SÁCH ID" name="category-id" value="${category.ma_DauSach}${category_id}">
+                                <input type="text" class="form-control" readonly id="input-1" placeholder="ĐẦU SÁCH ID" name="category-id" value="${category.ma_DauSach}" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="input-4">Tên Đầu Sách</label>
-                                <input type="text" class="form-control" id="input-4" placeholder="Tên Đầu sách" name="category-name" value="${category.ten_DauSach}">
+                                <input type="text" class="form-control" id="input-4" placeholder="Tên Đầu sách" name="category-name" value="${category.ten_DauSach} " required>
                                 <div><b> <span style="color:#f31818"> ${errorMessage}</span></b></div>
                             </div>
 

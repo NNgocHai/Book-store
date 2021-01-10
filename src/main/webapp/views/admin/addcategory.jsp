@@ -27,7 +27,7 @@
 
                             <div class="form-group">
                                 <label for="input-1">Tên đầu sách</label>
-                                <input type="text" class="form-control" id="input-1" placeholder="Tên đầu sách"  name="category-name">
+                                <input type="text" class="form-control" id="input-1" placeholder="Tên đầu sách"  name="category-name" required>
                                 <div><b> <span style="color:#f31818"> ${errorMessage}</span></b></div>
                             </div>
 

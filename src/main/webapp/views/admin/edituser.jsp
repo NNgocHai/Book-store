@@ -37,15 +37,15 @@
                             <div><b> <span style="color:red"> ${errorMessage}</span></b></div>
                             <div class="form-group">
                                 <label for="input-1">ID</label>
-                                <input type="text" class="form-control" readonly id="input-1" placeholder="Customer ID" name="id" value="${customer.ma_Customer}${id}">
+                                <input type="text" class="form-control" readonly id="input-1" placeholder="Customer ID" name="id" value="${customer.ma_Customer}" required>
                             </div>
                             <div class="form-group">
                                 <label for="input-2">Username</label>
-                                <input type="text" class="form-control" id="input-2" placeholder="Username" name="customer-username" value="${customer.taikhoan_Customer}${customer_tk}">
+                                <input type="text" class="form-control" id="input-2" placeholder="Username" name="customer-username" value="${customer.taikhoan_Customer}" required>
                             </div>
                             <div class="form-group">
                                 <label for="input-3">Password</label>
-                                <input type="password" class="form-control" id="input-3" placeholder="Mật khẩu" name="customer-password" value="${customer.matkhau_Customer}${customer_password}">
+                                <input type="password" class="form-control" id="input-3" placeholder="Mật khẩu" name="customer-password" value="${customer.matkhau_Customer}" required>
                                 <input type="checkbox" onclick="myFunction1()">Hiển thị mật khẩu
                                 <script>function myFunction1() {
                                     var x = document.getElementById("input-3");
@@ -58,19 +58,19 @@
                             </div>
                             <div class="form-group">
                                 <label for="input-4">Tên Customer</label>
-                                <input type="text" class="form-control" id="input-4" placeholder="Tên Admin" name="customer-name" value="${customer.hoten_Customer}${customer_name}">
+                                <input type="text" class="form-control" id="input-4" placeholder="Tên Admin" name="customer-name" value="${customer.hoten_Customer}" required>
                             </div>
                             <div class="form-group">
                                 <label for="input-5">Email</label>
-                                <input type="email" class="form-control" id="input-5" placeholder="Email" name="customer-email" value="${customer.gmail_Customer}${customer_gmail}">
+                                <input type="email" class="form-control" id="input-5" placeholder="Email" name="customer-email" value="${customer.gmail_Customer}" required>
                             </div>
                             <div class="form-group">
                                 <label for="input-6">Số điện thoại</label>
-                                <input type="number" class="form-control" id="input-6" placeholder="Số điện thoại" name="customer-sdt" value="${customer.sdt_Customer}${customer_sdt}">
+                                <input type="number" class="form-control" id="input-6" placeholder="Số điện thoại" name="customer-sdt" value="${customer.sdt_Customer}" required>
                             </div>
                             <div class="form-group">
                                 <label for="input-7">Ví Tiền</label>
-                                <input type="number" class="form-control" id="input-7" placeholder="Ví tiền" name="customer-vitien" value="${customer.vitien}${customer_vitien}">
+                                <input type="number" class="form-control" id="input-7" placeholder="Ví tiền" name="customer-vitien" value="${customer.vitien}"required>
                             </div>
                             <div class="form-footer">
                                 <button type="reset" class="btn btn-danger"><i class="fa fa-times"></i> <a href="${pageContext.request.contextPath}/admin/user/list">Hủy</a> </button>

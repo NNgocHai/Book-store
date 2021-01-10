@@ -39,6 +39,7 @@ public class ProductEdit extends HttpServlet {
         String cuonsach_giaban = request.getParameter("cuonsach_giaban");
         String cuonsach_anhCS = request.getParameter("cuonsach_anhCS");
         String cuonsach_discount = request.getParameter("cuonsach_discount");
+        String cuonsach_mota=request.getParameter("cuonsach_mota");
         if((!cuonsach_ten.equals("")) && (!cuonsach_maDS.equals("")) && (!cuonsach_tacgia.equals("")) && (!cuonsach_soluong.equals("")) &&(!cuonsach_giaban.equals(""))
                 && (!cuonsach_discount.equals(""))&&(!cuonsach_anhCS.equals("")))
         {
@@ -50,6 +51,7 @@ public class ProductEdit extends HttpServlet {
             cuonSachEntity.setTacgia(cuonsach_tacgia);
             cuonSachEntity.setAnh_CuonSach(cuonsach_anhCS);
             cuonSachEntity.setDiscount(Integer.parseInt(cuonsach_discount));
+            cuonSachEntity.setMota(cuonsach_mota);
             ProductService productService = new ProductService_impl();
             productService.update(cuonSachEntity);
             response.sendRedirect(request.getContextPath() + "/admin/product/list");
