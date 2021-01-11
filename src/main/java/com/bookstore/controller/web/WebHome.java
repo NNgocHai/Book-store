@@ -56,5 +56,10 @@ public class WebHome extends HttpServlet {
         request.setAttribute("product_hotList", product_hotList);
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/index.jsp");
         rd.forward(request, response);
-    }   
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
 }
