@@ -54,8 +54,8 @@
             </a>
         </li>
         <li>
-            <a href="${pageContext.request.contextPath}/admin/new/list">
-                <i class="icon-envelope-open"></i> <span>Tin tức</span>
+            <a href="${pageContext.request.contextPath}/admin/giaohang/list">
+                <i class="zmdi zmdi-view-dashboard"></i> <span>Quản Lí Giao Hàng</span>
             </a>
         </li>
         <li>

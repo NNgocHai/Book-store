@@ -10,4 +10,5 @@ public interface DonHangService {
     Integer deleteList(List<Integer> ids);
     DonHangEntity findById(int var1);
     DonHangEntity update(DonHangEntity donHangEntity);
+    List<DonHangEntity> Find_DHCG();
 }

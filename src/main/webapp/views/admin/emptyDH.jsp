@@ -1,10 +1,8 @@
-
-  Created by IntelliJ IDEA.
-  User: HIEU
-  Date: 1/9/2021
-  Time: 8:50 AM
-  To change this template use File | Settings | File Templates.
---%>
+<%
+    if (session.getAttribute("user") == null){
+        response.sendRedirect(request.getContextPath() + "/admin/login");
+    }
+%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,12 +11,11 @@
 <body>
 <div class="content-wrapper">
     <div class="col-lg-12">
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h5 class="card-title">Xem đơn hàng</h5>
-                    <h1 class="add-catalog">Bạn đã giao xong hết đơn! Chúc một ngày tốt lành!</h1>
+                    <h5 class="card-title">Phân công giao hàng</h5>
+                    <h1 class="add-catalog">Không còn đơn hàng nào để phân công hôm nay! ^^</h1>
                 </div>
             </div>
         </div>

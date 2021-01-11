@@ -7,4 +7,5 @@ import java.util.List;
 public interface GiaoHangService {
     List<GiaoHangEntity> findID(Integer id);
     List<GiaoHangEntity> findID_DG(Integer id);
+    List<GiaoHangEntity> findTT_GH();
 }

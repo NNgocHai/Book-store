@@ -66,4 +66,22 @@ public class ShipperDao_impl extends GenericDao_impl<Integer, ShipperEntity> imp
         }
         return userEntities;
     }
+
+    @Override
+    public List<ShipperEntity> findID() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        List<ShipperEntity> userEntities = new ArrayList<ShipperEntity>();
+        try {
+            StringBuilder sql = new StringBuilder("Select ma_Shipper From ShipperEntity ");
+            Query query = session.createQuery(sql.toString());
+            userEntities = query.list();
+        } catch (HibernateException e) {
+            transaction.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+        return userEntities;
+    }
 }

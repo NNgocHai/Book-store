@@ -46,6 +46,7 @@
                                     <th scope="col">Email</th>
                                     <th scope="col">Số điện thoại</th>
                                     <th scope="col">Ví tiền</th>
+                                    <th scope="col">Hàng động</th>
                                 </tr>
                                 </thead>
                                 <tbody>

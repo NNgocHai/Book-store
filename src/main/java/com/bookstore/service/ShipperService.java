@@ -13,4 +13,5 @@ public interface ShipperService {
     ShipperEntity findById(int var1);
     boolean checkShipperLogin (String username, String password);
     List<ShipperEntity> findByUser(String user);
+    List<ShipperEntity> findID();
 }

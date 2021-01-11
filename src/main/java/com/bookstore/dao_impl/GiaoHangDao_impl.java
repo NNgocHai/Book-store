@@ -62,4 +62,26 @@ public class GiaoHangDao_impl extends GenericDao_impl<Integer, GiaoHangEntity> i
         }
         return donHangEntities;
     }
+
+    @Override
+    public List<GiaoHangEntity> findTT_GH() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        List<GiaoHangEntity> userEntities = new ArrayList<GiaoHangEntity>();
+        String a = "Chưa giao";
+        try {
+            StringBuilder sql = new StringBuilder("Select donHangEntity.ma_DH, shipperEntity.ma_Shipper, ");
+            sql.append("shipperEntity.hoten_Shipper, donHangEntity.activeDH");
+            sql.append(" From GiaoHangEntity ");
+            //sql.append(" where g.ma_DH = d.ma_DH ");
+            Query query = session.createQuery(sql.toString());
+            userEntities = query.list();
+        } catch (HibernateException e) {
+            transaction.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+        return userEntities;
+    }
 }

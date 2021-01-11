@@ -19,6 +19,12 @@ public class DonHangService_impl implements DonHangService {
     public DonHangEntity update(DonHangEntity donHangEntity) {
         return donHangDao.update(donHangEntity);
     }
+
+    @Override
+    public List<DonHangEntity> Find_DHCG() {
+        return donHangDao.Find_DHCG();
+    }
+
     public List<DonHangEntity> findAll(){
         return donHangDao.findAll();
     }

@@ -40,6 +40,9 @@
         .limit-width {
             width: 15%;
         }
+        select option{
+            background-color: white !important;
+        }
     </style>
 </head>
 <body class="bg-theme bg-theme1">
