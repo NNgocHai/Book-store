@@ -101,7 +101,7 @@
                             <ul>
                                 <c:forEach items="${productList}" var="product" end="2">
                                     <li>
-                                        <a href="#" class="aa-cartbox-img"><img alt="img" src="${pageContext.request.contextPath}/template/web/images/products/img-test/${product.anh_CuonSach}"></a>
+                                        <a href="${pageContext.request.contextPath}/web/productDetail?id=${product.ma_CuonSach}&Cate=${product.ma_DauSach}" class="aa-cartbox-img"><img alt="img" src="${pageContext.request.contextPath}/template/web/images/products/img-test/${product.anh_CuonSach}"></a>
 <%--                                            ${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}--%>
                                         <div class="aa-cartbox-info">
                                             <h4><a href="#">${product.ten_CuonSach }</a></h4>

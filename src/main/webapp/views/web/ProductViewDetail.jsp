@@ -122,7 +122,7 @@
                                         <a class="aa-product-img" href="${pageContext.request.contextPath}/web/productDetail?id=${productCate.ma_CuonSach}&Cate=${productCate.ma_DauSach}"><img
                                                 src="${pageContext.request.contextPath}/template/web/images/products/img-test/${productCate.anh_CuonSach}"
                                                 alt=""></a>
-                                        <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>Thêm
+                                        <a class="aa-add-card-btn" href="${pageContext.request.contextPath}/web/product/AddtoCart?product-id=${productCate.ma_CuonSach}"><span class="fa fa-shopping-cart"></span>Thêm
                                             vào giỏ hàng</a>
                                         <figcaption>
                                             <h4 class="aa-product-title"><a href="${pageContext.request.contextPath}/web/productDetail?id=${productCate.ma_CuonSach}&Cate=${productCate.ma_DauSach}">${productCate.ten_CuonSach}</a>

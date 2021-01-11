@@ -33,7 +33,7 @@
                 <div class="cart-view-area">
                     <div class="cart-view-table">
                         <%--                        ${pageContext.request.contextPath}/view/client/cart-update--%>
-                        <form action="#" method="post">
+                        <form action="${pageContext.request.contextPath}/web/product/UpdatetoCart" method="post">
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -51,7 +51,7 @@
                                     <c:forEach items="${Orders}" var="Order">
                                         <tr>
                                                 <%--                                                ${pageContext.request.contextPath}/view/client/cart-delete?id=${item.product.id}--%>
-                                            <td><a class="remove" href="#">
+                                            <td><a class="remove" href="${pageContext.request.contextPath}/web/product/DeletetoCart?index=${Orders.indexOf(Order)}">
                                                 <fa class="fa fa-close"></fa>
                                             </a></td>
                                             <td>

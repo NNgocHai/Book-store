@@ -27,7 +27,6 @@ public class AddtoCart extends HttpServlet {
         super();
     }
 
-    ProductService productService = new ProductService_impl();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int n = 0;

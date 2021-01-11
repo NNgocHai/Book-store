@@ -327,14 +327,13 @@
                         </c:if>
                         <!-- single slide -->
                         <c:if test="${reviewEntities.size()-3 >= 0}">
-
                             <li>
                                 <div class="aa-testimonial-single">
-                                    <img class="aa-testimonial-img" src="${url}/images/avatar-1.jpg" alt="avatar 3">
+                                    <img class="aa-testimonial-img" src="${url}/images/avatar.jpg" alt="avatar 1">
                                     <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                                    <p>${reviewEntities.get(reviewEntities.size()-2).getBinhluan()}</p>
+                                    <p>${reviewEntities.get(reviewEntities.size()-3).getBinhluan()}</p>
                                     <div class="aa-testimonial-info">
-                                        <p>${reviewEntities.get(reviewEntities.size()-2).getCustomerEntity().getHoten_Customer()}</p>
+                                        <p>${reviewEntities.get(reviewEntities.size()-3).getCustomerEntity().getHoten_Customer()}</p>
                                     </div>
                                 </div>
                             </li>
