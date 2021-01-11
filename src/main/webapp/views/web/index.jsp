@@ -184,7 +184,7 @@
                                                             src="${pageContext.request.contextPath}/template/web/images/products/img-test/${product.getCuonSachEntity().getAnh_CuonSach()}"
                                                             alt="polo shirt img"></a>
                                                         <%--                                                        ${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}--%>
-                                                    <a class="aa-add-card-btn" href="#"><span
+                                                    <a class="aa-add-card-btn" href="${pageContext.request.contextPath}/web/product/AddtoCart?product-id=${product.getCuonSachEntity().getMa_CuonSach()}"><span
                                                             class="fa fa-shopping-cart"></span>Thêm vào giỏ hàng</a>
                                                         <%--                                                        ${pageContext.request.contextPath}/view/client/add-cart?product-id=${product.id}--%>
                                                     <figcaption>

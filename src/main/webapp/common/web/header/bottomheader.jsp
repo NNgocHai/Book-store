@@ -7,6 +7,7 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:url value = "/template/web" var="url"/>
 <div class="aa-header-bottom">
     <div class="container">
@@ -57,24 +58,27 @@
 
                     <!-- cart box -->
                     <div class="aa-cartbox">
-                        <a class="aa-cart-link" href="${pageContext.request.contextPath}/view/client/cart">
+                        <a class="aa-cart-link" href="${pageContext.request.contextPath}/web/product/CartDetail">
                             <span class="fas fa-cart-arrow-down"></span>
                             <span class="aa-cart-title">GIỎ HÀNG</span>
 
-                            <c:if test="${length_order != NULL}">
-                                <span class="aa-cart-notify">${length_order}</span>
+                            <c:if test="${length_orders != NULL}">
+                                <span class="aa-cart-notify">${length_orders}</span>
                             </c:if>
 
 
                         </a>
                         <div class="aa-cartbox-summary">
                             <ul class="scroll-product">
-                                <c:forEach items="${order.items}" var="item" >
+                                <c:forEach items="${Orders}" var="Order" >
                                     <li>
-                                        <a class="aa-cartbox-img" href="${pageContext.request.contextPath}/view/client/cart"><img src="${pageContext.request.contextPath}/view/client/assets/images/products/img-test/${item.product.image_link}" alt="img"></a>
+                                        <a class="aa-cartbox-img" href="#"><img src="${pageContext.request.contextPath}/template/web/images/products/img-test/${Order.getCuonSachEntity().anh_CuonSach}" alt="img"></a>
+<%--                                            ${pageContext.request.contextPath}/view/client/cart--%>
                                         <div class="aa-cartbox-info">
-                                            <h4><a href="${pageContext.request.contextPath}/view/client/cart">${item.product.name}</a></h4>
-                                            <p>${item.qty} x ${item.product.price * (1-((item.product.discount)/100))}00 VNĐ</p>
+                                            <h4><a href="#">${Order.getCuonSachEntity().ten_CuonSach}</a></h4>
+                                            <p>${Order.soluong} x <fmt:formatNumber
+                                                    type="number" maxFractionDigits="3"
+                                                    value="${Order.getCuonSachEntity().giabia}"/> VNĐ</p>
                                         </div>
                                     </li>
                                 </c:forEach>
@@ -84,7 +88,9 @@
                         <b>Tổng:</b>
                       </span>
                                 <span class="aa-cartbox-total-price">
-                        ${sumprice} VNĐ
+                        <fmt:formatNumber
+                                type="number" maxFractionDigits="3"
+                                value="${tongtien}"/> VNĐ
                       </span>
                             </div>
                             <a class="aa-cartbox-checkout aa-primary-btn" href="${pageContext.request.contextPath}/view/client/cart">Chi tiết</a>
