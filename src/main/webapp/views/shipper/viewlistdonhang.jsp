@@ -27,7 +27,7 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Mã Đơn</th>
-                                    <th scope="col">Mã Khách</th>
+                                    <th scope="col">Tên Khách</th>
                                     <th scope="col">Địa chỉ</th>
                                     <th scope="col">SĐT</th>
                                     <th scope="col">Tổng tiền</th>
@@ -45,7 +45,7 @@
                                         <td>${list[4]}</td>
                                         <td>${list[5]}</td>
                                         <td>
-                                            <button type="reset" class="btn btn-success"><a href="${pageContext.request.contextPath}/shipper/editDH?DH-id=${list[0]}">Đã giao</a></button>
+                                            <button type="reset" class="btn btn-success"><a href="${pageContext.request.contextPath}/shipper/editDH?DH-id=${list[0]}">Hoàn Thành</a></button>
                                         </td>
                                     </tr>
                                 </c:forEach>

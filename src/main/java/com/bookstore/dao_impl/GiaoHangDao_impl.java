@@ -19,7 +19,7 @@ public class GiaoHangDao_impl extends GenericDao_impl<Integer, GiaoHangEntity> i
         List<GiaoHangEntity> donHangEntities = new ArrayList<GiaoHangEntity>();
         String a = "Chưa giao";
         try {
-            StringBuilder sql = new StringBuilder("Select donHangEntity.ma_DH, donHangEntity.ma_Customer, ");
+            StringBuilder sql = new StringBuilder("Select donHangEntity.ma_DH, donHangEntity.customerEntity.hoten_Customer, ");
             sql.append("donHangEntity.diachi, donHangEntity.sdt, donHangEntity.tongtien, donHangEntity.activeDH");
             sql.append(" From GiaoHangEntity ");
             sql.append(" where shipperEntity.ma_Shipper = :value");
@@ -45,7 +45,7 @@ public class GiaoHangDao_impl extends GenericDao_impl<Integer, GiaoHangEntity> i
         List<GiaoHangEntity> donHangEntities = new ArrayList<GiaoHangEntity>();
         String a = "Đã giao";
         try {
-            StringBuilder sql = new StringBuilder("Select donHangEntity.ma_DH, donHangEntity.diachi, donHangEntity.sdt, ");
+            StringBuilder sql = new StringBuilder("Select donHangEntity.ma_DH, donHangEntity.customerEntity.hoten_Customer, donHangEntity.diachi, donHangEntity.sdt, ");
             sql.append(" donHangEntity.tongtien, donHangEntity.activeDH");
             sql.append(" From GiaoHangEntity ");
             sql.append(" where shipperEntity.ma_Shipper = :value");

@@ -27,6 +27,7 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Mã Đơn</th>
+                                    <th scope="col">Tên Khách</th>
                                     <th scope="col">Địa chỉ</th>
                                     <th scope="col">SĐT</th>
                                     <th scope="col">Tổng tiền</th>
@@ -41,6 +42,7 @@
                                         <td>${list[2]}</td>
                                         <td>${list[3]}</td>
                                         <td>${list[4]}</td>
+                                        <td>${list[5]}</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
