@@ -44,7 +44,7 @@
                                 <li>
                                     <figure>
                                         <a class="aa-product-img" href="${pageContext.request.contextPath}/web/productDetail?id=${product.ma_CuonSach}&Cate=${product.ma_DauSach}"><img src="${pageContext.request.contextPath}/template/web/images/products/img-test/${product.anh_CuonSach}" alt="${product.ten_CuonSach}"></a>
-                                        <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Thêm vào giỏ hàng</a>
+                                        <a class="aa-add-card-btn" href="${pageContext.request.contextPath}/web/product/AddtoCart?product-id=${product.ma_CuonSach}"><span class="fa fa-shopping-cart"></span>Thêm vào giỏ hàng</a>
                                         <figcaption>
                                             <h4 class="aa-product-title"><a href="${pageContext.request.contextPath}/web/productDetail?id=${product.ma_CuonSach}&Cate=${product.ma_DauSach}">${product.ten_CuonSach}</a></h4>
 

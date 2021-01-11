@@ -92,7 +92,7 @@
                                         </p>
                                     </div>
                                     <div class="aa-prod-view-bottom">
-                                        <a class="aa-add-to-cart-btn" href="#">Thêm vào giỏ hàng</a>
+                                        <a class="aa-add-to-cart-btn" href="${pageContext.request.contextPath}/web/product/AddtoCart?product-id=${product.getMa_CuonSach()}">Thêm vào giỏ hàng</a>
                                         <%--                                        ${pageContext.request.contextPath}/view/client/add-cart?product-id=${detail_product.id}--%>
                                     </div>
                                 </div>
