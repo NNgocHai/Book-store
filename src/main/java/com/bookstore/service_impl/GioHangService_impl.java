@@ -42,4 +42,14 @@ public class GioHangService_impl implements GioHangService {
     public GioHangEntity GetOrder(CuonSachEntity C) {
         return gioHangDao.GetOrder(C);
     }
+
+    @Override
+    public List<GioHangEntity> FindByMaCustomer(int id) {
+        return gioHangDao.FindByMaCustomer(id);
+    }
+
+    @Override
+    public Integer DeletebyCustomer_CuonSach(int ma_Customer, int ma_CuonSach) {
+        return gioHangDao.DeletebyCustomer_CuonSach(ma_Customer,ma_CuonSach);
+    }
 }

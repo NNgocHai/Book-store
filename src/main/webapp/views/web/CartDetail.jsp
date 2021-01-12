@@ -51,7 +51,7 @@
                                     <c:forEach items="${Orders}" var="Order">
                                         <tr>
                                                 <%--                                                ${pageContext.request.contextPath}/view/client/cart-delete?id=${item.product.id}--%>
-                                            <td><a class="remove" href="${pageContext.request.contextPath}/web/product/DeletetoCart?index=${Orders.indexOf(Order)}">
+                                            <td><a class="remove" href="${pageContext.request.contextPath}/web/product/DeletetoCart?index=${Orders.indexOf(Order)}&ma_CuonSach=${Order.getCuonSachEntity().getMa_CuonSach()}">
                                                 <fa class="fa fa-close"></fa>
                                             </a></td>
                                             <td>

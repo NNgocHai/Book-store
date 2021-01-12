@@ -13,4 +13,7 @@ public interface GioHangService {
     GioHangEntity update(GioHangEntity T);
     GioHangEntity findById(int var1);
     GioHangEntity GetOrder(CuonSachEntity C );
+    List<GioHangEntity> FindByMaCustomer(int id);
+    Integer DeletebyCustomer_CuonSach(int ma_Customer,int ma_CuonSach);
+
 }

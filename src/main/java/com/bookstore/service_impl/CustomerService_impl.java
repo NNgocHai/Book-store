@@ -39,5 +39,8 @@ public class CustomerService_impl implements CustomerService {
         return customerDao.findById(var1);
     }
 
+    @Override
+    public List<CustomerEntity> findByUser(String user) {
+        return customerDao.findByUser(user);    }
 }
 

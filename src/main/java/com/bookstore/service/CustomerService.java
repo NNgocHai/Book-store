@@ -11,4 +11,6 @@ public interface CustomerService {
     CustomerEntity save(CustomerEntity T);
     CustomerEntity update(CustomerEntity T);
     CustomerEntity findById(int var1);
+    List<CustomerEntity> findByUser(String user );
+
 }

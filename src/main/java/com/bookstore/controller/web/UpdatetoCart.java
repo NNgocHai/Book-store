@@ -1,6 +1,10 @@
 package com.bookstore.controller.web;
 
+import com.bookstore.entity.CustomerEntity;
 import com.bookstore.entity.GioHangEntity;
+import com.bookstore.entity.GioHangIDKey;
+import com.bookstore.service.GioHangService;
+import com.bookstore.service_impl.GioHangService_impl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,7 +23,6 @@ public class UpdatetoCart extends HttpServlet {
         super();
     }
 
-    int tongtien = 0;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,14 +33,35 @@ public class UpdatetoCart extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int tongtien = 0;
+
         HttpSession session = request.getSession();
         List<GioHangEntity> Orders = (List<GioHangEntity>) session.getAttribute("Orders");
-        for (GioHangEntity Order : Orders) {
-            Order.setSoluong(Integer.valueOf(request.getParameter(String.valueOf(Order.getCuonSachEntity().getMa_CuonSach()))));
-            tongtien = Order.getCuonSachEntity().getGiabia() * Order.getSoluong() + tongtien;
+        GioHangService gioHangService = new GioHangService_impl();
+
+        CustomerEntity person = (CustomerEntity) session.getAttribute("person");
+        if (person != null) {
+            GioHangIDKey gioHangIDKey = new GioHangIDKey();
+            for (GioHangEntity Order : Orders) {
+                int soluong = Integer.parseInt(request.getParameter(String.valueOf(Order.getCuonSachEntity().getMa_CuonSach())));
+                Order.setSoluong(soluong);
+                gioHangIDKey.setMa_Customer(person.getMa_Customer());
+                gioHangIDKey.setMa_CuonSach(Order.getCuonSachEntity().getMa_CuonSach());
+                Order.setId(gioHangIDKey);
+                gioHangService.update(Order);
+
+                tongtien = Order.getCuonSachEntity().getGiabia() * Order.getSoluong() + tongtien;
+            }
+
+        } else {
+            for (GioHangEntity Order : Orders) {
+                int soluong = Integer.parseInt(request.getParameter(String.valueOf(Order.getCuonSachEntity().getMa_CuonSach())));
+                Order.setSoluong(soluong);
+                tongtien = Order.getCuonSachEntity().getGiabia() * Order.getSoluong() + tongtien;
+            }
         }
 
-        int n =Orders.size();
+        int n = Orders.size();
         session.setAttribute("length_orders", n);
         session.setAttribute("Orders", Orders);
         session.setAttribute("tongtien", tongtien);
