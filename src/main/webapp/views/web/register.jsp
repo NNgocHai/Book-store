@@ -21,8 +21,8 @@
                             <div class="aa-myaccount-register">
                                 <h4>Đăng ký</h4>
                                 <form name="formRegister" class="aa-login-form" method="post" action="${pageContext.request.contextPath}/web/register">
-                                    <p style="color:#ff0000; display:block">
-                                        ${s}
+                                    <p style="color:#06f10a; display:block">
+                                        ${success}
                                     </p>
                                     <p style="color:#ff0000; display:block">
                                         ${errMessage}

@@ -13,13 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerDao_impl extends GenericDao_impl<Integer, CustomerEntity> implements CustomerDao {
-    public  boolean checkCustomerLogin(String username, String password) {
+    public boolean checkCustomerLogin(String username, String password) {
         boolean exist = false;
         Object a = new Object();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
         transaction = session.beginTransaction();
-        try{
+        try {
             StringBuilder sql = new StringBuilder("select count(*) from CustomerEntity ");
             sql.append("where taikhoan_Customer = :value1");
             sql.append(" and matkhau_Customer = :value2");
@@ -27,19 +27,15 @@ public class CustomerDao_impl extends GenericDao_impl<Integer, CustomerEntity> i
             query.setParameter("value1", username);
             query.setParameter("value2", password);
             a = query.list().get(0);
-            int c =  Integer.parseInt((a).toString());
-            if(c == 1)
-            {
+            int c = Integer.parseInt((a).toString());
+            if (c == 1) {
                 exist = true;
             }
             transaction.commit();
-        }
-        catch (HibernateException e)
-        {
+        } catch (HibernateException e) {
             transaction.rollback();
             throw e;
-        }
-        finally {
+        } finally {
             session.close();
         }
         return exist;
@@ -48,10 +44,10 @@ public class CustomerDao_impl extends GenericDao_impl<Integer, CustomerEntity> i
     @Override
 
     public List<CustomerEntity> findByUser(String user) {
-        List<CustomerEntity> results =new ArrayList<CustomerEntity>();
+        List<CustomerEntity> results = new ArrayList<CustomerEntity>();
         Transaction transaction = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
-        try  {
+        try {
             // start a transaction
             transaction = session.beginTransaction();
 
@@ -69,6 +65,9 @@ public class CustomerDao_impl extends GenericDao_impl<Integer, CustomerEntity> i
                 transaction.rollback();
             }
             e.printStackTrace();
+        }
+        return results;
+    }
 
     public boolean checkAddCustomer(String username, String gmail, String sdt) {
         boolean exist = true;
@@ -76,7 +75,7 @@ public class CustomerDao_impl extends GenericDao_impl<Integer, CustomerEntity> i
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
         transaction = session.beginTransaction();
-        try{
+        try {
             StringBuilder sql = new StringBuilder("select count(*) from CustomerEntity");
             sql.append(" where taikhoan_Customer =:value1");
             sql.append(" or sdt_Customer =:value2");
@@ -86,19 +85,15 @@ public class CustomerDao_impl extends GenericDao_impl<Integer, CustomerEntity> i
             query.setParameter("value2", sdt);
             query.setParameter("value3", gmail);
             a = query.list().get(0);
-            int c =  Integer.parseInt((a).toString());
-            if(c > 0)
-            {
+            int c = Integer.parseInt((a).toString());
+            if (c > 0) {
                 exist = false;
             }
             transaction.commit();
-        }
-        catch (HibernateException e)
-        {
+        } catch (HibernateException e) {
             transaction.rollback();
             throw e;
-        }
-        finally {
+        } finally {
             session.close();
         }
         return exist;
@@ -111,34 +106,24 @@ public class CustomerDao_impl extends GenericDao_impl<Integer, CustomerEntity> i
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
         transaction = session.beginTransaction();
-        try{
+        try {
             StringBuilder sql = new StringBuilder("select count(*) from CustomerEntity");
             sql.append(" where taikhoan_Customer =:value1");
             Query query = session.createQuery(sql.toString());
             query.setParameter("value1", username);
             a = query.list().get(0);
-            int c =  Integer.parseInt((a).toString());
-            if(c == 1)
-            {
+            int c = Integer.parseInt((a).toString());
+            if (c == 1) {
                 exist = false;
             }
             transaction.commit();
-        }
-        catch (HibernateException e)
-        {
+        } catch (HibernateException e) {
             transaction.rollback();
             throw e;
 
-        }
-        finally {
+        } finally {
             session.close();
         }
-
-        return results;
-    }
-
-
-
         return exist;
     }
 
@@ -149,25 +134,21 @@ public class CustomerDao_impl extends GenericDao_impl<Integer, CustomerEntity> i
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
         transaction = session.beginTransaction();
-        try{
+        try {
             StringBuilder sql = new StringBuilder("select count(*) from CustomerEntity");
             sql.append(" where gmail_Customer =:value1");
             Query query = session.createQuery(sql.toString());
             query.setParameter("value1", gmail);
             a = query.list().get(0);
-            int c =  Integer.parseInt((a).toString());
-            if(c == 1)
-            {
+            int c = Integer.parseInt((a).toString());
+            if (c == 1) {
                 exist = false;
             }
             transaction.commit();
-        }
-        catch (HibernateException e)
-        {
+        } catch (HibernateException e) {
             transaction.rollback();
             throw e;
-        }
-        finally {
+        } finally {
             session.close();
         }
         return exist;
@@ -180,28 +161,23 @@ public class CustomerDao_impl extends GenericDao_impl<Integer, CustomerEntity> i
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
         transaction = session.beginTransaction();
-        try{
+        try {
             StringBuilder sql = new StringBuilder("select count(*) from CustomerEntity");
             sql.append(" where sdt_Customer =:value1");
             Query query = session.createQuery(sql.toString());
             query.setParameter("value1", sdt);
             a = query.list().get(0);
-            int c =  Integer.parseInt((a).toString());
-            if(c == 1)
-            {
+            int c = Integer.parseInt((a).toString());
+            if (c == 1) {
                 exist = false;
             }
             transaction.commit();
-        }
-        catch (HibernateException e)
-        {
+        } catch (HibernateException e) {
             transaction.rollback();
             throw e;
-        }
-        finally {
+        } finally {
             session.close();
         }
         return exist;
     }
-
 }

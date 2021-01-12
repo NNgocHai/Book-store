@@ -16,6 +16,11 @@ public class Logout extends HttpServlet {
         if(session!=null)
         {
             session.removeAttribute("user");
+            session.removeAttribute("length_orders");
+            session.removeAttribute("tongtien");
+            session.removeAttribute("Orders");
+            session.removeAttribute("person");
+            session.removeAttribute("password");
         }
         response.sendRedirect(request.getContextPath()+"/web/home");
     }

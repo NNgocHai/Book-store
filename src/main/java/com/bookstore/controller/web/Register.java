@@ -25,6 +25,8 @@ public class Register extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=UTF-8");
         String customer_tk = request.getParameter("username");
         String customer_password = request.getParameter("password");
         String customer_name = request.getParameter("name");
@@ -48,7 +50,7 @@ public class Register extends HttpServlet {
             customerEntity.setVitien(customer_vitien);
             CustomerService customer = new CustomerService_impl();
             customer.save(customerEntity);
-            request.setAttribute("s","Đăng kí tài khoản thành công. Đăng nhập <a href='/web666_war_exploded/web/login'>tại đây!</a>");
+            request.setAttribute("success","Đăng kí tài khoản thành công. Đăng nhập <a href='/web666_war_exploded/web/login'>tại đây!</a>");
             RequestDispatcher rd=request.getRequestDispatcher("/views/web/register.jsp");
             rd.forward(request,response);
         } else {
