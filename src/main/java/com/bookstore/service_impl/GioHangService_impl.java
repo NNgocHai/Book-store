@@ -52,4 +52,9 @@ public class GioHangService_impl implements GioHangService {
     public Integer DeletebyCustomer_CuonSach(int ma_Customer, int ma_CuonSach) {
         return gioHangDao.DeletebyCustomer_CuonSach(ma_Customer,ma_CuonSach);
     }
+
+    @Override
+    public Integer DeletebyCustomer(int ma_Customer) {
+        return gioHangDao.DeletebyCustomer(ma_Customer);
+    }
 }

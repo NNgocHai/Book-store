@@ -79,4 +79,33 @@ public class GioHangDao_impl extends GenericDao_impl<Integer, GioHangEntity> imp
         }
         return result;
     }
+
+    @Override
+    public Integer DeletebyCustomer(int ma_Customer) {
+        int result =0;
+        Transaction transaction = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try  {
+            // start a transaction
+            transaction = session.beginTransaction();
+
+            // get an cuonSachEntity object delete from Vote where uid= :uid AND pid= :pid
+            StringBuilder sql = new StringBuilder("delete from GioHangEntity P WHERE P.customerEntity.ma_Customer = :ma_Customer");
+            Query query = session.createQuery(sql.toString());
+            query.setParameter("ma_Customer", ma_Customer);
+
+            // commit transaction
+            query.executeUpdate();
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return result;
+    }
 }

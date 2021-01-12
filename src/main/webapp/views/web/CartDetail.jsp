@@ -109,7 +109,7 @@
                                 </tbody>
                             </table>
                             <%--                            ${pageContext.request.contextPath}/view/client/checkout--%>
-                            <a href="#" class="aa-cart-view-btn">Thanh toán</a>
+                            <a href="${pageContext.request.contextPath}/web/checkout" class="aa-cart-view-btn">Thanh toán</a>
                         </div>
                     </div>
                 </div>

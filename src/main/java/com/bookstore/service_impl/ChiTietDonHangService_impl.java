@@ -18,6 +18,26 @@ public class ChiTietDonHangService_impl implements ChiTietDonHangService {
     }
 
     @Override
+    public List<ChiTietDonHangEntity> findAll() {
+        return chiTietDonHangDao_impl.findAll();
+    }
+
+    @Override
+    public Integer deleteList(List<Integer> ids) {
+        return chiTietDonHangDao_impl.deleteList(ids);
+    }
+
+    @Override
+    public ChiTietDonHangEntity save(ChiTietDonHangEntity T) {
+        return chiTietDonHangDao_impl.save(T);
+    }
+
+    @Override
+    public ChiTietDonHangEntity update(ChiTietDonHangEntity T) {
+        return chiTietDonHangDao_impl.update(T);
+    }
+
+    @Override
     public ChiTietDonHangEntity findById(int var1) {
         return chiTietDonHangDao_impl.findById(var1);
     }

@@ -25,6 +25,11 @@ public class DonHangService_impl implements DonHangService {
         return donHangDao.Find_DHCG();
     }
 
+    @Override
+    public DonHangEntity save(DonHangEntity T) {
+        return donHangDao.save(T);
+    }
+
     public List<DonHangEntity> findAll(){
         return donHangDao.findAll();
     }
