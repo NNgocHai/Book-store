@@ -12,8 +12,8 @@ import java.util.List;
 
 public class ChiTietDonHangDao_impl extends GenericDao_impl<Integer, ChiTietDonHangEntity> implements ChiTietDonHangDao {
     @Override
-    public List<ChiTietDonHangEntity> FindHot() {
-        List<ChiTietDonHangEntity> results =new ArrayList<ChiTietDonHangEntity>();
+    public List<Object[]> FindHot() {
+        List<Object[]> results =new ArrayList<Object[]>();
         Transaction transaction = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try  {
@@ -21,9 +21,9 @@ public class ChiTietDonHangDao_impl extends GenericDao_impl<Integer, ChiTietDonH
             transaction = session.beginTransaction();
 
             // get an cuonSachEntity object
-            StringBuilder sql = new StringBuilder("  FROM ChiTietDonHangEntity E  ORDER BY E.soluong desc");
+            StringBuilder sql = new StringBuilder("select E.cuonSachEntity.ma_CuonSach,sum(E.soluong) FROM ChiTietDonHangEntity E  GROUP BY E.cuonSachEntity.ma_CuonSach ORDER BY sum(E.soluong) desc");
             Query query = session.createQuery(sql.toString());
-            results = query.getResultList();
+            results = query.list();
 
 
             // commit transaction

@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/web/payment")
@@ -27,9 +28,10 @@ import java.util.List;
 public class Payment extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=UTF-8");
         String address = (request.getParameter("address"));
         String phone = (request.getParameter("phone"));
-
 
 
         GioHangService gioHangService = new GioHangService_impl();
@@ -62,9 +64,11 @@ public class Payment extends HttpServlet {
             chiTietDonHangEntity.setGia(Order.getCuonSachEntity().getGiabia());
             chiTietDonHangService.save(chiTietDonHangEntity);
         }
+
         session.removeAttribute("length_orders");
         session.removeAttribute("tongtien");
-        session.removeAttribute("Orders");
+        Orders.clear();
+        session.setAttribute("Orders",Orders);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/web/checkout.jsp");
         dispatcher.forward(request, response);
     }

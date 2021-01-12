@@ -10,6 +10,6 @@ public interface ChiTietDonHangService {
     Integer deleteList (List<Integer> ids);
     ChiTietDonHangEntity save(ChiTietDonHangEntity T);
     ChiTietDonHangEntity update(ChiTietDonHangEntity T);
-    List<ChiTietDonHangEntity> FindHot();
+    List<Object[]> FindHot();
     ChiTietDonHangEntity findById(int var1);
 }

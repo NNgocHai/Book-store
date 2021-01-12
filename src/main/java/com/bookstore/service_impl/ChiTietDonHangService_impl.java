@@ -13,7 +13,7 @@ public class ChiTietDonHangService_impl implements ChiTietDonHangService {
     public ChiTietDonHangDao chiTietDonHangDao_impl=new ChiTietDonHangDao_impl();
 
     @Override
-    public List<ChiTietDonHangEntity> FindHot() {
+    public List<Object[]> FindHot() {
         return chiTietDonHangDao_impl.FindHot();
     }
 

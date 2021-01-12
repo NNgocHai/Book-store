@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ChiTietDonHangDao extends GenericDao<Integer, ChiTietDonHangEntity>{
 
-    List<ChiTietDonHangEntity> FindHot();
+    List<Object[]> FindHot();
 }

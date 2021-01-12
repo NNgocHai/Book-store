@@ -33,8 +33,22 @@ public class WebHome extends HttpServlet {
         ProductService_impl productService_impl=new ProductService_impl();
         ChiTietDonHangService_impl chiTietDonHangService_impl=new ChiTietDonHangService_impl();
         ReviewService reviewService= new ReviewService_impl();
-        List<ChiTietDonHangEntity> product_hotList = chiTietDonHangService_impl.FindHot();
-        List<CuonSachEntity> productList_km = new ArrayList<CuonSachEntity>();
+        List<ChiTietDonHangEntity> product_hotList = new ArrayList<ChiTietDonHangEntity>();
+        List<Object[]> product_hotListt = chiTietDonHangService_impl.FindHot();
+        List<ChiTietDonHangEntity> product_hotListtt = chiTietDonHangService_impl.findAll();
+
+        for(Object[] product_hott: product_hotListt) {
+            int check =0;
+            for(ChiTietDonHangEntity product_hottt: product_hotListtt) {
+                if (product_hottt.getCuonSachEntity().getMa_CuonSach() == (int) product_hott[0]) {
+                    product_hotList.add(product_hottt);
+                    break;
+                }
+            }
+
+
+        }
+            List<CuonSachEntity> productList_km = new ArrayList<CuonSachEntity>();
         List<ReviewEntity> reviewEntities = new ArrayList<ReviewEntity>();
        // List<CuonSachEntity> product_hotdiscount = new ArrayList<CuonSachEntity>();
         reviewEntities= reviewService.findAll();
