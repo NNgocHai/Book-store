@@ -44,11 +44,11 @@
                                 <li>
                                     <a><strong>Chào</strong> ${user }</a>
                                 </li>
-                                <li class="hidden-xs"><a href="${pageContext.request.contextPath}/view/client/logout">Đăng xuất</a></li>
+                                <li class="hidden-xs"><a href="${pageContext.request.contextPath}/web/logout">Đăng xuất</a></li>
                             </c:if>
 
                             <c:if test="${sessionScope.user == null}">
-                                <li class="hidden-xs"><a href="${pageContext.request.contextPath}/view/client/register">Đăng ký</a></li>
+                                <li class="hidden-xs"><a href="${pageContext.request.contextPath}/web/register">Đăng ký</a></li>
                                 <li><a href="${pageContext.request.contextPath}/web/login">Đăng nhập</a></li>
                             </c:if>
 

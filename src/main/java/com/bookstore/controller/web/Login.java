@@ -1,8 +1,6 @@
 package com.bookstore.controller.web;
 
-import com.bookstore.dao.AdminDao;
 import com.bookstore.dao.CustomerDao;
-import com.bookstore.dao_impl.AdminDao_impl;
 import com.bookstore.dao_impl.CustomerDao_impl;
 
 import javax.servlet.RequestDispatcher;
