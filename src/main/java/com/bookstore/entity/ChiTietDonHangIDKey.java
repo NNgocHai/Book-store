@@ -26,22 +26,19 @@ public class ChiTietDonHangIDKey implements Serializable {
     public void setMa_CuonSach(Integer ma_CuonSach) {
         this.ma_CuonSach = ma_CuonSach;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         ChiTietDonHangIDKey that = (ChiTietDonHangIDKey) o;
-
-        if (!Objects.equals(ma_DH, that.ma_DH)) return false;
-        return Objects.equals(ma_CuonSach, that.ma_CuonSach);
+        return Objects.equals(ma_DH, that.ma_DH) &&
+                Objects.equals(ma_CuonSach, that.ma_CuonSach);
     }
 
     @Override
     public int hashCode() {
-        int result = ma_DH != null ? ma_DH.hashCode() : 0;
-        result = 31 * result + (ma_CuonSach != null ? ma_CuonSach.hashCode() : 0);
-        return result;
+        return Objects.hash(ma_DH, ma_CuonSach);
     }
 
 }

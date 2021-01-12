@@ -32,18 +32,13 @@ public class GioHangIDKey implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         GioHangIDKey that = (GioHangIDKey) o;
-
-        if (!Objects.equals(ma_Customer, that.ma_Customer)) return false;
-        return Objects.equals(ma_CuonSach, that.ma_CuonSach);
+        return Objects.equals(ma_Customer, that.ma_Customer) &&
+                Objects.equals(ma_CuonSach, that.ma_CuonSach);
     }
 
     @Override
     public int hashCode() {
-        int result = ma_Customer != null ? ma_Customer.hashCode() : 0;
-        result = 31 * result + (ma_CuonSach != null ? ma_CuonSach.hashCode() : 0);
-        return result;
+        return Objects.hash(ma_Customer, ma_CuonSach);
     }
-
 }
