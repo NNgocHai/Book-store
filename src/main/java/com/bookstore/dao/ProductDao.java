@@ -13,4 +13,5 @@ public interface ProductDao extends GenericDao<Integer, CuonSachEntity>{
     List<CuonSachEntity> FindHotDiscount();
     List<CuonSachEntity> FindByCate(int Cate);
     List<ChiTietDonHangEntity> FindHot();
+    List<CuonSachEntity> Search(String TuKhoa);
 }

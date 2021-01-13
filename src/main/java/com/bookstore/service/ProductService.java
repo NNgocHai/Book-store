@@ -15,5 +15,6 @@ public interface ProductService {
     List<CuonSachEntity> FindByCate(int Cate);
     List<ChiTietDonHangEntity> FindHot();
     List<CuonSachEntity> FindHotDiscount();
+    List<CuonSachEntity> Search(String TuKhoa);
 
 }
