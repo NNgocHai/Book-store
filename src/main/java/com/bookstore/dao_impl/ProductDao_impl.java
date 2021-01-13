@@ -105,4 +105,34 @@ public class ProductDao_impl extends GenericDao_impl<Integer, CuonSachEntity> im
         }
         return results;
     }
+
+    @Override
+    public List<CuonSachEntity> Search(String TuKhoa) {
+        List<CuonSachEntity> results =new ArrayList<CuonSachEntity>();
+        Transaction transaction = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try  {
+            // start a transaction
+            transaction = session.beginTransaction();
+
+            // get an cuonSachEntity object
+            StringBuilder sql = new StringBuilder("from CuonSachEntity a where a.ten_CuonSach like :TuKhoa or a.categoryEntity.ten_DauSach like :TuKhoa");
+            Query query = session.createQuery(sql.toString());
+            query.setParameter("TuKhoa", "%"+TuKhoa+"%");
+            results = query.list();
+
+
+            // commit transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return results;
+    }
 }

@@ -44,4 +44,9 @@ public class ProductService_impl implements ProductService {
     public List<CuonSachEntity> FindHotDiscount() {
         return productDao.FindHotDiscount();
     }
+
+    @Override
+    public List<CuonSachEntity> Search(String TuKhoa) {
+        return productDao.Search(TuKhoa);
+    }
 }
