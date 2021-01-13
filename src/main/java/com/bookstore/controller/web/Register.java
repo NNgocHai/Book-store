@@ -60,7 +60,6 @@ public class Register extends HttpServlet {
 
             session.setAttribute("code_dk",code_string);
             SendingEmail se=new SendingEmail(customer_gmail,customer_name,code_string);
-
             RequestDispatcher rd=request.getRequestDispatcher("/views/web/verification.jsp");
             rd.forward(request,response);
         } else {

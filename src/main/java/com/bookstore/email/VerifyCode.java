@@ -20,7 +20,7 @@ public class VerifyCode extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
-        String code_nhap=request.getParameter("ma_code");
+        String code_nhap=request.getParameter("ma_code").trim();
         HttpSession session=request.getSession();
         if(session.getAttribute("code_dk").equals(code_nhap))
         {
