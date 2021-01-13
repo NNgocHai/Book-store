@@ -62,13 +62,14 @@ public class Payment extends HttpServlet {
         donHangEntity.setNgaydat(Timestamp.valueOf((now)));
         donHangEntity.setTongtien(tongtien);
         donHangEntity.setActiveDH("Chưa giao");
-        donHangService.save(donHangEntity);
+        donHangEntity=donHangService.save(donHangEntity);
+
 
         for (GioHangEntity Order : Orders) {
             ChiTietDonHangEntity chiTietDonHangEntity = new ChiTietDonHangEntity();
             ChiTietDonHangIDKey chiTietDonHangIDKey = new ChiTietDonHangIDKey();
             chiTietDonHangIDKey.setMa_CuonSach(Order.getCuonSachEntity().getMa_CuonSach());
-            chiTietDonHangIDKey.setMa_DH(donHangService.findAll().size());
+            chiTietDonHangIDKey.setMa_DH(donHangEntity.getMa_DH());
             chiTietDonHangEntity.setId(chiTietDonHangIDKey);
             chiTietDonHangEntity.setSoluong(Order.getSoluong());
             chiTietDonHangEntity.setGia(Order.getCuonSachEntity().getGiabia());
