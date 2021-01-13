@@ -71,7 +71,7 @@
 
                     <div class="text-center p-t-115">
                             <span class="txt1">
-                                @Copyright 2020 BookShop.com
+                                @Copyright 2020 BookStore.com
                             </span>
 
                     </div>

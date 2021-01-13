@@ -19,57 +19,27 @@
                     <!-- single slide item -->
                     <li>
                         <div class="seq-model">
-                            <img data-seq src="${url}/images/slide_1.jpg" alt="Men slide img"/>
+                            <img data-seq src="${url}/images/new/banner2.jpg" alt="Men slide img"/>
                         </div>
                         <div class="seq-title">
-                            <span data-seq>Giảm giá lên đến ${productListHotDiscount.get(0).getDiscount()}%</span>
-                            <h2 data-seq>Các Loại Hạt Bổ Dưỡng</h2>
-                            <p data-seq>Các loại hạt tại của hàng luôn luôn được tuyển chọn,và các mặt hàng luôn đảm bảo
-                                chất lượng.</p>
+
+                            <h2 data-seq>Đọc sách là thưởng thức!</h2>
+                            <p data-seq style="color: black"><b>Một cuốn sách dù dở đến đâu ta cũng thu lượm được vài điều đặc biệt của nó.</b></p>
                             <a data-seq href="${pageContext.request.contextPath}/web/product"
-                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                               class="aa-shop-now-btn aa-secondary-btn">Xem Sách</a>
+
                         </div>
                     </li>
                     <!-- single slide item -->
                     <li>
                         <div class="seq-model">
-                            <img data-seq src="${url}/images/slide_2.jpg" alt="Wristwatch slide img"/>
+                            <img data-seq src="${url}/images/new/banner4.jpg" alt="Wristwatch slide img"/>
                         </div>
                         <div class="seq-title">
-                            <span data-seq>Giảm giá lên đến 20%</span>
-                            <h2 data-seq>Rau Củ Quả Xanh Sạch</h2>
-                            <p data-seq>Rau củ quả được trồng đảm bảo không thuốc hóa học , đảm bảo chất lương xanh sạch
-                                và an toàn.</p>
+                            <h2 data-seq style="text-align: center">Đọc sách khẳng định bản thân!</h2>
+                            <p data-seq><b>Đừng mắc công thanh minh, những gì bạn đang làm, sẽ định nghĩa con người bạn.</b></p>
                             <a data-seq href="${pageContext.request.contextPath}/web/product"
-                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
-                        </div>
-                    </li>
-                    <!-- single slide item -->
-                    <li>
-                        <div class="seq-model">
-                            <img data-seq src="${url}/images/slide_3.jpg" alt="Women Jeans slide img"/>
-                        </div>
-                        <div class="seq-title">
-                            <span data-seq>Giảm giá lên đến 33%</span>
-                            <h2 data-seq>Trái Cây Ngon Ngọt</h2>
-                            <p data-seq>Trái cây tại cửa hàng đa dạng về loại hàng, luôn đảm bảo tính an toàn và chất
-                                lượng lên hàng đầu.</p>
-                            <a data-seq href="${pageContext.request.contextPath}/web/product"
-                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
-                        </div>
-                    </li>
-                    <!-- single slide item -->
-                    <li>
-                        <div class="seq-model">
-                            <img data-seq src="${url}/" alt="Shoes slide img"/>
-                        </div>
-                        <div class="seq-title">
-                            <span data-seq>Giảm giá lên đến 25%</span>
-                            <h2 data-seq>Mật Ong Và Tinh Dầu</h2>
-                            <p data-seq>Là 2 sản phẩm mới bên cửa hàng của chúng tôi,sản phẩm đã được kiểm định
-                                và cấp phép về an toàn.</p>
-                            <a data-seq href="${pageContext.request.contextPath}/web/product"
-                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                               class="aa-shop-now-btn aa-secondary-btn">Xem Sách</a>
                         </div>
                     </li>
                 </ul>
@@ -103,7 +73,7 @@
                                         <span>Giảm giá ${productListHotDiscount.get(0).getDiscount()}%</span>
                                         <h4>${productListHotDiscount.get(0).getTen_CuonSach()}</h4>
                                         <a data-seq href="${pageContext.request.contextPath}/web/productDetail?id=${productListHotDiscount.get(0).getMa_CuonSach()}&Cate=${productListHotDiscount.get(0).getMa_DauSach()}"
-                                           class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                                           class="aa-shop-now-btn aa-secondary-btn">Xem Sách</a>
                                     </div>
 
                                 </div>
@@ -120,7 +90,7 @@
                                             <span>Giảm giá ${productListHotDiscount.get(1).getDiscount()}%</span>
                                             <br>
                                             <a data-seq href="${pageContext.request.contextPath}/web/productDetail?id=${productListHotDiscount.get(1).getMa_CuonSach()}&Cate=${productListHotDiscount.get(1).getMa_DauSach()}"
-                                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                                               class="aa-shop-now-btn aa-secondary-btn">Xem Sách</a>
                                         </div>
                                     </div>
                                 </div>
@@ -132,7 +102,7 @@
                                             <span>Giảm giá ${productListHotDiscount.get(2).getDiscount()}%</span>
                                             <br>
                                             <a data-seq href="${pageContext.request.contextPath}/web/productDetail?id=${productListHotDiscount.get(2).getMa_CuonSach()}&Cate=${productListHotDiscount.get(2).getMa_DauSach()}"
-                                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                                               class="aa-shop-now-btn aa-secondary-btn">Xem Sách</a>
                                         </div>
                                     </div>
                                 </div>
@@ -144,7 +114,7 @@
                                             <span>Giảm giá ${productListHotDiscount.get(3).getDiscount()}%</span>
                                             <br>
                                             <a data-seq href="${pageContext.request.contextPath}/web/productDetail?id=${productListHotDiscount.get(3).getMa_CuonSach()}&Cate=${productListHotDiscount.get(3).getMa_DauSach()}"
-                                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                                               class="aa-shop-now-btn aa-secondary-btn">Xem Sách</a>
                                         </div>
                                     </div>
                                 </div>
@@ -156,7 +126,7 @@
                                             <span>Giảm giá ${productListHotDiscount.get(4).getDiscount()}%</span>
                                             <br>
                                             <a data-seq href="${pageContext.request.contextPath}/web/productDetail?id=${productListHotDiscount.get(4).getMa_CuonSach()}&Cate=${productListHotDiscount.get(4).getMa_DauSach()}"
-                                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                                               class="aa-shop-now-btn aa-secondary-btn">Xem Sách</a>
                                         </div>
                                     </div>
                                 </div>
@@ -179,7 +149,7 @@
                         <div class="aa-product-inner">
                             <!-- start prduct navigation -->
                             <ul class="nav nav-tabs aa-products-tab">
-                                <li class="active"><a href="#" data-toggle="tab">Sản phẩm bán chạy</a></li>
+                                <li class="active"><a href="#" data-toggle="tab">Sách bán chạy</a></li>
                             </ul>
                             <!-- Tab panes -->
                             <div class="tab-content">
@@ -248,7 +218,7 @@
                         </div>
                         <div class="more-product">
                             <a class="aa-browse-btn" href="${pageContext.request.contextPath}/web/product">Xem Tất Cả
-                                Sản Phẩm <span class="fa fa-long-arrow-right"></span></a>
+                                Sách <span class="fa fa-long-arrow-right"></span></a>
                         </div>
 
 
@@ -275,7 +245,7 @@
                         <div class="aa-support-single">
                             <span class="fa fa-truck"></span>
                             <h4>MIỄN PHÍ VẬN CHUYỂN</h4>
-                            <P>Chúng tôi đã áp dụng gói miễn phí vận chuyển cho đơn hàng trên 280.000VNĐ.</P>
+                            <P>Miễn phí vận chuyển với mọi đơn hàng!</P>
                         </div>
                     </div>
                     <!-- single support -->
@@ -283,7 +253,7 @@
                         <div class="aa-support-single">
                             <span class="fa fa-clock-o"></span>
                             <h4>GIAO HÀNG NHANH</h4>
-                            <P>Chúng tôi đảm bảo hàng đến tay khách hàng nhanh và đảm bảo sản phẩm an toàn.</P>
+                            <P>Chúng tôi đảm bảo hàng đến tay khách hàng an toàn và nhanh nhất.</P>
                         </div>
                     </div>
                     <!-- single support -->
@@ -291,7 +261,7 @@
                         <div class="aa-support-single">
                             <span class="fa fa-phone"></span>
                             <h4>HỖ TRỢ 24/7</h4>
-                            <P>Hỗ trợ tư vấn và đặt hàng mọi lúc mọi nơi, đảm bảo thời gian cho khách hàng.</P>
+                            <P>Hỗ trợ tư vấn và đặt hàng mọi lúc mọi nơi, đảm bảo thời gian cho các bạn!</P>
                         </div>
                     </div>
                 </div>
@@ -311,7 +281,7 @@
                         <c:if test="${reviewEntities.size()-1 >= 0}">
                             <li>
                                 <div class="aa-testimonial-single">
-                                    <img class="aa-testimonial-img" src="${url}/images/avatar.jpg" alt="avatar 1">
+                                    <img class="aa-testimonial-img" src="${url}/images/new/avatar1.png" alt="avatar 1">
                                     <span class="fa fa-quote-left aa-testimonial-quote"></span>
                                     <p>${reviewEntities.get(reviewEntities.size()-1).getBinhluan()}</p>
                                     <div class="aa-testimonial-info">
@@ -325,7 +295,7 @@
 
                             <li>
                                 <div class="aa-testimonial-single">
-                                    <img class="aa-testimonial-img" src="${url}/images/avater-2.jpg" alt="avatar 2">
+                                    <img class="aa-testimonial-img" src="${url}/images/new/avatar2.png" alt="avatar 2">
                                     <span class="fa fa-quote-left aa-testimonial-quote"></span>
                                     <p>${reviewEntities.get(reviewEntities.size()-2).getBinhluan()}
                                     <p>
@@ -339,7 +309,7 @@
                         <c:if test="${reviewEntities.size()-3 >= 0}">
                             <li>
                                 <div class="aa-testimonial-single">
-                                    <img class="aa-testimonial-img" src="${url}/images/avatar.jpg" alt="avatar 1">
+                                    <img class="aa-testimonial-img" src="${url}/images/new/avatar3.png" alt="avatar 1">
                                     <span class="fa fa-quote-left aa-testimonial-quote"></span>
                                     <p>${reviewEntities.get(reviewEntities.size()-3).getBinhluan()}</p>
                                     <div class="aa-testimonial-info">
@@ -356,43 +326,6 @@
 </section>
 <!-- / Testimonial -->
 
-<!-- Latest Blog -->
-<section id="aa-latest-blog">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="aa-latest-blog-area">
-                    <h2>TIN TỨC</h2>
-                    <div class="row">
-                        <!-- single latest blog -->
-                        <c:forEach items="${boardnewlist}" var="boardnew" end="2">
-                            <div class="col-md-4 col-sm-4">
-                                <div class="aa-latest-blog-single">
-                                    <figure class="aa-blog-img">
-                                        <a href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}"><img
-                                                src="${pageContext.request.contextPath}/view/client/assets/images/news/${boardnew.image_link}"
-                                                alt="Tin tức ${boardnew.title}"></a>
-                                        <figcaption class="aa-blog-img-caption">
-                                            <span href="#"><i class="fa fa-clock-o"></i>${boardnew.created}</span>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="aa-blog-info">
-                                        <h3 class="aa-blog-title"><a
-                                                href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}">${boardnew.title}</a>
-                                        </h3>
-                                        <p class="desc-boardnews">${boardnew.content}</p>
-                                        <a href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}"
-                                           class="aa-read-mor-btn">Xem thêm<span class="fa fa-long-arrow-right"></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </c:forEach>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 

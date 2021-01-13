@@ -15,10 +15,10 @@
     <div class="aa-catg-head-banner-area">
         <div class="container">
             <div class="aa-catg-head-banner-content">
-                <h2>Chi tiết sản phẩm</h2>
+                <h2>Chi tiết cuốn sách</h2>
                 <ol class="breadcrumb">
                     <li><a href="${pageContext.request.contextPath}">Trang chủ</a></li>
-                    <li><a href="${pageContext.request.contextPath}/web/product">Sản phẩm</a></li>
+                    <li><a href="${pageContext.request.contextPath}/web/product">Xem Sách</a></li>
                     <li style="color:#fff">${product.getMota() }</li>
                 </ol>
             </div>
@@ -113,7 +113,7 @@
                     </div>
                     <!-- Related product -->
                     <div class="aa-product-related-item">
-                        <h3>SẢN PHẨM LIÊN QUAN</h3>
+                        <h3>SÁCH LIÊN QUAN</h3>
                         <ul class="aa-product-catg aa-related-item-slider">
                             <!-- start single product item -->
                             <c:forEach items="${Catee}" var="productCate">
