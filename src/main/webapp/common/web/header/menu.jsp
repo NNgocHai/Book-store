@@ -26,7 +26,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="${pageContext.request.contextPath}/">TRANG CHỦ</a></li>
                         <li><a href="${pageContext.request.contextPath}/view/client/introduce">GIỚI THIỆU</a></li>
-                        <li><a href="${pageContext.request.contextPath}/web/product">SẢN PHẨM</span></a>
+                        <li><a href="${pageContext.request.contextPath}/web/product">XEM SÁCH</a>
                             <ul class="dropdown-menu">
                                 <li><a href="product.jsp">RAU CỦ QUẢ</a></li>
                                 <li><a href="product.jsp">CÁC LOẠI HẠT</a></li>
@@ -34,13 +34,12 @@
                                 <li><a href="product.jsp">MẬT ONG</a></li>
                             </ul>
                         </li>
-                        <li><a href="${pageContext.request.contextPath}/view/client/news-list">TIN TỨC</a></li>
                         <li><a href="${pageContext.request.contextPath}/view/client/security">CHÍNH SÁCH</a></li>
                         <li><a href="${pageContext.request.contextPath}/view/client/contact">LIÊN HỆ</a></li>
                         <li class="aa-search"><!-- search box -->
                             <a class="aa-search-box">
                                 <form action="${pageContext.request.contextPath}/view/client/product/search" method="GET">
-                                    <input type="text" name="s" id="" placeholder="Tìm kiếm sản phẩm..">
+                                    <input type="text" name="s" id="" placeholder="Tìm kiếm sách">
                                     <button class="serach-box"><span class="fa fa-search"></span></button>
                                 </form>
                             </a>

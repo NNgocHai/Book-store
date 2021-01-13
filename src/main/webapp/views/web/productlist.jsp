@@ -12,14 +12,14 @@
 
 
 <section id="aa-catg-head-banner">
-    <img src="${pageContext.request.contextPath}/template/web/images/banner-product.png" alt="banner sản phẩm">
+    <img src="${url}/images/banner-product.png" alt="banner sản phẩm">
     <div class="aa-catg-head-banner-area">
         <div class="container">
             <div class="aa-catg-head-banner-content">
-                <h2>Sản phẩm</h2>
+                <h2>Cuốn Sách</h2>
                 <ol class="breadcrumb">
                     <li><a href="${pageContext.request.contextPath}/">Trang chủ</a></li>
-                    <li style="color:#ffffff">Danh sách sản phẩm</li>
+                    <li style="color:#ffffff">Danh sách cuốn sách</li>
                 </ol>
             </div>
         </div>
@@ -38,7 +38,7 @@
                         <ul class="aa-product-catg">
                             <!-- start single product item -->
                             <c:if test="${empty productList}">
-                                <p style="margin-left: 30px">Chưa có sản phẩm!</p>
+                                <p style="margin-left: 30px">Chưa có sách!</p>
                             </c:if>
                             <c:forEach items="${productList}" var="product">
                                 <li>
@@ -96,7 +96,7 @@
 
                     <!-- single sidebar -->
                     <div class="aa-sidebar-widget">
-                        <h3>Sản phẩm gần đây</h3>
+                        <h3>Sách gần đây</h3>
                         <div class="aa-recently-views">
                             <ul>
                                 <c:forEach items="${productListCurrent}" var="product" begin="${productListCurrent.size()-3}" end="${productListCurrent.size()-1}" step="1">
