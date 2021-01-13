@@ -31,7 +31,6 @@ public class ProductEdit extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         int cuonsach_id = Integer.parseInt(request.getParameter("cuonsach_id"));
-        String cuonsach_id_String=request.getParameter("cuonsach_id");
         String cuonsach_ten = request.getParameter("cuonsach_ten");
         String cuonsach_maDS = request.getParameter("cuonsach_maDS");
         String cuonsach_tacgia = request.getParameter("cuonsach_tacgia");
@@ -44,6 +43,7 @@ public class ProductEdit extends HttpServlet {
                 && (!cuonsach_discount.equals(""))&&(!cuonsach_anhCS.equals("")))
         {
             CuonSachEntity cuonSachEntity = new CuonSachEntity();
+            cuonSachEntity.setMa_CuonSach(cuonsach_id);
             cuonSachEntity.setTen_CuonSach(cuonsach_ten);
             cuonSachEntity.setMa_DauSach(Integer.parseInt(cuonsach_maDS));
             cuonSachEntity.setGiabia(Integer.parseInt(cuonsach_giaban));
@@ -58,7 +58,7 @@ public class ProductEdit extends HttpServlet {
         }
         else{
             request.setAttribute("errorMessage", "Vui lòng điền đầy đủ thông tin");
-            request.setAttribute("macuonsach",cuonsach_id_String);
+            request.setAttribute("macuonsach",cuonsach_id);
             request.setAttribute("madausach",cuonsach_maDS);
             request.setAttribute("tencuonsach",cuonsach_ten);
             request.setAttribute("tacgia",cuonsach_tacgia);
