@@ -22,7 +22,7 @@
                                           <p>daily<strong>Shop</strong> <span>Your Shopping Partner</span></p>
                                         </a>-->
                         <!-- img based logo -->
-                        <a href="${pageContext.request.contextPath}/"><img src="${url}/images/logo.png" alt="logo img" width="100%"></a>
+                        <a href="${pageContext.request.contextPath}/"><img src="${url}/images/new/logo.png" alt="logo img" width="100%"></a>
                     </div>
                     <!-- / logo  -->
                     <!-- Shipping service -->
@@ -31,14 +31,14 @@
                             <span class="aa-shipping-boxsmall-icon fas fa-shipping-fast"></span>
                             <span class="aa-shipping-box-text">
                           <div class="aa-shipping-title">Miễn phí vận chuyển</div>
-                      <div class="">Khu vực TP HCM</div>
+                      <div class="">An toàn và nhanh chóng</div>
                       </span>
 
                         </a>
                         <a class="aa-shipping-boxsmall">
                             <span class="aa-shipping-boxsmall-icon fas fa-phone"></span>
                             <span class="aa-shipping-box-text">
-                          <div class="aa-shipping-title">Hỗ trợ: 037.7026.186</div>
+                          <div class="aa-shipping-title">Hỗ trợ: 010.999.9999</div>
                           <div class="">Tư vấn 24/7 miễn phí</div>
                       </span>
 

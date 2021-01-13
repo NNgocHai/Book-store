@@ -17,7 +17,7 @@
                     <!-- start header top left -->
                     <div class="aa-header-top-left">
                         <div class="cellphone hidden-xs">
-                            <p><span class="fas fa-home"></span>Website bán hàng nông sản</p>
+                            <p><span class="fas fa-home"></span>Website Chi Nhánh Của NXB Kim Đồng</p>
                         </div>
                         <!-- start language -->
                         <div class="aa-language">

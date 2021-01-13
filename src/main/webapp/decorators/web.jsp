@@ -25,7 +25,7 @@
 
     <!-- Bootstrap -->
     <link href="${url}/css/bootstrap.css" rel="stylesheet">
-    <link rel="icon" href="${url}/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="${url}/images/new/favicon.png" type="image/x-icon">
     <!-- SmartMenus jQuery Bootstrap Addon CSS -->
     <link href="${url}/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
     <!-- Product view slider -->
@@ -55,6 +55,11 @@
 
     <![endif]-->
 </head>
+<style>
+  #aa-footer{
+      background-color:#413F3F !important;
+  }
+</style>
 <body class="bg-theme bg-theme1">
 <jsp:include page = "/common/web/header/header.jsp" flush = "true" />
 <dec:body/>

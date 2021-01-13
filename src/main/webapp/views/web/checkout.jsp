@@ -15,7 +15,7 @@
 <!--  content -->
 <!-- catg header banner section -->
 <section id="aa-catg-head-banner">
-    <img src="${pageContext.request.contextPath}/view/client/assets/images/checkout-banner.png" alt="banner thanh toán">
+    <img src="${pageContext.request.contextPath}/template/web/images/checkout-banner.png" alt="banner thanh toán">
     <div class="aa-catg-head-banner-area">
         <div class="container">
             <div class="aa-catg-head-banner-content">
@@ -122,7 +122,7 @@
                                         <table class="table table-responsive">
                                             <thead>
                                             <tr>
-                                                <th>Sản phẩm</th>
+                                                <th>Cuốn Sách</th>
                                                 <th>Số tiền</th>
                                             </tr>
                                             </thead>

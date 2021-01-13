@@ -37,14 +37,14 @@ public class Checkout extends HttpServlet {
                 if (Order.getCuonSachEntity().getMa_CuonSach() == product.getMa_CuonSach()) {
                     if (Order.getSoluong() > product.getSoluong()) {
                         check_soluong = 0;
-                        errorsoluong = "Sản phẩm:" + Order.getCuonSachEntity().getTen_CuonSach() +" Vượt quá số lương của kho:" + product.getSoluong() + "";
+                        errorsoluong = "Sách này:" + Order.getCuonSachEntity().getTen_CuonSach() +" Vượt quá số lương của kho:" + product.getSoluong() + "";
                         break;
                     }
                 }
             }
         }
         if (length_orders == 0) {
-            request.setAttribute("error", "Bạn chưa có sản phẩm trong giỏ hàng");
+            request.setAttribute("error", "Bạn chưa có cuốn sách nào trong giỏ hàng");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/views/web/CartDetail.jsp");
             dispatcher.forward(request, response);
 
