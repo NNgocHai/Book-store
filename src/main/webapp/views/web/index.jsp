@@ -102,6 +102,8 @@
                                     <div class="aa-prom-content aa-product-img">
                                         <span>Giảm giá ${productListHotDiscount.get(0).getDiscount()}%</span>
                                         <h4>${productListHotDiscount.get(0).getTen_CuonSach()}</h4>
+                                        <a data-seq href="${pageContext.request.contextPath}/web/productDetail?id=${productListHotDiscount.get(0).getMa_CuonSach()}&Cate=${productListHotDiscount.get(0).getMa_DauSach()}"
+                                           class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
                                     </div>
 
                                 </div>
@@ -116,7 +118,9 @@
                                              alt="${productListHotDiscount.get(1).getTen_CuonSach()}">
                                         <div class="aa-prom-content">
                                             <span>Giảm giá ${productListHotDiscount.get(1).getDiscount()}%</span>
-                                            <h4>${productListHotDiscount.get(1).getTen_CuonSach()}</h4>
+                                            <br>
+                                            <a data-seq href="${pageContext.request.contextPath}/web/productDetail?id=${productListHotDiscount.get(1).getMa_CuonSach()}&Cate=${productListHotDiscount.get(1).getMa_DauSach()}"
+                                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
                                         </div>
                                     </div>
                                 </div>
@@ -126,7 +130,9 @@
                                              alt="${productListHotDiscount.get(2).getTen_CuonSach()}">
                                         <div class="aa-prom-content">
                                             <span>Giảm giá ${productListHotDiscount.get(2).getDiscount()}%</span>
-                                            <h4>${productListHotDiscount.get(2).getTen_CuonSach()}</h4>
+                                            <br>
+                                            <a data-seq href="${pageContext.request.contextPath}/web/productDetail?id=${productListHotDiscount.get(2).getMa_CuonSach()}&Cate=${productListHotDiscount.get(2).getMa_DauSach()}"
+                                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
                                         </div>
                                     </div>
                                 </div>
@@ -136,7 +142,9 @@
                                              alt="${productListHotDiscount.get(3).getTen_CuonSach()}">
                                         <div class="aa-prom-content">
                                             <span>Giảm giá ${productListHotDiscount.get(3).getDiscount()}%</span>
-                                            <h4>${productListHotDiscount.get(3).getTen_CuonSach()}</h4>
+                                            <br>
+                                            <a data-seq href="${pageContext.request.contextPath}/web/productDetail?id=${productListHotDiscount.get(3).getMa_CuonSach()}&Cate=${productListHotDiscount.get(3).getMa_DauSach()}"
+                                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
                                         </div>
                                     </div>
                                 </div>
@@ -146,7 +154,9 @@
                                              alt="${productListHotDiscount.get(4).getTen_CuonSach()}">
                                         <div class="aa-prom-content">
                                             <span>Giảm giá ${productListHotDiscount.get(4).getDiscount()}%</span>
-                                            <h4>${productListHotDiscount.get(4).getTen_CuonSach()}</h4>
+                                            <br>
+                                            <a data-seq href="${pageContext.request.contextPath}/web/productDetail?id=${productListHotDiscount.get(4).getMa_CuonSach()}&Cate=${productListHotDiscount.get(4).getMa_DauSach()}"
+                                               class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
                                         </div>
                                     </div>
                                 </div>

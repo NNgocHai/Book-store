@@ -37,10 +37,22 @@ public class ProductViewList extends HttpServlet{
         List<CategoryEntity> categoryList = categoryService.findAll();
         NavigationDao_impl<CuonSachEntity> navigationDaoImpl = new NavigationDao_impl<CuonSachEntity>(Integer.valueOf(page),maxResult,maxNavigationPage );
         List<CuonSachEntity> productList_km = new ArrayList<CuonSachEntity>();
+        List<CuonSachEntity> productListCurrent = new ArrayList<CuonSachEntity>();
+        List<CuonSachEntity> productListCurrent_km = new ArrayList<CuonSachEntity>();
 
         ProductService_impl productService_impl = new ProductService_impl();
+        productListCurrent= productService_impl.findAll();
+        productListCurrent.get(productListCurrent.size()-1);
 
+        for(CuonSachEntity product: productListCurrent)
+        {
+            CuonSachEntity product_km = new CuonSachEntity();
+            product_km = productService_impl.findById(product.getMa_CuonSach());
+            double db =(Double.parseDouble(String.valueOf(product.getGiabia())) * (1 - (Double.parseDouble(String.valueOf(product.getDiscount()))/100)));
+            product_km.setGiabia((int)db);
+            productListCurrent_km.add(product_km);
 
+        }
         for(CuonSachEntity product: navigationDaoImpl.getList())
         {
             CuonSachEntity product_km = new CuonSachEntity();
@@ -50,6 +62,9 @@ public class ProductViewList extends HttpServlet{
             productList_km.add(product_km);
 
         }
+        request.setAttribute("productListCurrent", productListCurrent);
+        request.setAttribute("productListCurrent_km", productListCurrent_km);
+
         request.setAttribute("productList_km", productList_km);
         request.setAttribute("categoryList", categoryList);
         request.setAttribute("productList", navigationDaoImpl.getList());

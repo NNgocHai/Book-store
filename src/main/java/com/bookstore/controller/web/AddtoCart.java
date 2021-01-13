@@ -89,9 +89,9 @@ public class AddtoCart extends HttpServlet {
                         session.setAttribute("tongtien", tongtien);
                     }
                 }
-                response.sendRedirect(request.getContextPath() + "/web/product");
+                response.sendRedirect(request.getHeader("Referer"));
             } else {
-                response.sendRedirect(request.getContextPath() + "/");
+                response.sendRedirect(request.getHeader("Referer"));
             }
         } else {
             if (request.getParameter("product-id") != null) {
@@ -147,9 +147,9 @@ public class AddtoCart extends HttpServlet {
                     session.setAttribute("Orders", Orders);
                     session.setAttribute("tongtien", tongtien);
                 }
-                response.sendRedirect(request.getContextPath() + "/web/product");
+                response.sendRedirect(request.getHeader("Referer"));
             } else {
-                response.sendRedirect(request.getContextPath() + "/");
+                response.sendRedirect(request.getHeader("Referer"));
             }
         }
 

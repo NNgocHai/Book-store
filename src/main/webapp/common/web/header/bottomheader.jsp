@@ -93,8 +93,8 @@
                                 value="${tongtien}"/> VNĐ
                       </span>
                             </div>
-                            <a class="aa-cartbox-checkout aa-primary-btn" href="${pageContext.request.contextPath}/view/client/cart">Chi tiết</a>
-                            <a class="aa-cartbox-checkout aa-primary-btn" href="${pageContext.request.contextPath}/view/client/checkout">Thanh toán</a>
+                            <a class="aa-cartbox-checkout aa-primary-btn" href="${pageContext.request.contextPath}/web/product/CartDetail">Chi tiết</a>
+                            <a class="aa-cartbox-checkout aa-primary-btn" href="${pageContext.request.contextPath}/web/checkout">Thanh toán</a>
                         </div>
                     </div>
                     <!-- / cart box -->

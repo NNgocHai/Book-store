@@ -7,6 +7,7 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:url value="/template/web" var="url"/>
 
 <section id="aa-catg-head-banner">
@@ -31,6 +32,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cart-view-area">
+                    <p style="color:#ff0000; display:block">
+                        ${error}
+                    </p>
                     <div class="cart-view-table">
                         <%--                        ${pageContext.request.contextPath}/view/client/cart-update--%>
                         <form action="${pageContext.request.contextPath}/web/product/UpdatetoCart" method="post">
@@ -64,7 +68,9 @@
                                             </td>
                                             <c:forEach items="${cuonSachEntityList}" var="product">
                                                 <c:if test="${product.ma_CuonSach == Order.getCuonSachEntity().getMa_CuonSach()}">
-                                                        <td>${product.giabia} VNĐ</td>
+                                                        <td><fmt:formatNumber
+                                                                type="number" maxFractionDigits="3"
+                                                                value="${product.getGiabia()}"/> VNĐ</td>
                                                 </c:if>
 
                                             </c:forEach>
@@ -72,12 +78,16 @@
                                                        name="${Order.getCuonSachEntity().getMa_CuonSach()}"
                                                        value="${Order.soluong}" min=1></td>
                                             <td>${Order.getCuonSachEntity().discount} %</td>
-                                            <td>${Order.getCuonSachEntity().giabia * Order.soluong} VNĐ</td>
+                                            <td><fmt:formatNumber
+                                                    type="number" maxFractionDigits="3"
+                                                    value="${Order.getCuonSachEntity().getGiabia() * Order.getSoluong()}"/> VNĐ</td>
                                         </tr>
                                     </c:forEach>
                                     <tr>
                                         <td colspan="6" class=""><strong>TỔNG TIỀN</strong></td>
-                                        <td><strong>${tongtien} VNĐ</strong></td>
+                                        <td><strong><fmt:formatNumber
+                                                type="number" maxFractionDigits="3"
+                                                value="${tongtien}"/> VNĐ</strong></td>
                                     </tr>
                                     <tr>
                                         <td colspan="7" class="aa-cart-view-bottom">
@@ -96,7 +106,9 @@
                                 <tbody>
                                 <tr>
                                     <th>Tạm tính</th>
-                                    <td>${tongtien} VNĐ</td>
+                                    <td><fmt:formatNumber
+                                            type="number" maxFractionDigits="3"
+                                            value="${tongtien}"/> VNĐ</td>
                                 </tr>
                                 <tr>
                                     <th>VAT</th>
@@ -104,12 +116,15 @@
                                 </tr>
                                 <tr>
                                     <th>Tổng cộng</th>
-                                    <td><strong>${tongtien} VNĐ</strong></td>
+                                    <td><strong><fmt:formatNumber
+                                            type="number" maxFractionDigits="3"
+                                            value="${tongtien}"/> VNĐ</strong></td>
                                 </tr>
                                 </tbody>
                             </table>
                             <%--                            ${pageContext.request.contextPath}/view/client/checkout--%>
                             <a href="${pageContext.request.contextPath}/web/checkout" class="aa-cart-view-btn">Thanh toán</a>
+
                         </div>
                     </div>
                 </div>

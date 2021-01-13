@@ -99,19 +99,19 @@
                         <h3>Sản phẩm gần đây</h3>
                         <div class="aa-recently-views">
                             <ul>
-                                <c:forEach items="${productList}" var="product" end="2">
+                                <c:forEach items="${productListCurrent}" var="product" begin="${productListCurrent.size()-3}" end="${productListCurrent.size()-1}" step="1">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/web/productDetail?id=${product.ma_CuonSach}&Cate=${product.ma_DauSach}" class="aa-cartbox-img"><img alt="img" src="${pageContext.request.contextPath}/template/web/images/products/img-test/${product.anh_CuonSach}"></a>
 <%--                                            ${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}--%>
                                         <div class="aa-cartbox-info">
-                                            <h4><a href="#">${product.ten_CuonSach }</a></h4>
+                                            <h4><a href="${pageContext.request.contextPath}/web/productDetail?id=${product.ma_CuonSach}&Cate=${product.ma_DauSach}">${product.ten_CuonSach }</a></h4>
 <%--                                                ${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}--%>
                                             <c:choose>
                                                 <c:when test="${product.discount == 0}">
                                                     <p><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product.giabia}" /> VNĐ</p>
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <c:forEach items="${productList_km}" var="product_km">
+                                                    <c:forEach items="${productListCurrent_km}" var="product_km">
                                                         <c:if test="${product_km.ma_CuonSach == product.ma_CuonSach}">
                                                             <p><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product_km.giabia}" /> VNĐ</p>
                                                         </c:if>

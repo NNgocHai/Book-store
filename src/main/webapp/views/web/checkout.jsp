@@ -7,6 +7,8 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <c:url value = "/template/web" var="url"/>
 
 
@@ -128,14 +130,18 @@
                                             <c:forEach items="${Orders}" var="Order">
                                                 <tr>
                                                     <td>${Order.getCuonSachEntity().getTen_CuonSach()} <strong> x  ${Order.soluong}</strong></td>
-                                                    <td>${Order.getCuonSachEntity().giabia * Order.soluong} VNĐ</td>
+                                                    <td><fmt:formatNumber
+                                                            type="number" maxFractionDigits="3"
+                                                            value="${Order.getCuonSachEntity().giabia * Order.soluong}"/> VNĐ</td>
                                                 </tr>
                                             </c:forEach>
                                             </tbody>
                                             <tfoot>
                                             <tr>
                                                 <th>Tạm tính</th>
-                                                <td>${tongtien} VNĐ</td>
+                                                <td><fmt:formatNumber
+                                                        type="number" maxFractionDigits="3"
+                                                        value="${tongtien}"/> VNĐ</td>
                                             </tr>
                                             <tr>
                                                 <th>Thuế</th>
@@ -143,7 +149,9 @@
                                             </tr>
                                             <tr>
                                                 <th>Tổng cộng</th>
-                                                <td><strong>${tongtien} VNĐ</strong></td>
+                                                <td><strong><fmt:formatNumber
+                                                        type="number" maxFractionDigits="3"
+                                                        value="${tongtien}"/> VNĐ</strong></td>
                                             </tr>
                                             </tfoot>
                                         </table>
@@ -155,10 +163,8 @@
                                         <img src="${pageContext.request.contextPath}/view/client/assets/img/paypal.jpg" border="0" alt="PayPal Acceptance Mark">
                                         <input type="submit" value="Đặt hàng" class="aa-browse-btn">
                                     </div>
-                                    <c:if test="${sessionScope.user != null && sessionScope.Orders == null}">
                                         <br>
-                                        <p style="color: red">Bạn đã đặt hàng thành công!</p>
-                                    </c:if>
+                                        <p style="color: #20f108">${sucess}</p>
                                 </div>
                             </div>
                         </div>

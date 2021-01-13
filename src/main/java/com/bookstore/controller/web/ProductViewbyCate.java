@@ -41,6 +41,21 @@ public class ProductViewbyCate extends HttpServlet{
         List<CuonSachEntity> productList = productService.FindByCate(Integer.parseInt(Cate));
         ProductService_impl productService_impl = new ProductService_impl();
         List<CuonSachEntity> productList_km = new ArrayList<CuonSachEntity>();
+        List<CuonSachEntity> productListCurrent = new ArrayList<CuonSachEntity>();
+        List<CuonSachEntity> productListCurrent_km = new ArrayList<CuonSachEntity>();
+
+        productListCurrent= productService_impl.findAll();
+
+
+        for(CuonSachEntity product: productListCurrent)
+        {
+            CuonSachEntity product_km = new CuonSachEntity();
+            product_km = productService_impl.findById(product.getMa_CuonSach());
+            double db =(Double.parseDouble(String.valueOf(product.getGiabia())) * (1 - (Double.parseDouble(String.valueOf(product.getDiscount()))/100)));
+            product_km.setGiabia((int)db);
+            productListCurrent_km.add(product_km);
+
+        }
 
 
         for(CuonSachEntity product: productList)
@@ -52,7 +67,8 @@ public class ProductViewbyCate extends HttpServlet{
             productList_km.add(product_km);
 
         }
-
+        request.setAttribute("productListCurrent_km", productListCurrent_km);
+        request.setAttribute("productListCurrent", productListCurrent);
         request.setAttribute("productList", productList);
         request.setAttribute("categoryList", categoryList);
         request.setAttribute("productList_km", productList_km);
