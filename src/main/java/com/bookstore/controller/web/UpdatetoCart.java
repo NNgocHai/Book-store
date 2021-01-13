@@ -37,35 +37,43 @@ public class UpdatetoCart extends HttpServlet {
 
         HttpSession session = request.getSession();
         List<GioHangEntity> Orders = (List<GioHangEntity>) session.getAttribute("Orders");
-        GioHangService gioHangService = new GioHangService_impl();
-
-        CustomerEntity person = (CustomerEntity) session.getAttribute("person");
-        if (person != null) {
-            GioHangIDKey gioHangIDKey = new GioHangIDKey();
-            for (GioHangEntity Order : Orders) {
-                int soluong = Integer.parseInt(request.getParameter(String.valueOf(Order.getCuonSachEntity().getMa_CuonSach())));
-                Order.setSoluong(soluong);
-                gioHangIDKey.setMa_Customer(person.getMa_Customer());
-                gioHangIDKey.setMa_CuonSach(Order.getCuonSachEntity().getMa_CuonSach());
-                Order.setId(gioHangIDKey);
-                gioHangService.update(Order);
-
-                tongtien = Order.getCuonSachEntity().getGiabia() * Order.getSoluong() + tongtien;
-            }
-
-        } else {
-            for (GioHangEntity Order : Orders) {
-                int soluong = Integer.parseInt(request.getParameter(String.valueOf(Order.getCuonSachEntity().getMa_CuonSach())));
-                Order.setSoluong(soluong);
-                tongtien = Order.getCuonSachEntity().getGiabia() * Order.getSoluong() + tongtien;
-            }
+        if(Orders == null) {
+            request.setAttribute("error", "Bạn chưa có cuốn sách nào trong giỏ hàng");
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/views/web/CartDetail.jsp");
+            dispatcher.forward(request, response);
         }
+        else {
 
-        int n = Orders.size();
-        session.setAttribute("length_orders", n);
-        session.setAttribute("Orders", Orders);
-        session.setAttribute("tongtien", tongtien);
-        response.sendRedirect(request.getContextPath() + "/web/product/CartDetail");
+            GioHangService gioHangService = new GioHangService_impl();
+
+            CustomerEntity person = (CustomerEntity) session.getAttribute("person");
+            if (person != null) {
+                GioHangIDKey gioHangIDKey = new GioHangIDKey();
+                for (GioHangEntity Order : Orders) {
+                    int soluong = Integer.parseInt(request.getParameter(String.valueOf(Order.getCuonSachEntity().getMa_CuonSach())));
+                    Order.setSoluong(soluong);
+                    gioHangIDKey.setMa_Customer(person.getMa_Customer());
+                    gioHangIDKey.setMa_CuonSach(Order.getCuonSachEntity().getMa_CuonSach());
+                    Order.setId(gioHangIDKey);
+                    gioHangService.update(Order);
+
+                    tongtien = Order.getCuonSachEntity().getGiabia() * Order.getSoluong() + tongtien;
+                }
+
+            } else {
+                for (GioHangEntity Order : Orders) {
+                    int soluong = Integer.parseInt(request.getParameter(String.valueOf(Order.getCuonSachEntity().getMa_CuonSach())));
+                    Order.setSoluong(soluong);
+                    tongtien = Order.getCuonSachEntity().getGiabia() * Order.getSoluong() + tongtien;
+                }
+            }
+
+            int n = Orders.size();
+            session.setAttribute("length_orders", n);
+            session.setAttribute("Orders", Orders);
+            session.setAttribute("tongtien", tongtien);
+            response.sendRedirect(request.getContextPath() + "/web/product/CartDetail");
+        }
     }
 
 

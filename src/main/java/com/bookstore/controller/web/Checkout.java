@@ -24,39 +24,46 @@ public class Checkout extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        int length_orders = (int) session.getAttribute("length_orders");
-        ProductService productService = new ProductService_impl();
         List<CuonSachEntity> cuonSachEntities = new ArrayList<CuonSachEntity>();
-        List<GioHangEntity> Orders = (List<GioHangEntity>) session.getAttribute("Orders");
-        cuonSachEntities = productService.findAll();
+        ProductService productService = new ProductService_impl();
 
-        int check_soluong = 1;
-        String errorsoluong = null;
-        for (GioHangEntity Order : Orders) {
-            for (CuonSachEntity product : cuonSachEntities) {
-                if (Order.getCuonSachEntity().getMa_CuonSach() == product.getMa_CuonSach()) {
-                    if (Order.getSoluong() > product.getSoluong()) {
-                        check_soluong = 0;
-                        errorsoluong = "Sách này:" + Order.getCuonSachEntity().getTen_CuonSach() +" Vượt quá số lương của kho:" + product.getSoluong() + "";
-                        break;
+        List<GioHangEntity> Orders = (List<GioHangEntity>) session.getAttribute("Orders");
+        if(Orders == null) {
+            request.setAttribute("error", "Bạn chưa có cuốn sách nào trong giỏ hàng");
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/views/web/CartDetail.jsp");
+            dispatcher.forward(request, response);
+        }
+        else {
+            int length_orders = (int) session.getAttribute("length_orders");
+            cuonSachEntities = productService.findAll();
+            int check_soluong = 1;
+            String errorsoluong = null;
+            for (GioHangEntity Order : Orders) {
+                for (CuonSachEntity product : cuonSachEntities) {
+                    if (Order.getCuonSachEntity().getMa_CuonSach() == product.getMa_CuonSach()) {
+                        if (Order.getSoluong() > product.getSoluong()) {
+                            check_soluong = 0;
+                            errorsoluong = "Sách này:" + Order.getCuonSachEntity().getTen_CuonSach() + " Vượt quá số lương của kho:" + product.getSoluong() + "";
+                            break;
+                        }
                     }
                 }
             }
-        }
-        if (length_orders == 0) {
-            request.setAttribute("error", "Bạn chưa có cuốn sách nào trong giỏ hàng");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/views/web/CartDetail.jsp");
-            dispatcher.forward(request, response);
+            if (length_orders == 0) {
+                request.setAttribute("error", "Bạn chưa có cuốn sách nào trong giỏ hàng");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/views/web/CartDetail.jsp");
+                dispatcher.forward(request, response);
 
-        }
-        if (check_soluong == 0) {
-            request.setAttribute("cuonSachEntityList", cuonSachEntities);
-            request.setAttribute("error", errorsoluong);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/views/web/CartDetail.jsp");
-            dispatcher.forward(request, response);
-        } else {
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/views/web/checkout.jsp");
-            dispatcher.forward(request, response);
+            }
+            if (check_soluong == 0) {
+                request.setAttribute("cuonSachEntityList", cuonSachEntities);
+                request.setAttribute("error", errorsoluong);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/views/web/CartDetail.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/views/web/checkout.jsp");
+                dispatcher.forward(request, response);
+            }
         }
     }
 }
