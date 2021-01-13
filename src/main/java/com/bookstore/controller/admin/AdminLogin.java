@@ -33,8 +33,8 @@ public class AdminLogin extends HttpServlet {
         boolean a = adminDao.checkAdminLogin(user,password);
         if (a) {
             HttpSession session = request.getSession();
-            session.setAttribute("user", user);
-            session.setAttribute("password", password);
+            session.setAttribute("user_admin", user);
+            session.setAttribute("password_admin", password);
             response.sendRedirect(request.getContextPath() + "/admin/home");
         } else {
             request.setAttribute("errorMessage", "Tài khoản hoặc mật khẩu sai!");

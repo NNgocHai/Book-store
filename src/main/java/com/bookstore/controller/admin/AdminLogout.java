@@ -18,7 +18,9 @@ public class AdminLogout extends HttpServlet {
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        session.removeAttribute("user");
+        session.removeAttribute("user_admin");
+        session.removeAttribute("password_admin");
+
         session.invalidate();
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/admin/login.jsp");
         dispatcher.forward(request, response);

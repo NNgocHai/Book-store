@@ -27,8 +27,8 @@ public class ShipperLogin extends HttpServlet {
         ShipperService shipper = new ShipperService_impl();
         if (shipper.checkShipperLogin(user,password)) {
             HttpSession session = request.getSession();
-            session.setAttribute("user", user);
-            session.setAttribute("password", password);
+            session.setAttribute("user_shipper", user);
+            session.setAttribute("password_shipper", password);
             response.sendRedirect(request.getContextPath() + "/shipper/home");
         } else {
             request.setAttribute("errorMessage", "Tài khoản hoặc mật khẩu sai!");

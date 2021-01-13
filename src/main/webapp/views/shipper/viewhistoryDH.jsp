@@ -3,7 +3,7 @@
 <%
 
 
-    if (session.getAttribute("user") == null){
+    if (session.getAttribute("user_shipper") == null){
         response.sendRedirect(request.getContextPath() + "/shipper/login");
     }
 %>

@@ -13,7 +13,7 @@
 //    response.setHeader("Expires" , "0");
 
 
-    if (session.getAttribute("user") == null){
+    if (session.getAttribute("user_admin") == null){
         response.sendRedirect(request.getContextPath() + "/admin/login");
     }
 %>

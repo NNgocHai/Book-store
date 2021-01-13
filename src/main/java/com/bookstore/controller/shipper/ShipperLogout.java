@@ -13,7 +13,9 @@ import java.io.IOException;
 public class ShipperLogout extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        session.removeAttribute("user");
+        session.removeAttribute("password_shipper");
+        session.removeAttribute("user_shipper");
+
         session.invalidate();
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/shipper/login.jsp");
         dispatcher.forward(request, response);

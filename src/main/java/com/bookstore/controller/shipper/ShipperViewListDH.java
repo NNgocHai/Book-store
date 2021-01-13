@@ -24,7 +24,7 @@ public class ShipperViewListDH extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        String user = (String) session.getAttribute("user");
+        String user = (String) session.getAttribute("user_shipper");
         ShipperService shipperService = new ShipperService_impl();
         ShipperEntity shipperEntity = new ShipperEntity();
         try {

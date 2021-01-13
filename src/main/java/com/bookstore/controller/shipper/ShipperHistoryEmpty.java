@@ -21,8 +21,8 @@ import java.util.List;
 public class ShipperHistoryEmpty extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        String user = (String) session.getAttribute("user");
-        if (session.getAttribute("user") == null) {
+        String user = (String) session.getAttribute("user_shipper");
+        if (session.getAttribute("user_shipper") == null) {
             response.sendRedirect(request.getContextPath() + "/shipper/login");
         } else {
             ShipperService shipperService = new ShipperService_impl();

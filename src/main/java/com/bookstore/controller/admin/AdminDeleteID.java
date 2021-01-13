@@ -25,7 +25,7 @@ public class AdminDeleteID  extends HttpServlet {
         AdminService admin = new AdminService_impl();
         List<Integer> listId = new ArrayList<Integer>();
         HttpSession session = request.getSession();
-        String admin_tk = (String) session.getAttribute("user");
+        String admin_tk = (String) session.getAttribute("user_admin");
         try{
             if(!(admin.checkDelete(admin_tk, admin_idd))) {
                 listId.add(admin_idd);

@@ -37,7 +37,7 @@
                                                              alt="user avatar"></div>
                                     <div class="media-body">
                                         <h6 class="mt-2 user-title">BookStore</h6>
-                                        <b> Admin:  <%=session.getAttribute("user") %></b>
+                                        <b> Admin:  <%=session.getAttribute("user_admin") %></b>
                                     </div>
                                 </div>
                             </a>
