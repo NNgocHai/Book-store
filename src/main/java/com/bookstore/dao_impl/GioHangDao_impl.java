@@ -119,7 +119,7 @@ public class GioHangDao_impl extends GenericDao_impl<Integer, GioHangEntity> imp
             transaction = session.beginTransaction();
 
             // get an cuonSachEntity object
-            StringBuilder sql = new StringBuilder("select DATE(E.ngaydat),sum(E.tongtien) FROM DonHangEntity E  GROUP BY  DATE(E.ngaydat)");
+            StringBuilder sql = new StringBuilder("select DATE(E.ngaydat),sum(E.tongtien) FROM DonHangEntity E WHERE E.ngaydat >(current_date-7) GROUP BY  DATE(E.ngaydat) ");
             Query query = session.createQuery(sql.toString());
             results = query.list();
 
