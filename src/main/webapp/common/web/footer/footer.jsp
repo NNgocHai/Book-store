@@ -45,7 +45,7 @@
                                         <address>
                                             <p>IT18 - Đại học Sư phạm Kĩ Thuật - Q.Thủ Đức - TP HCM</p>
                                             <p><span class="fa fa-phone"></span>010.999.9999</p>
-                                            <p><span class="fa fa-envelope"></span>bookstore@gmail.com</p>
+                                            <p><span class="fa fa-envelope"></span>cuahangsachso6@gmail.com</p>
                                         </address>
                                         <div class="aa-footer-social">
                                             <a href="https://www.facebook.com/"><span class="fab fa-facebook"></span></a>
