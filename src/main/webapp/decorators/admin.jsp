@@ -30,13 +30,8 @@
             white-space: initial !important;
             text-align: center;
         }
-        .tablee tr td:first-child, .tablee tr th:first-child, .tablee tr td:nth-child(2), .tablee tr th:nth-child(2) {
-            padding: 2%;
-        }
-        .tablee tr td:nth-child(7),.tablee tr th:nth-child(7){
-            padding: 2%;
-            white-space: nowrap;
-        }
+
+
         .limit-width {
             width: 15%;
         }
