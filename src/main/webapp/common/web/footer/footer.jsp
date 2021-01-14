@@ -31,9 +31,8 @@
                                     <div class="aa-footer-widget">
                                         <h3>HỖ TRỢ KHÁCH HÀNG</h3>
                                         <ul class="aa-footer-nav">
-                                            <li><a href="${pageContext.request.contextPath}/view/client/order">Hướng dẫn đặt hàng</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/view/client/payment">Hướng dẫn thanh toán</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/view/client/security">Chính sách bảo mật thông tin</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/web/orderhelp">Hướng dẫn đặt hàng</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/web/payhelp">Hướng dẫn thanh toán</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -43,8 +42,8 @@
                                     <div class="aa-footer-widget">
                                         <h3>LIÊN HỆ</h3>
                                         <address>
-                                            <p>IT18 - Đại học Sư phạm Kĩ Thuật - Q.Thủ Đức - TP HCM</p>
-                                            <p><span class="fa fa-phone"></span>010.999.9999</p>
+                                            <p>IT18 - Đại học Sư phạm Kĩ Thuật - Q.Thủ Đức - TP.HCM</p>
+                                            <p><span class="fa fa-phone"></span>036.810.3208</p>
                                             <p><span class="fa fa-envelope"></span>cuahangsachso6@gmail.com</p>
                                         </address>
                                         <div class="aa-footer-social">
