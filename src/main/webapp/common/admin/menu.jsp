@@ -55,7 +55,7 @@
         </li>
         <li>
             <a href="${pageContext.request.contextPath}/admin/giaohang/list">
-                <i class="zmdi zmdi-view-dashboard"></i> <span>Quản Lí Giao Hàng</span>
+                <i class="zmdi zmdi-view-dashboard"></i> <span>Quản lí Giao Hàng</span>
             </a>
         </li>
         <li>
