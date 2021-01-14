@@ -13,5 +13,7 @@ public interface CustomerDao extends GenericDao<Integer, CustomerEntity> {
     boolean checkUserName(String username);
     boolean checkGmail(String gmail);
     boolean checkSdt(String sdt);
+    boolean checkActiveAccount(String key1,String key2);
+
 
 }
