@@ -49,7 +49,7 @@
         </li>
 
         <li>
-            <a href="${pageContext.request.contextPath}/admin/order/list-detail">
+            <a href="${pageContext.request.contextPath}/admin/chitietdonhang/list">
                 <i class="zmdi zmdi-shopping-cart"></i> <span>Chi Tiết Đơn Hàng</span>
             </a>
         </li>

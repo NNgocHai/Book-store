@@ -22,8 +22,7 @@
                                     <a href="${pageContext.request.contextPath}/"><img src="${url}/images/new/logofooter.png" alt="logo img" width="185px"></a>
                                     <ul class="aa-footer-nav">
 
-                                        <li><p style="color:#888; text-align: justify; width: 95%">Là nơi chuyên buôn bán tất cả các mặt hàng về nông sản chất lượng. Chúng tôi luôn đặt tiêu chí về chất lượng và uy tín lên hàng đầu.</p></li>
-<%--                                        <li><img src="${pageContext.request.contextPath}/view/client/assets/images/dadangky.png" alt="logo img" width="40%"></li>--%>
+                                        <li><p style="color:#888; text-align: justify; width: 95%">Là nơi mang đến tri thức cho mọi lứa tuổi! Chất lượng và uy tín luôn đặt lên hàng đầu.</p></li>
                                     </ul>
                                 </div>
                             </div>

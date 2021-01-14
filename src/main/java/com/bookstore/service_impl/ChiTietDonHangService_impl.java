@@ -43,7 +43,17 @@ public class ChiTietDonHangService_impl implements ChiTietDonHangService {
     }
 
     @Override
+
+    public List<ChiTietDonHangEntity> findSpec() {
+        return chiTietDonHangDao_impl.FindSpecify();
+    }
+
+    @Override
+    public List<ChiTietDonHangEntity> FindDetails(Integer id) {
+        return chiTietDonHangDao_impl.FindDetails(id);
+
     public List<Object[]> ReportDoanhThu_DauSach() {
         return chiTietDonHangDao_impl.ReportDoanhThu_DauSach();
+
     }
 }

@@ -3,8 +3,8 @@
 <%
 
 
-    if (session.getAttribute("user_shipper") == null){
-        response.sendRedirect(request.getContextPath() + "/shipper/login");
+    if (session.getAttribute("user_admin") == null){
+        response.sendRedirect(request.getContextPath() + "/admin/login");
     }
 %>
 <html>
@@ -21,17 +21,13 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Đơn Hàng Chưa Giao</h5>
+                        <h5 class="card-title">Chi tiết đơn hàng</h5>
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
                                     <th scope="col">Mã Đơn</th>
                                     <th scope="col">Tên Khách</th>
-                                    <th scope="col">Địa chỉ</th>
-                                    <th scope="col">SĐT</th>
-                                    <th scope="col">Tổng tiền</th>
-                                    <th scope="col">Tình Trạng</th>
                                     <th scope="col">Hành động</th>
                                 </tr>
                                 </thead>
@@ -39,13 +35,9 @@
                                 <c:forEach items="${list}" var="list">
                                     <tr>
                                         <td scope="row">${list[0]}</td>
-                                        <td>${list[1]}</td>
-                                        <td>${list[2]}</td>
-                                        <td>${list[3]}</td>
-                                        <td>${list[4]}</td>
-                                        <td>${list[5]}</td>
+                                        <td name="tenKH">${list[1]}</td>
                                         <td>
-                                            <button type="reset" class="btn btn-success"><a href="${pageContext.request.contextPath}/shipper/editDH?DH-id=${list[0]}">Hoàn Thành</a></button>
+                                            <button type="reset" class="btn btn-success"><a href="${pageContext.request.contextPath}/admin/chitietdonhang/details?DH-id=${list[0]}">Xem chi tiết</a></button>
                                         </td>
                                     </tr>
                                 </c:forEach>
