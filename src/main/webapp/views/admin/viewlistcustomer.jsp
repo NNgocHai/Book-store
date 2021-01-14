@@ -29,7 +29,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <button class="add-catalog"><a href="${pageContext.request.contextPath}/admin/user/add">Thêm Customer</a></button>
+<%--                <button class="add-catalog"><a href="${pageContext.request.contextPath}/admin/user/add">Thêm Customer</a></button>--%>
             </div>
             <div class="col-lg-12">
                 <div class="card">
@@ -41,7 +41,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Tên đăng nhập</th>
-                                    <th scope="col">MẬt khẩu</th>
+<%--                                    <th scope="col">MẬt khẩu</th>--%>
                                     <th scope="col">Họ tên</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Số điện thoại</th>
@@ -54,7 +54,7 @@
                                     <tr>
                                         <td scope="row">${customer.ma_Customer}</td>
                                         <td>${customer.taikhoan_Customer}</td>
-                                        <td>${customer.matkhau_Customer}</td>
+<%--                                        <td>${customer.matkhau_Customer}</td>--%>
                                         <td>${customer.hoten_Customer}</td>
                                         <td>${customer.gmail_Customer}</td>
                                         <td>${customer.sdt_Customer}</td>
@@ -63,7 +63,7 @@
 
                                         <td>
                                             <button type="reset" class="btn btn-danger"><a href="${pageContext.request.contextPath}/admin/user/delete?id=${customer.ma_Customer}">Xóa</a></button>
-                                            <button class="btn btn-success"><a href="${pageContext.request.contextPath}/admin/user/edit?id=${customer.ma_Customer}">Sửa</a></button>
+<%--                                            <button class="btn btn-success"><a href="${pageContext.request.contextPath}/admin/user/edit?id=${customer.ma_Customer}">Sửa</a></button>--%>
                                         </td>
                                     </tr>
                                 </c:forEach>

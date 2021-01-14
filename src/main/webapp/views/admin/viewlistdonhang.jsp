@@ -36,7 +36,6 @@
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th scope="col">#</th>
                                     <th scope="col">Mã Khách hàng</th>
                                     <th scope="col">Địa chỉ</th>
                                     <th scope="col">Số điện thoại</th>
@@ -49,7 +48,6 @@
                                 <tbody>
                                 <c:forEach items="${donhangList}" var="donhang">
                                     <tr>
-                                        <td scope="row">${donhang.ma_DH}</td>
                                         <td>${donhang.ma_Customer}</td>
                                         <td>${donhang.diachi}</td>
                                         <td>${donhang.sdt}</td>
