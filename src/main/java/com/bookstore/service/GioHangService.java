@@ -17,5 +17,6 @@ public interface GioHangService {
     Integer DeletebyCustomer_CuonSach(int ma_Customer,int ma_CuonSach);
     Integer DeletebyCustomer(int ma_Customer);
 
+    List<Object[]> ReportDoanhThu7Ngay();
 
 }

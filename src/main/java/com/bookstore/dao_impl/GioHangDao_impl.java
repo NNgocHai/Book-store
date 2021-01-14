@@ -108,4 +108,33 @@ public class GioHangDao_impl extends GenericDao_impl<Integer, GioHangEntity> imp
         }
         return result;
     }
+
+    @Override
+    public List<Object[]> ReportDoanhThu7Ngay() {
+        List<Object[]> results =new ArrayList<Object[]>();
+        Transaction transaction = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try  {
+            // start a transaction
+            transaction = session.beginTransaction();
+
+            // get an cuonSachEntity object
+            StringBuilder sql = new StringBuilder("select DATE(E.ngaydat),sum(E.tongtien) FROM DonHangEntity E WHERE E.ngaydat >(current_date-7) GROUP BY  DATE(E.ngaydat) ");
+            Query query = session.createQuery(sql.toString());
+            results = query.list();
+
+
+            // commit transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return results;
+    }
 }

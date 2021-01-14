@@ -10,5 +10,7 @@ public interface GioHangDao extends GenericDao<Integer, GioHangEntity>{
     List<GioHangEntity> FindByMaCustomer(int id);
     Integer DeletebyCustomer_CuonSach(int ma_Customer,int ma_CuonSach);
     Integer DeletebyCustomer(int ma_Customer);
+    List<Object[]> ReportDoanhThu7Ngay();
+
 
 }
