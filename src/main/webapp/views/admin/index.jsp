@@ -73,7 +73,7 @@
         data: {
             labels: ${NgayList},
             datasets: [{
-                label: 'Doanh thu theo ngày',
+                label: 'Doanh thu 7 ngày gần nhất',
                 data: ${DoanhThu7NgayList},
                 backgroundColor: ${ColorList_DoanhThu7Ngay}
 
