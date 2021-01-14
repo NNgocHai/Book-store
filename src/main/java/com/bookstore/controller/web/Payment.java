@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
+import com.bookstore.email.ConfirmPayment;
 import com.bookstore.entity.*;
 import com.bookstore.service.ChiTietDonHangService;
 import com.bookstore.service.DonHangService;
@@ -84,12 +85,14 @@ public class Payment extends HttpServlet {
             }
             productService.update(cuonSachEntity);
         }
-
         session.removeAttribute("length_orders");
         session.removeAttribute("tongtien");
         Orders.clear();
         session.setAttribute("Orders", Orders);
         request.setAttribute("sucess", "Đặt hàng thành công");
+        int ma_dh=donHangEntity.getMa_DH();
+        String user_email=request.getParameter("email");
+        ConfirmPayment confirmPayment=new ConfirmPayment(ma_dh,user_email);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/web/checkout.jsp");
         dispatcher.forward(request, response);
 
