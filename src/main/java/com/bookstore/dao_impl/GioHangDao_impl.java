@@ -10,6 +10,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -111,6 +113,7 @@ public class GioHangDao_impl extends GenericDao_impl<Integer, GioHangEntity> imp
 
     @Override
     public List<Object[]> ReportDoanhThu7Ngay() {
+        LocalDateTime now = LocalDateTime.now();
         List<Object[]> results =new ArrayList<Object[]>();
         Transaction transaction = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -119,8 +122,9 @@ public class GioHangDao_impl extends GenericDao_impl<Integer, GioHangEntity> imp
             transaction = session.beginTransaction();
 
             // get an cuonSachEntity object
-            StringBuilder sql = new StringBuilder("select DATE(E.ngaydat),sum(E.tongtien) FROM DonHangEntity E WHERE E.ngaydat >(current_date-7) GROUP BY  DATE(E.ngaydat) ");
+            StringBuilder sql = new StringBuilder("select DATE(E.ngaydat),sum(E.tongtien) FROM DonHangEntity E WHERE E.ngaydat > :day GROUP BY  DATE(E.ngaydat) ");
             Query query = session.createQuery(sql.toString());
+            query.setParameter("day", Timestamp.valueOf((now.plusDays(-7))));
             results = query.list();
 
 
