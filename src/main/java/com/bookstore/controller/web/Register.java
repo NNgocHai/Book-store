@@ -40,7 +40,7 @@ public class Register extends HttpServlet {
         boolean a= customerDao.checkAddCustomer(customer_tk,customer_gmail,customer_sdt);
         boolean gmail_check=customerDao.checkGmail(customer_gmail);
         boolean sdt_check=customerDao.checkSdt(customer_sdt);
-        boolean taikhoan_check=customerDao.checkSdt(customer_tk);
+        boolean taikhoan_check=customerDao.checkUserName(customer_tk);
 
         if (a)
         {
