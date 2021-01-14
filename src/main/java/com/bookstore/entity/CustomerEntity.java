@@ -32,7 +32,6 @@ public class CustomerEntity implements Serializable{
     @Column(name ="vitien")
     private Integer vitien;
 
-
     @OneToMany(mappedBy = "customerEntity", fetch = FetchType.LAZY)
     private List<DonHangEntity> donHangEntityList;
 

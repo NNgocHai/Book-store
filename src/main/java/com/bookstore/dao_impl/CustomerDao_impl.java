@@ -1,7 +1,6 @@
 package com.bookstore.dao_impl;
 
 import com.bookstore.dao.CustomerDao;
-import com.bookstore.entity.CuonSachEntity;
 import com.bookstore.entity.CustomerEntity;
 import com.bookstore.utils.HibernateUtil;
 import org.hibernate.HibernateException;
@@ -166,6 +165,35 @@ public class CustomerDao_impl extends GenericDao_impl<Integer, CustomerEntity> i
             sql.append(" where sdt_Customer =:value1");
             Query query = session.createQuery(sql.toString());
             query.setParameter("value1", sdt);
+            a = query.list().get(0);
+            int c = Integer.parseInt((a).toString());
+            if (c == 1) {
+                exist = false;
+            }
+            transaction.commit();
+        } catch (HibernateException e) {
+            transaction.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+        return exist;
+    }
+
+    @Override
+    public boolean checkActiveAccount(String key1, String key2) {
+        boolean exist = false;
+        Object a = new Object();
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
+        transaction = session.beginTransaction();
+        try {
+            StringBuilder sql = new StringBuilder("select count(*) from CustomerEntity");
+            sql.append(" where gmail_Customer =:value1");
+            sql.append(" and sdt_Customer =:value2");
+            Query query = session.createQuery(sql.toString());
+            query.setParameter("value1", key1);
+            query.setParameter("value2",key2);
             a = query.list().get(0);
             int c = Integer.parseInt((a).toString());
             if (c == 1) {

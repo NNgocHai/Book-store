@@ -65,7 +65,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="input-8">Giá bán</label>
-                                <input type="text" class="form-control" id="input-8" placeholder="Giá bán" name="cuonsach_giaban" value="${cuonsach.giabia}${giabia}" required>
+                                <input type="text" class="form-control" id="input-8" placeholder="Giá bán" name="cuonsach_giaban" value="${cuonsach.giabia}" required>
                             </div>
                             <div class="form-group">
                                 <label for="input-9">Mô tả</label>

@@ -15,7 +15,7 @@
 <!--  content -->
 <!-- catg header banner section -->
 <section id="aa-catg-head-banner">
-    <img src="${pageContext.request.contextPath}/template/web/images/checkout-banner.png" alt="banner thanh toán">
+    <img src="${pageContext.request.contextPath}/template/web/images/new/checkout-banner.png" alt="banner thanh toán">
     <div class="aa-catg-head-banner-area">
         <div class="container">
             <div class="aa-catg-head-banner-content">

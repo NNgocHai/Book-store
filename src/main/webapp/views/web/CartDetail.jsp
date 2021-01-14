@@ -12,7 +12,7 @@
 
 <section id="aa-catg-head-banner">
 <%--    <img src="${pageContext.request.contextPath}/view/client/assets/images/banner-cart.png" alt="banner giỏ hàng">--%>
-    <img src="${url}/images/banner-cart.png" alt="banner giỏ hàng">
+    <img src="${url}/images/new/banner-cart.png" alt="banner giỏ hàng">
     <div class="aa-catg-head-banner-area">
         <div class="container">
             <div class="aa-catg-head-banner-content">

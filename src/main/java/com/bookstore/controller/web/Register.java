@@ -2,9 +2,8 @@ package com.bookstore.controller.web;
 
 import com.bookstore.dao.CustomerDao;
 import com.bookstore.dao_impl.CustomerDao_impl;
+import com.bookstore.email.SendingEmail;
 import com.bookstore.entity.CustomerEntity;
-import com.bookstore.service.CustomerService;
-import com.bookstore.service_impl.CustomerService_impl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,8 +11,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.lang.*;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.Random;
 
 @WebServlet("/web/register")
 public class Register extends HttpServlet {
@@ -34,24 +35,32 @@ public class Register extends HttpServlet {
         String customer_sdt = request.getParameter("sdt");
         int customer_vitien = 1000000;
 
+
         CustomerDao customerDao=new CustomerDao_impl();
         boolean a= customerDao.checkAddCustomer(customer_tk,customer_gmail,customer_sdt);
         boolean gmail_check=customerDao.checkGmail(customer_gmail);
         boolean sdt_check=customerDao.checkSdt(customer_sdt);
         boolean taikhoan_check=customerDao.checkSdt(customer_tk);
-        CustomerEntity customerEntity = new CustomerEntity();
+
         if (a)
         {
-            customerEntity.setTaikhoan_Customer(customer_tk);
-            customerEntity.setGmail_Customer(customer_gmail);
-            customerEntity.setHoten_Customer(customer_name);
-            customerEntity.setMatkhau_Customer(customer_password);
-            customerEntity.setSdt_Customer(customer_sdt);
-            customerEntity.setVitien(customer_vitien);
-            CustomerService customer = new CustomerService_impl();
-            customer.save(customerEntity);
-            request.setAttribute("success","Đăng kí tài khoản thành công. Đăng nhập <a href='/web666_war_exploded/web/login'>tại đây!</a>");
-            RequestDispatcher rd=request.getRequestDispatcher("/views/web/register.jsp");
+
+            HttpSession session=request.getSession();
+            session.setAttribute("taikhoan_dk",customer_tk);
+            session.setAttribute("gmail_dk",customer_gmail);
+            session.setAttribute("ten_dk",customer_name);
+            session.setAttribute("matkhau_dk",customer_password);
+            session.setAttribute("sdt_dk",customer_sdt);
+            session.setAttribute("vitien_dk",customer_vitien);
+
+            //create code
+            Random random=new Random();
+            int  code=random.nextInt(999999);
+            String code_string=String.valueOf(code);
+
+            session.setAttribute("code_dk",code_string);
+            SendingEmail se=new SendingEmail(customer_gmail,customer_name,code_string);
+            RequestDispatcher rd=request.getRequestDispatcher("/views/web/verification.jsp");
             rd.forward(request,response);
         } else {
             request.setAttribute("errMessage", "Tạo tài khoản thất bại. Hãy thử lại !!!");
