@@ -36,10 +36,11 @@
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
+                                    <th scope="col">Mã Đơn</th>
                                     <th scope="col">Mã Khách hàng</th>
                                     <th scope="col">Địa chỉ</th>
                                     <th scope="col">Số điện thoại</th>
-                                    <th scope="col">Ngày đặt</th>
+<%--                                    <th scope="col">Ngày đặt</th>--%>
                                     <th scope="col">Tổng tiền</th>
                                     <th scope="col">Tình trạng</th>
                                     <th scope="col">Hành động</th>
@@ -48,10 +49,11 @@
                                 <tbody>
                                 <c:forEach items="${donhangList}" var="donhang">
                                     <tr>
+                                        <td scope="row">${donhang.ma_DH}</td>
                                         <td>${donhang.ma_Customer}</td>
                                         <td>${donhang.diachi}</td>
                                         <td>${donhang.sdt}</td>
-                                        <td>${donhang.ngaydat}</td>
+<%--                                        <td>${donhang.ngaydat}</td>--%>
                                         <td>${donhang.tongtien}</td>
                                         <td>${donhang.activeDH}</td>
                                         <td>
