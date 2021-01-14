@@ -66,7 +66,7 @@
 <jsp:include page = "/common/web/footer/footer.jsp" flush = "true" />
 <!-- jQuery library -->
 
-<!--Start of Tawk.to Script-->
+<%--<!--Start of Tawk.to Script-->
 <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
@@ -78,7 +78,7 @@
         s0.parentNode.insertBefore(s1,s0);
     })();
 </script>
-<!--End of Tawk.to Script-->
+<!--End of Tawk.to Script-->--%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="${url}/js/bootstrap.js"></script>

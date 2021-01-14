@@ -81,7 +81,7 @@ public class Payment extends HttpServlet {
             for(CuonSachEntity product : cuonSachEntities) {
                 if(Order.getCuonSachEntity().getMa_CuonSach()== product.getMa_CuonSach())
                 cuonSachEntity.setGiabia(product.getGiabia());
-                break;
+
             }
             productService.update(cuonSachEntity);
         }
