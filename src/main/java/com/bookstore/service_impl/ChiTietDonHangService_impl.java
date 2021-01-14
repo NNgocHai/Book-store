@@ -41,4 +41,9 @@ public class ChiTietDonHangService_impl implements ChiTietDonHangService {
     public ChiTietDonHangEntity findById(int var1) {
         return chiTietDonHangDao_impl.findById(var1);
     }
+
+    @Override
+    public List<Object[]> ReportDoanhThu_DauSach() {
+        return chiTietDonHangDao_impl.ReportDoanhThu_DauSach();
+    }
 }
