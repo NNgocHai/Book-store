@@ -10,7 +10,7 @@ import com.bookstore.service.ChiTietDonHangService;
 import java.util.List;
 
 public class ChiTietDonHangService_impl implements ChiTietDonHangService {
-    public ChiTietDonHangDao chiTietDonHangDao_impl=new ChiTietDonHangDao_impl();
+    public ChiTietDonHangDao chiTietDonHangDao_impl = new ChiTietDonHangDao_impl();
 
     @Override
     public List<Object[]> FindHot() {
@@ -51,6 +51,7 @@ public class ChiTietDonHangService_impl implements ChiTietDonHangService {
     @Override
     public List<ChiTietDonHangEntity> FindDetails(Integer id) {
         return chiTietDonHangDao_impl.FindDetails(id);
+    }
 
     public List<Object[]> ReportDoanhThu_DauSach() {
         return chiTietDonHangDao_impl.ReportDoanhThu_DauSach();
