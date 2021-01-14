@@ -42,7 +42,7 @@ public class ProductViewDetail extends HttpServlet {
             CuonSachEntity product_kmm = new CuonSachEntity();
             product_kmm = productService.findById(productt.getMa_CuonSach());
             double db =(Double.parseDouble(String.valueOf(productt.getGiabia())) * (1 - (Double.parseDouble(String.valueOf(productt.getDiscount()))/100)));
-            product_km.setGiabia((int)db);
+            product_kmm.setGiabia((int)db);
             Catee_km.add(product_kmm);
         }
 
