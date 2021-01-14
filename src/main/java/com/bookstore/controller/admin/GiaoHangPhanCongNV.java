@@ -26,7 +26,7 @@ public class GiaoHangPhanCongNV extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        if (session.getAttribute("user") == null){
+        if (session.getAttribute("user_admin") == null){
             response.sendRedirect(request.getContextPath() + "/admin/login");
         }
         else {
