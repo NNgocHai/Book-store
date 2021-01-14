@@ -57,4 +57,9 @@ public class GioHangService_impl implements GioHangService {
     public Integer DeletebyCustomer(int ma_Customer) {
         return gioHangDao.DeletebyCustomer(ma_Customer);
     }
+
+    @Override
+    public List<Object[]> ReportDoanhThu7Ngay() {
+        return gioHangDao.ReportDoanhThu7Ngay();
+    }
 }

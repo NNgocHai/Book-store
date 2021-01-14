@@ -12,4 +12,6 @@ public interface ChiTietDonHangService {
     ChiTietDonHangEntity update(ChiTietDonHangEntity T);
     List<Object[]> FindHot();
     ChiTietDonHangEntity findById(int var1);
+    List<Object[]> ReportDoanhThu_DauSach();
+
 }

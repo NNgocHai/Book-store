@@ -1,110 +1,94 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.bookstore.entity.GioHangEntity" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-//    response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
+    //    response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
 //    response.setHeader("Pragma" , "no-cache");
 //    response.setHeader("Expires" , "0");
 
 
-    if (session.getAttribute("user_admin") == null){
+    if (session.getAttribute("user_admin") == null) {
         response.sendRedirect(request.getContextPath() + "/admin/login");
     }
+
+
 %>
+
+
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
+
 <div class="content-wrapper">
     <div class="container-fluid">
-        <div class="card mt-3">
-            <div class="card-content">
-                <div class="row row-group m-0">
-                    <div class="col-12 col-lg-6 col-xl-3 border-light">
-                        <div class="card-body">
-                            <h5 class="text-white mb-0">3 <span class="float-right"><i class="fa fa-shopping-cart"></i></span>
-                            </h5>
-                            <div class="progress my-3" style="height:3px;">
-                                <div class="progress-bar" style="width:55%"></div>
-                            </div>
-                            <p class="mb-0 text-white small-font">Đơn hàng (theo tuần)<span class="float-right">+4.2% <i
-                                    class="zmdi zmdi-long-arrow-up"></i></span></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 col-xl-3 border-light">
-                        <div class="card-body">
-                            <h5 class="text-white mb-0">230.000 <span class="float-right">VNĐ</span></h5>
-                            <div class="progress my-3" style="height:3px;">
-                                <div class="progress-bar" style="width:55%"></div>
-                            </div>
-                            <p class="mb-0 text-white small-font">Lợi nhuận (theo tuần)<span class="float-right">+1.2% <i
-                                    class="zmdi zmdi-long-arrow-up"></i></span></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 col-xl-3 border-light">
-                        <div class="card-body">
-                            <h5 class="text-white mb-0">25 <span class="float-right"><i class="fa fa-eye"></i></span></h5>
-                            <div class="progress my-3" style="height:3px;">
-                                <div class="progress-bar" style="width:55%"></div>
-                            </div>
-                            <p class="mb-0 text-white small-font">Ghé trang (theo tuần)<span class="float-right">+5.2% <i
-                                    class="zmdi zmdi-long-arrow-up"></i></span></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 col-xl-3 border-light">
-                        <div class="card-body">
-                            <h5 class="text-white mb-0">3 <span class="float-right"><i class="fa fa-envira"></i></span></h5>
-                            <div class="progress my-3" style="height:3px;">
-                                <div class="progress-bar" style="width:55%"></div>
-                            </div>
-                            <p class="mb-0 text-white small-font">Bán ra (theo tuần)<span class="float-right">+2.2% <i
-                                    class="zmdi zmdi-long-arrow-up"></i></span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-4 col-xl-4">
-                <div class="card">
-                    <div class="card-header">Danh mục bán chạy
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-container-2">
-                            <canvas id="chart2"></canvas>
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table align-items-center">
-                            <tbody>
-                            <tr>
-                                <td><i class="fa fa-circle text-white mr-2"></i>Rau sạch</td>
-                                <td>58.000 VNĐ</td>
-                                <td>+55%</td>
-                            </tr>
-                            <tr>
-                                <td><i class="fa fa-circle text-light-1 mr-2"></i>Củ quả</td>
-                                <td>110.000 VNĐ</td>
-                                <td>+25%</td>
-                            </tr>
-                            <tr>
-                                <td><i class="fa fa-circle text-light-2 mr-2"></i>Hạt</td>
-                                <td>215.500 VNĐ</td>
-                                <td>+15%</td>
-                            </tr>
-                            <tr>
-                                <td><i class="fa fa-circle text-light-3 mr-2"></i>Mật ong</td>
-                                <td>310.000 VNĐ</td>
-                                <td>+5%</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+        <div class="row mt-3">
+            <div class="col-lg-12">
+                <div style="display: flex; justify-content: center; align-items: center; min-height: 90vh">
+                    <canvas style="background-color: white; margin: 0 40px;" id="myChart" width="400" height="400"></canvas>
+                    <canvas style="background-color: white; margin: 0 40px;" id="myChart2" width="400" height="400"></canvas>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.js" integrity="sha512-zO8oeHCxetPn1Hd9PdDleg5Tw1bAaP0YmNvPY8CwcRyUk7d7/+nyElmFrB6f7vg4f7Fv4sui1mcep8RIEShczg==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css" integrity="sha512-C7hOmCgGzihKXzyPU/z4nv97W0d9bv4ALuuEbSf6hm93myico9qa0hv4dODThvCsqQUmKmLcJmlpRmCaApr83g==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" integrity="sha512-hZf9Qhp3rlDJBvAKvmiG+goaaKRZA6LKUO35oK6EsM0/kjPK32Yw7URqrq3Q+Nvbbt8Usss+IekL7CRn83dYmw==" crossorigin="anonymous"></script>
+<script>
+    Chart.defaults.global.responsive = false;
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ${TenDauSachList},
+            datasets: [{
+                label: 'Doanh thu theo đầu sách',
+                data: ${DoanhThu_DauSachList},
+                backgroundColor: ${ColorList_DoanhThuDauSach}
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    var ctx2 = document.getElementById('myChart2');
+    var myChart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ${NgayList},
+            datasets: [{
+                label: 'Doanh thu theo ngày',
+                data: ${DoanhThu7NgayList},
+                backgroundColor: ${ColorList_DoanhThu7Ngay}
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
 </body>
 </html>
