@@ -1,5 +1,6 @@
 package com.bookstore.controller.web;
 
+import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
@@ -93,8 +94,24 @@ public class Payment extends HttpServlet {
         int ma_dh=donHangEntity.getMa_DH();
         String user_email=request.getParameter("email");
         ConfirmPayment confirmPayment=new ConfirmPayment(ma_dh,user_email);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/web/checkout.jsp");
-        dispatcher.forward(request, response);
+
+        //announce success
+        PrintWriter out = response.getWriter();
+        out.print("<%@ page contentType=\"text/html;charset=UTF-8\" language=\"java\" %>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Loi</title>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<script>");
+        out.println("alert('Đặt hàng thành công. Chúng tôi đã gửi email xác nhân đặt hàng cho bạn.')");
+        out.println("location.href = \"./home\";");
+        out.println("</script>");
+        out.println("</body>");
+        out.println("</html>");
+        out.close();
+        /*RequestDispatcher dispatcher = request.getRequestDispatcher("/views/web/checkout.jsp");
+        dispatcher.forward(request, response);*/
 
     }
 }

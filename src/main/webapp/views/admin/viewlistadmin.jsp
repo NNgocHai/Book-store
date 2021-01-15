@@ -15,15 +15,18 @@
     <title>Title</title>
 </head>
 <body>
+<c:set var="owner" value="haibmt" scope="page"/>
 <div class="content-wrapper">
     <div class="container-fluid">
         <!--End Row-->
 
 
         <div class="row">
-            <div class="col-lg-12">
-                <button class="add-catalog"><a href="${pageContext.request.contextPath}/admin/admin/add">Thêm Admin</a></button>
-            </div>
+            <c:if test="${sessionScope.user_admin == sessionScope.owner}">
+                <div class="col-lg-12">
+                    <button class="add-catalog"><a href="${pageContext.request.contextPath}/admin/admin/add">Thêm Admin</a></button>
+                </div>
+            </c:if>
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
@@ -34,9 +37,14 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Tên đăng nhập</th>
+                                    <c:if test="${sessionScope.user_admin == sessionScope.owner}">
+                                        <th scope="col">Mật khẩu</th>
+                                    </c:if>
                                     <th scope="col">Tên Admin</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Hành động</th>
+                                    <c:if test="${sessionScope.user_admin == sessionScope.owner}">
+                                        <th scope="col">Hành động</th>
+                                    </c:if>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -44,12 +52,17 @@
                                     <tr>
                                         <td scope="row">${admin.ma_Admin}</td>
                                         <td>${admin.taikhoan_Admin}</td>
+                                        <c:if test="${sessionScope.user_admin == sessionScope.owner}">
+                                            <td>${admin.matkhau_Admin}</td>
+                                        </c:if>
                                         <td>${admin.hoten_Admin}</td>
                                         <td>${admin.gmail_Admin}</td>
-                                        <td>
-                                            <button type="reset" class="btn btn-danger"><a href="${pageContext.request.contextPath}/admin/admin/delete?admin-id=${admin.ma_Admin}">Xóa</a></button>
-                                            <button class="btn btn-success"><a href="${pageContext.request.contextPath}/admin/admin/edit?admin-id=${admin.ma_Admin}">Sửa</a></button>
-                                        </td>
+                                        <c:if test="${sessionScope.user_admin == sessionScope.owner}">
+                                            <td>
+                                                <button type="reset" class="btn btn-danger"><a href="${pageContext.request.contextPath}/admin/admin/delete?admin-id=${admin.ma_Admin}">Xóa</a></button>
+                                                <button class="btn btn-success"><a href="${pageContext.request.contextPath}/admin/admin/edit?admin-id=${admin.ma_Admin}">Sửa</a></button>
+                                            </td>
+                                        </c:if>
                                     </tr>
                                 </c:forEach>
                                 </tbody>

@@ -22,7 +22,8 @@
                                 <h4>Xác nhận đăng ký</h4>
                                 <form name="formRegister" class="aa-login-form" method="post" action="${pageContext.request.contextPath}/web/verify">
                                     <label>Mã<span>*</span></label>
-                                    <input type="text" placeholder="Mã code" name="ma_code" required>
+
+                                    <input type="text" placeholder="Mã code đã được gửi tới email đã đăng ký" name="ma_code" required>
                                     <p style="color:#ff0000; display:block">
                                         ${errMessage}
                                     </p>

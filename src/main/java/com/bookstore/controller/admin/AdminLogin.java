@@ -36,6 +36,7 @@ public class AdminLogin extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("user_admin", user);
             session.setAttribute("password_admin", password);
+            session.setAttribute("owner","haibmt");
             response.sendRedirect(request.getContextPath() + "/admin/home");
         } else {
             request.setAttribute("errorMessage", "Tài khoản hoặc mật khẩu sai!");
