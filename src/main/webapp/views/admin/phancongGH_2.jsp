@@ -31,7 +31,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Đơn hàng cần giao</h5>
+                        <h5 class="card-title">Danh sách shipper </h5>
                         <div class="table-responsive">
                                 <table class="table table-striped">
                                     <thead>
