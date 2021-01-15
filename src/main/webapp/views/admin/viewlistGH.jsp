@@ -24,7 +24,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <button class="add-catalog"><a href="${pageContext.request.contextPath}/admin/giaohang/phancong">Phân công</a></button>
+                <button class="add-catalog"><a href="${pageContext.request.contextPath}/admin/giaohang/phancong">Phân công giao hàng</a></button>
             </div>
             <div class="col-lg-12">
                 <div class="card">

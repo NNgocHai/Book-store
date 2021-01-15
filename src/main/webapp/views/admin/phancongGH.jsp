@@ -6,7 +6,7 @@
 <%--//    response.setHeader("Expires" , "0");--%>
 <%
 
-    if (session.getAttribute("user_admin") == null){
+    if (session.getAttribute("user_admin") == null) {
         response.sendRedirect(request.getContextPath() + "/admin/login");
     }
 %>
@@ -15,45 +15,70 @@
     <title>Title</title>
 </head>
 <style>
-    select option{
+    select option {
         background-color: white !important;
     }
 </style>
 <body>
 <div class="content-wrapper">
     <div class="container-fluid">
+        <!--End Row-->
 
-        <div class="row mt-3">
-            <div class="col-lg-8">
+
+        <div class="row">
+            <div class="col-lg-12">
+            </div>
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="card-title">Phân công giao hàng</div>
-                        <hr>
-                        <form action="${pageContext.request.contextPath}/admin/giaohang/phancong" method="post">
-                            <div class="form-group">
-                                <span>Mã shipper: </span><select name="maSP" class="add-catalogg" class="cbb">
-                                    <c:forEach items="${listSP}" var="list">
-                                        <option color="red" value="${list}" name="maSP"selected>${list}</option>
+                        <h5 class="card-title">Đơn hàng cần giao</h5>
+                        <div class="table-responsive">
+                            <form action="${pageContext.request.contextPath}/admin/giaohang/phancong_2" method="get">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Tên khách hàng</th>
+                                        <%--                                    <th scope="col">MẬt khẩu</th>--%>
+                                        <th scope="col">Địa chỉ</th>
+                                        <th scope="col">Ngày đặt</th>
+                                        <th scope="col">Tổng tiền</th>
+                                        <th scope="col">Giao hàng</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <c:forEach items="${listDHCG}" var="customer">
+                                        <tr>
+                                            <td scope="row">${customer.ma_DH}</td>
+                                            <td>${customer.getCustomerEntity().getHoten_Customer()}</td>
+                                                <%--                                        <td>${customer.matkhau_Customer}</td>--%>
+                                            <td>${customer.diachi}</td>
+                                            <td>${customer.ngaydat}</td>
+                                            <td>${customer.tongtien}</td>
+                                            <td>
+                                                <input type="checkbox" id="sp1" name="${customer.ma_DH}"
+                                                       value="${customer.ma_DH}">
+                                            </td>
+                                        </tr>
                                     </c:forEach>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <span>Mã đơn hàng: </span><select name="maDHCG" class="add-catalogg" class="cbb">
-                                    <c:forEach items="${listDHCG}" var="list">
-                                        <option color="red" value="${list}" name="maDHCG" selected>${list}</option>
-                                    </c:forEach>
-                                </select>
-                            </div>
-                            <div class="form-footer">
-                                <button type="reset" class="btn btn-danger"><i class="fa fa-times"></i><a href="${pageContext.request.contextPath}/admin/giaohang/list">Hủy</a></button>
-                                <button type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> Phân công</button>
-                            </div>
-                        </form>
+                                    </tbody>
+                                </table>
+                                <br>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <button type="submit" class="btn btn-success"><i
+                                                    class="fa fa-check-square-o"></i> Shipper giao hàng
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="overlay toggle-menu"></div>
     </div>
 </div>
 

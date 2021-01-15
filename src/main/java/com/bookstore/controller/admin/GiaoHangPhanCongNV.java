@@ -31,10 +31,11 @@ public class GiaoHangPhanCongNV extends HttpServlet {
         }
         else {
             ShipperDao shipperDao = new ShipperDao_impl();
-            List<ShipperEntity> listSP = shipperDao.findID();
+            List<ShipperEntity> listSP= shipperDao.findAll();
             request.setAttribute("listSP", listSP);
             DonHangDao donHangDao = new DonHangDao_impl();
             List<DonHangEntity> listDHCG = donHangDao.Find_DHCG();
+            listDHCG.get(0).getCustomerEntity().getHoten_Customer();
             request.setAttribute("listDHCG", listDHCG);
             if (listDHCG.size() != 0) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/views/admin/phancongGH.jsp");
@@ -46,17 +47,6 @@ public class GiaoHangPhanCongNV extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        response.setContentType("text/html;charset=UTF-8");
-        int maSP =Integer.parseInt(request.getParameter("maSP"));
-        int maDHCG = Integer.parseInt(request.getParameter("maDHCG"));
-        GiaoHangIDKey giaoHangIDKey = new GiaoHangIDKey();
-        giaoHangIDKey.setMa_DH(maDHCG);
-        giaoHangIDKey.setMa_Shiper(maSP);
-        GiaoHangEntity giaoHangEntity = new GiaoHangEntity();
-        giaoHangEntity.setId(giaoHangIDKey);
-        GiaoHangDao giaoHangDao = new GiaoHangDao_impl();
-        giaoHangDao.save(giaoHangEntity);
-        response.sendRedirect(request.getContextPath() + "/admin/giaohang/list");
+
     }
 }
