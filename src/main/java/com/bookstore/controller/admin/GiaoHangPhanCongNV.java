@@ -35,7 +35,6 @@ public class GiaoHangPhanCongNV extends HttpServlet {
             request.setAttribute("listSP", listSP);
             DonHangDao donHangDao = new DonHangDao_impl();
             List<DonHangEntity> listDHCG = donHangDao.Find_DHCG();
-            listDHCG.get(0).getCustomerEntity().getHoten_Customer();
             request.setAttribute("listDHCG", listDHCG);
             if (listDHCG.size() != 0) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/views/admin/phancongGH.jsp");

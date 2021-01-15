@@ -24,7 +24,7 @@
                 <div class="navbar-collapse collapse">
                     <!-- Left nav -->
                     <ul class="nav navbar-nav">
-                        <li><a href="${pageContext.request.contextPath}/">TRANG CHỦ</a></li>
+                        <li><a href="${pageContext.request.contextPath}/web/home">TRANG CHỦ</a></li>
                         <li><a href="${pageContext.request.contextPath}/web/introduce">GIỚI THIỆU</a></li>
                         <li><a href="${pageContext.request.contextPath}/web/product">XEM SÁCH</a>
                         </li>
