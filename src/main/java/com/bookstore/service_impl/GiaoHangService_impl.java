@@ -24,4 +24,9 @@ public class GiaoHangService_impl implements GiaoHangService {
         return giaoHangDao.findTT_GH();
     }
 
+    @Override
+    public GiaoHangEntity save(GiaoHangEntity T) {
+        return giaoHangDao.save(T);
+    }
+
 }

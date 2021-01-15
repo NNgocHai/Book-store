@@ -39,6 +39,10 @@
         select option{
             background-color: white !important;
         }
+        input[type="checkbox"]{
+            width: 30px; /*Desired width*/
+            height: 30px; /*Desired height*/
+        }
     </style>
 </head>
 <body class="bg-theme bg-theme1">

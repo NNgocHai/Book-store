@@ -20,7 +20,7 @@ public class DonHangDao_impl extends GenericDao_impl<Integer, DonHangEntity> imp
         List<DonHangEntity> userEntities = new ArrayList<DonHangEntity>();
         String a = "Chưa giao";
         try {
-            StringBuilder sql = new StringBuilder("Select ma_DH From DonHangEntity ");
+            StringBuilder sql = new StringBuilder("From DonHangEntity ");
             sql.append(" where activeDH = :value");
             sql.append(" and ma_DH not in (select id.ma_DH from GiaoHangEntity) ");
             Query query = session.createQuery(sql.toString());
