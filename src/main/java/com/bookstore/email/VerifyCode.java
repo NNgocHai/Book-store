@@ -36,7 +36,7 @@ public class VerifyCode extends HttpServlet {
             customer.save(customerEntity);
 
             //remove session regist
-            session.removeAttribute("taikhoan_dk");
+            //session.removeAttribute("taikhoan_dk");
             session.removeAttribute("gmail_dk");
             session.removeAttribute("ten_dk");
             session.removeAttribute("matkhau_dk");

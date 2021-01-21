@@ -22,7 +22,7 @@
                                 <h4>Đăng nhập</h4>
                                 <form class="aa-login-form" name="loginform" onsubmit="validate();" action="${pageContext.request.contextPath}/web/login" method="post">
                                     <label >Username<span>*</span></label>
-                                    <input type="text" placeholder="Username" name="user" required>
+                                    <input type="text" placeholder="Username" name="user" value="${sessionScope.taikhoan_dk}" required>
                                     <label >Mật khẩu<span>*</span></label>
                                     <input type="password" placeholder="Password" name="password" required>
                                     <p class="rememberme" style="display: block"><input type="checkbox" id="rememberme"> Ghi nhớ </p>

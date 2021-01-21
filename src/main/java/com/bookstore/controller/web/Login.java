@@ -54,6 +54,7 @@ public class Login extends HttpServlet {
                 CustomerEntity person = customerService.findById(id_customer);
 
                 HttpSession session = request.getSession();
+                session.removeAttribute("taikhoan_dk");
                 session.setAttribute("user", user);
                 session.setAttribute("password", password);
                 session.setAttribute("person", person);
