@@ -5,9 +5,13 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">123456</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bansachonline?autoReconnect=true&amp;characterEncoding=utf-8&amp;useUnicode=true&amp;connectionCollation=utf8_unicode_ci&amp;characterSetResults=utf8&amp;useSSL=false</property>
+        <property name="hibernate.connection.username">hoang</property>
+        <property name="hibernate.connection.password">BMEbIkFzDfEksZqZKAM6</property>
+        <property name="hibernate.connection.url">jdbc:mysql://54.255.52.44:3306/bansachonlineeeee</property>
+        <property name="hibernate.connection.CharSet">utf8</property>
+        <property name="hibernate.connection.characterEncoding">utf8</property>
+        <property name="hibernate.connection.useUnicode">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <!-- Xem cac lenh truy van sql -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
