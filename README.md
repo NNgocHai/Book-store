@@ -26,6 +26,5 @@
 ## Cài đặt 
 * Java 8
 * IDE IntelliJ
-* Install loombok vào IDE
-* Tạo DB từ file bookstore_springboot_reacjs/src/main/resources/bansachonline_react2.sql trên MySQL
-* Thay đổi thông tin cấu hình trong file bookstore_springboot_reacjs/src/main/resources/application.properties phù hợp
+* Tạo DB từ file Dump20210114.sql trên MySQL
+* Thay đổi thông tin cấu hình trong filehibernate.cfg.xml  phù hợp
