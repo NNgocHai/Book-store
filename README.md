@@ -9,8 +9,8 @@
 * Đăng ký, đăng nhập, đăng xuất.
 * Xem danh sách sản phẩm
 * Tìm kiếm sách theo từ khóa, thể loại…
-* Trong chi tiết sản phẩm phải có số lượng, mô tả
-* Quản lý giỏ hàng, thêm, bớt số lượng sản phẩm
+* Quản lý thông tin
+* Quản lý giỏ hàng
 * Mua sản phẩm
 * Quản lý:
 * Thống kê doanh thu 
@@ -25,5 +25,7 @@
 
 ## Cài đặt 
 * Java 8
-* Tạo DB từ file Dump20210114.sql trên MySQL
-* Thay đổi thông tin cấu hình trong file hibernate.cfg.xml phù hợp
+* IDE IntelliJ
+* Install loombok vào IDE
+* Tạo DB từ file bookstore_springboot_reacjs/src/main/resources/bansachonline_react2.sql trên MySQL
+* Thay đổi thông tin cấu hình trong file bookstore_springboot_reacjs/src/main/resources/application.properties phù hợp
